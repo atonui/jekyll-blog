@@ -1,0 +1,75 @@
+---
+title:  Back In High School
+date:   2024-11-06 10:53:37 +0300
+categories: high school mischief
+permalink: /:categories/:title
+---
+This post first appeared on my first wordpress blog [here][here].
+----------------------------------------------------------------------------
+Back in high school, young, naïve and hot blooded when we thought we would conquer the world – before reality caught up with us that is, I had my first teacher crush. Many more would follow later in life but then they would have rosier endings than this one.
+
+She was straight out of college. Young, ambitious and eager to make an impression and boy did she make one. Unfortunately for her, it was to the wrong crowd – the boys and male staff of Kazimoto Secondary School.
+
+She was introduced to us one bitterly cold Monday morning. The assembly was as usual, a boring mind numbing routine. The master on duty was a certain King’ori esquire, whose receding hairline, double chin and protruding belly, ‘inexplicably’ reminded me of those pure bred Friesian cows that were always on exhibition at the agricultural show..
+
+“Good morning school?” he croaked, his watery eyes or rather eyeballs, for they seemed to have popped an inch from their blubber lined sockets, probably to make room for more fat roving around.
+
+‘Good morning sir” came the weak reply from the still green first formers or as they were more popularly referred to ‘monos’. They’d soon learn to ignore the pleasantries.
+
+“This morning I noticed som…”
+
+I lost him in a chuckle as someone made a face that implied he ate just as much, if not more than the said cow whose image his presence inspired.
+
+“…the staffroom will be…” he suddenly cut off mid sentence as his eyes wandered in my direction.
+
+“Mwibani!” he barked with a twisted look that elicited more snickering than it scared.
+
+“Come forward and kneel down!” commanded a slit where his mouth was supposed to be. The rolls of fat had long since invaded and occupied mouth territory.
+
+My light moment fast came to a stop and I quickly marched forward in obedience. My knobby knees touched down next to the now seething King’ori. I couldn’t help but notice that at this range he now resembled the lovely Mukami, our school cow, which despite frequent bouts of mastitis still provided milk for our very thin tea. Little wonder I’d been having periodic episodes of flatulence. I was carrying on with this train of thought, completely at ease with my kneeling position, when Mr. Fanyakazi, the principal, stepped up.
+
+“Good morning school?” he boomed in a crisp clear voice.
+
+“Good morning sir” Mr. King’ori along with every student replied. No one in their right minds dared cross Mr. Fanyakazi. A man famed for his efficiency with words and preferred the talking done with his hands. Rumor had it that he was an ex Air Force officer with a judo black belt. But then again, the rumormongers swore Mr. King’ori was once a long distance athlete. Quite a laughable idea I might add.
+
+“This morning I would like to introduce a new member of staff. Ms Madiba, please step forward”.
+
+There was an involuntary gasp as she stepped forward and settled next to me. She was a sight to behold! She was tall; light skinned and smelled of freshly picked roses. Behind her half moon glasses were brown almond shaped eyes that held you captive when you looked into them. They communicated trust with an element of laughter and I wanted to stare into them forever. Her grape sized nose was just perfect and it gave way to luscious full lips that made one think of flowers and kisses and more flowers. She had a cute dimple on her left cheek that dipped ever so slightly as she smiled at the school. It was a beautiful, honest smile that boasted two rows of perfectly white teeth and lit up the gathering and I could almost swear the temperature went up 10 degrees. It was at this precise moment that Mr. King’ori, I suspect, and I fell hopelessly in love. Her breasts were firm and healthy – good for breastfeeding and a host of other things that only a randy teenager could think of. She wore one of those knee length body hugging pencil skirts that ladies fancied in those days and it would later become her trademark. The red skirt with frilly edges merged perfectly into her ridiculously long and expertly shaped legs that disappeared into white pumps with inch high heels.
+
+“Hello everyone” she chirped in that melodious voice that sounded like the choir of angels that sang to the shepherds and I had no doubt she was one of them, the angels that is.
+
+“Good… goo…Hel…” The assembly stuttered, unsure of how to respond to the informal greeting from this stunning lady who was somehow supposed to be their teacher.
+
+“Ms Madiba here will be joining the English department and am sure you will fully cooperate with her as she adjusts to the school” continued Mr. Fanyakazi, completely oblivious of the effect she was having on the boys. “Mr. King’ori, would you please assist her after this”.
+
+At the sound of those words, Mr. King’ori could barely contain himself. He shifted about his place and shuffled his feet uncomfortably. I shifted nervously away from him as I watched his eyes and waited for the pop that would announce their escape from their suffocating prison and ricochet of the ground towards Ms. Madiba. It didn’t come, obviously, and I somewhat relaxed my position.
+
+Mr. Fanyakazi rumbled on. Something about the library, or was it about the laboratories? Once or twice he glared in my direction as he mentioned the word discipline. I didn’t care anyway, I was in love, or so I thought at the time.
+
+Mr. Fanyakazi let us go. Mr. King’ori, a stupid grin plastered on his fleshy face, completely forgot about my misdemeanor as he gaily skipped towards her, fat rippling beneath his yellow polyester shirt and threatening to take out a button if stretched any further. I couldn’t help myself. I stuck a foot in his path and caught his left leg. His hundred ton body turned, the fat momentarily delayed the fall and then he came crashing down like a meteorite. His hands were flailing about his side like a spider or in this case, a toad doing the break dance and not making a very good job of it. I scrambled to my feet and moved away to watch my handiwork. He landed on his bottom exactly where I had been a second ago and yelped in pain, more from his wounded pride I supposed. He rolled on his back and tried to get up but only managed to look like a beetle trapped on its back by its smooth shell. I could barely stifle a laugh and had to look away as the other teachers rushed to his side and amid his outburst of obscenities, help him up.
+
+“You little nincompoop!” He shouted at me, his face all red and puffy. The other teachers struggled to restrain the raging bull and one of his buttons made good its threat. It flew right off and exposed a forest of mangy chest hair. That did it! I couldn’t hold myself any longer. I howled in laughter at Mr. King’ori’s tough luck. First impressions tend to last especially those that involved dirty chest hair and pretty damsels. Mr. Fanyakazi suddenly appeared behind me and hoisted me by my very short and not so clean khaki shorts.
+
+“My office this instant!” he ordered. As I was being led away, I could swear I saw Ms. Madiba wink at me, quite a morning this was turning out to be.
+
+Retribution came. In fact it came hard and fast, six times on my bottom, delivered by the school’s chief executive himself. Now Mr. Fanyakazi, through years of practice and refinement, preferred the soft spot midway between the thigh and bottom. This coupled with the fact that he looked like he could lift a heifer without breaking a sweat meant that I wouldn’t sit straight for a whole week. After leaving his office, let’s just say that I didn’t trip Mr. King’ori anymore.
+
+Back in class, noisy as usual, I padded my seat with a pullover ‘borrowed’ from an unwilling ‘mono’ and carefully settled my violated bottom down. As I busied myself trading insults with Matusi (the name says it all), in walked my new found love. The class immediately froze all attention focused on her.
+
+“Good morning class?” she greeted us as her eyes swept the class and settled on me. A bewitching smile slowly formed on her lovely face. Matusi noticed it and suddenly had a very nasty cough.
+
+“Good morning madam” the class replied.
+
+“I’d like us to start with introductions. Full name everyone and let’s begin with the first column.”
+
+How one could be so beautiful, I kept wondering to myself. The boys began introducing themselves. Ms. Madiba chose to sit down through the exercise. The short skirt crawled an inch up her thigh but further progress was quickly rebuffed by her hand. Now she had our absolute undivided attention. The class leaned forward, forty pairs of eyes itching to catch a glimpse of the glorious flesh. Matusi’s incessant coughing suddenly stopped. Then the skirt, as if urged on by the on looking perverts, seemed to take on a mind of its own and clawed its way up, determined to give the people what they wanted. The class held its breath and inwardly cheered on the sleek red cloth. Amazingly enough, Ms. Madiba remained oblivious of the drama playing out before her. Either she was one cool customer or she was deeply engrossed in Konyagiragi trying to spell his ridiculous name. Poor boy caught between an introduction and a powerful Neanderthal urge to steal a glance the lady’s legs.
+
+Now ladies, before you start rolling your eyes and begin the male bashing, look at it this way. Imagine confining a thousand or so androgen pumped adolescents for close to two months and denying them even a fleeting glance at anything feminine, except for Mukami. Then throw in a woman of goddess like beauty among them, much like throwing a cat among the pigeons or in this case, a pigeon among the much starved cats. Something is bound to happen; tempers would flare and the male ego would be on the line.
+
+The bell rang to signal the end of the first period. Ms. Madiba rose slowly and collected her things. The forty pairs of lustful eyes followed her every movement with intense concentration as if trying to sear her image onto their memories, probably for future processing with their wild imaginations.
+
+We had math next. A subject I was not particularly fond of and I preferred to while away my time by doodling on my book as Mr. Rutto droned on about vectors. Matusi’s nasty cough returned and would not leave until Mr. Rutto let him out to see the nurse.
+
+The day dragged on and by lunchtime everyone had heard about my little encounter and they could not help but stare at me in awe. Anyone who laughed at Mr. King’ori and survived the principal’s thrashing was a hero around here. If only they knew the pain my poor backside was nursing. Tough day it was.
+
+[here]: https://atonui.wordpress.com/2012/10/15/back-in-high-school/

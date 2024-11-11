@@ -1,0 +1,52 @@
+---
+title:  How To Develop Kenya - a concerned citizen’s approach
+date:   2024-11-05 10:53:37 +0300
+categories: development economy corruption
+permalink: /:categories/:title
+---
+This post first appeared on an earlier vesion of this blog which unfortunately went down with all my data. 
+---------------------------------------------------------------------------------------------------------
+Development can be loosely defined as the process that advances the population's quality of life in a useful way. This broad definition includes economic development, human development, social development, and environmental sustenance. 
+
+A while back economic development was the only dimension of development but as it turns out economic development does not necessarily improve the quality of life of a population.
+Development is a complex concept with multiple faucets that must be carefully considered and balanced over time to achieve the desired results.
+Successive Kenyan governments have attempted to develop the country but one regime stands out, the Kibaki regime of 2003 - 2013. Other governments have had misplaced priorities, simplistic interpretations of development, have sought to politicise it, had little to no interest in actually doing the work or are just outright incompetent and corrupt like the current Jubilee government.
+
+The UNDP developed the [Human Development Index][hdi] (HDI) about 3 decades ago centred on people and their capabilities as the chief criteria for assessing a country’s development rather than just economic growth. The 3 elements of the HDI are:
+1. A long and healthy life
+2. Being knowledgeable
+3. Having a decent standard of living
+
+### Healthcare
+Specifically, basic high-quality universal healthcare. Every Kenyan should be able to walk into a health centre in their neighbourhood and be accorded free, high-quality, dignified basic health services. **EVERY KENYAN**. This is just the first step in ensuring a healthy population that can engage in nation-building. A citizenry who is assured of such a service is more likely to be patriotic and think in terms of advancing themselves and the nation rather than worry about survival. This service ought to be exceptional and staffed by competent and motivated medics such that no private facility can compete. Mental health must be pushed into the mainstream. Advanced medical services like medical imaging, specialized surgical procedures etc ought to be available in every sub-county in this nation. People should not have to travel hundreds of kilometres from Mandera to Nairobi to get life-saving chemotherapy.
+
+The selection, training, remuneration and welfare of healthcare workers should be a national priority as they will help give us a long, healthy and productive life.
+Referral and research hospitals and institutions should be staffed with top-notch doctors, scientists and administrators and should be sufficiently encouraged to develop drugs, medical procedures and policies that will keep Kenyans healthy and kill medical tourism that is expensive and available only to the wealthy. Logistical and procurement institutions like KEMSA should be tightly monitored and continually pushed to deliver life-saving drugs, equipment and materials everywhere it is needed.
+Finally, we can measure all this by using such indicators as life expectancy, infant mortality rate, number of functioning clinics, number of healthcare workers, number of patients treated, sick leave days taken etc.
+
+In my opinion, there are four key elements that successive Kenyan governments must prioritize over a long period of time to get things right. I am by no means suggesting that this will be a simple task to undertake but I do believe that 80% of our results will come from these four areas.
+
+### Education
+Free high-quality education to tertiary education for every Kenyan. Most of us confuse schooling with learning. Schooling is mostly about confining students in classrooms and drilling them with information over and over again. Schooling discourages creativity and innovation, is rigid and goes against human instinct. 
+
+When I talk about education my core focus is the development of the following core skills; independent thought, creativity, autodidactism, research, personal financial management and critical thinking. In addition, I think learners ought to interact and learn in their natural environment as much as possible i.e. they can visit a local river while learning about geographical features and have their class there. We also need to learn and appreciate our indigenous languages as they will help shape our identity. These competencies should be baked into the curriculum and learners ought to be exposed to them as frequently as possible as these are the critical skills for the holistic development of a person.
+
+Teachers just like medical professionals ought to be selected, trained, compensated and motivated as much as possible by both the government and society. We should strive for low teacher-to-student ratios that bring out the best in both parties. Schools with adequate facilities (classrooms, desks, books, water etc) should be a national priority. Every child should be able to walk a reasonable distance to the nearest school and expect to receive a world-class education to enable them to develop the very best versions of themselves.
+
+Co-curricular activities like sports, debates and interest clubs should be funded and encouraged
+
+### Agriculture
+In 2019, about half of Kenya’s exports were agricultural; tea, coffee, flowers, fruits nuts etc formed the bulk of these exports. Kenya is a nation of farmers and that is where our economic focus ought to be. The government ought to encourage farmers by expanding current markets, seeking out new ones, providing high-quality farm inputs (fertilizer, seeds etc), building quality access roads, carrying out in-depth, cutting-edge research and seeking to add value to raw products as much as possible to improve returns to the farmer and the country. 
+
+Pumping money into irrigation projects, forestry and animal husbandry will reap greater rewards than borrowing billions to build railways to nowhere and roads from airports to affluent suburbs.
+
+Investing in agriculture makes sense since we already have a good farming foundation, excellent soils and climate, tons of unexplored potential in irrigation, value addition as well as branding and marketing, it gives excellent returns for the capital invested and we are not yet food sufficient. Laser focus in this area will kick out poverty in most of the population and start many on the journey to upward social mobility.
+
+### Slay Mega Corruption
+Corruption is difficult to eliminate as it is human nature to want to do things the easy way. However, we can crush the mega corruption that has ravaged this country in the last decade or so. Politicians borrowing money for dead-on-arrival grand projects so that they can pick up obscene kickbacks and buy massive fuel guzzlers to intimidate ‘wananchi’ should be done away with. These men and women hurt the economy more than we can tell and ruthlessly crushing such people is the best way to deal with their callousness. 
+The EACC should be outfitted with massive fangs and a venom sac to boot then set loose amongst mega looters. Retrieval of stolen funds and repossession of assets and material resulting from the proceeds of corruption will certainly help repress this vice.
+
+
+
+
+[hdi]: http://hdr.undp.org/en/content/human-development-index-hdi
