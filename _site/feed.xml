@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KibetKoech.com</title>
+    <description>Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed/index.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 27 Jan 2025 16:06:25 +0300</pubDate>
+    <lastBuildDate>Mon, 27 Jan 2025 16:06:25 +0300</lastBuildDate>
+    <generator>Jekyll v4.3.4</generator>
+    
+      
+        <item>
+          
+            <title>How I Got Splunk Certified</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;this-post-first-appeared-on-an-earlier-vesion-of-this-blog-which-unfortunately-went-down-with-all-my-data&quot;&gt;This post first appeared on an earlier vesion of this blog which unfortunately went down with all my data.&lt;/h2&gt;
+&lt;p&gt;Splunk is a useful tool that can help an organisation make sense of their machine data. In the modern company setting, most of the data generated is machine data originating from various sources like web servers, IoT devices, network devices, email servers, machine logs etc.&lt;/p&gt;
+
+&lt;p&gt;Hidden amongst this pile of gobbledygook are golden insights into your customers, markets, operations and the power to make sound decisions and take over the world! Muhahahahaha!
+Lots of companies have no idea what to do with all the data they collect so they just archive it and kick it down the road hoping for the best. Splunk seeks to help companies with this problem by taking their machine data, indexing it and making it easy to search through this seemingly incomprehensible pile and come up with useful information.
+I recently came to understand this and thus decided to study splunk further. Now, they do have a certification program that goes all the way from the fundamentals to Splunk architect. I will focus on the &lt;a href=&quot;https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html&quot;&gt;Splunk Core Certified User&lt;/a&gt; as it’s the basic entry level certification (not to mention the only one I have tackled…)&lt;/p&gt;
+
+&lt;p&gt;To earn this certification you have to head over to the &lt;a href=&quot;https://www.splunk.com/&quot;&gt;Splunk&lt;/a&gt; website, register as a student and enrol for either the free self paced Splunk Fundamentals 1 course or the instructor led course. Both will have you install the &lt;a href=&quot;https://www.splunk.com/en_us/download.html&quot;&gt;free splunk&lt;/a&gt; edition but remember, the course will only be accessible for 30 days so you need to be sure that you will complete it in time.
+The fundamentals course includes the following topics:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Introduction to Splunk’s interface&lt;/li&gt;
+  &lt;li&gt;Basic searching&lt;/li&gt;
+  &lt;li&gt;Using fields in searches&lt;/li&gt;
+  &lt;li&gt;Search fundamentals&lt;/li&gt;
+  &lt;li&gt;Transforming commands&lt;/li&gt;
+  &lt;li&gt;Creating reports and dashboards&lt;/li&gt;
+  &lt;li&gt;Datasets&lt;/li&gt;
+  &lt;li&gt;The Common Information Model (CIM)&lt;/li&gt;
+  &lt;li&gt;Creating and using lookups&lt;/li&gt;
+  &lt;li&gt;Scheduled Reports&lt;/li&gt;
+  &lt;li&gt;Alerts&lt;/li&gt;
+  &lt;li&gt;Using Pivot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The course objectives are:&lt;/p&gt;
+
+&lt;h3 id=&quot;module-1--introduction&quot;&gt;Module 1 – Introduction&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Overview of Buttercup Games Inc. (Love these guys!)
+    &lt;h3 id=&quot;module-2--what-is-splunk&quot;&gt;Module 2 – What is Splunk?&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Splunk components&lt;/li&gt;
+  &lt;li&gt;Installing Splunk&lt;/li&gt;
+  &lt;li&gt;Getting data into Splunk
+    &lt;h3 id=&quot;module-3--introduction-to-splunks-user-interface&quot;&gt;Module 3 – Introduction to Splunk’s User Interface&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Understand the uses of Splunk&lt;/li&gt;
+  &lt;li&gt;Define Splunk Apps&lt;/li&gt;
+  &lt;li&gt;Customizing your user settings&lt;/li&gt;
+  &lt;li&gt;Learn basic navigation in Splunk
+    &lt;h3 id=&quot;module-4--basic-searching&quot;&gt;Module 4 – Basic Searching&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Run basic searches&lt;/li&gt;
+  &lt;li&gt;Use autocomplete to help build a search&lt;/li&gt;
+  &lt;li&gt;Set the time range of a search&lt;/li&gt;
+  &lt;li&gt;Identify the contents of search results&lt;/li&gt;
+  &lt;li&gt;Refine searches&lt;/li&gt;
+  &lt;li&gt;Use the timeline&lt;/li&gt;
+  &lt;li&gt;Work with events&lt;/li&gt;
+  &lt;li&gt;Control a search job&lt;/li&gt;
+  &lt;li&gt;Save search results
+    &lt;h3 id=&quot;module-5--using-fields-in-searches&quot;&gt;Module 5 – Using Fields in Searches&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Understand fields&lt;/li&gt;
+  &lt;li&gt;Use fields in searches&lt;/li&gt;
+  &lt;li&gt;Use the fields sidebar
+    &lt;h3 id=&quot;module-6--search-language-fundamentals&quot;&gt;Module 6 – Search Language Fundamentals&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Review basic search commands and general search practices&lt;/li&gt;
+  &lt;li&gt;Examine the search pipeline&lt;/li&gt;
+  &lt;li&gt;Specify indexes in searches&lt;/li&gt;
+  &lt;li&gt;Use autocomplete and syntax highlighting&lt;/li&gt;
+  &lt;li&gt;Use SPL search commands to perform searches:
+    &lt;h3 id=&quot;module-7--using-basic-transforming-commands&quot;&gt;Module 7 – Using Basic Transforming Commands&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The top command&lt;/li&gt;
+  &lt;li&gt;The rare command&lt;/li&gt;
+  &lt;li&gt;The stats command
+    &lt;h3 id=&quot;module-8--creating-reports-and-dashboards&quot;&gt;Module 8 – Creating Reports and Dashboards&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Save a search as a report&lt;/li&gt;
+  &lt;li&gt;Edit reports&lt;/li&gt;
+  &lt;li&gt;Create reports that include visualizations such as charts and tables&lt;/li&gt;
+  &lt;li&gt;Create a dashboard&lt;/li&gt;
+  &lt;li&gt;Add a report to a dashboard&lt;/li&gt;
+  &lt;li&gt;Edit a dashboard
+    &lt;h3 id=&quot;module-9--datasets-and-the-common-information-model&quot;&gt;Module 9 – Datasets and the Common Information Model&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Naming conventions&lt;/li&gt;
+  &lt;li&gt;What are datasets?&lt;/li&gt;
+  &lt;li&gt;What is the Common Information Model (CIM)?
+    &lt;h3 id=&quot;module-10--creating-and-using-lookups&quot;&gt;Module 10 – Creating and Using Lookups&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Describe lookups&lt;/li&gt;
+  &lt;li&gt;Create a lookup file and create a lookup definition&lt;/li&gt;
+  &lt;li&gt;Configure an automatic lookup
+    &lt;h3 id=&quot;module-11--creating-scheduled-reports-and-alerts&quot;&gt;Module 11 – Creating Scheduled Reports and Alerts&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Describe scheduled reports&lt;/li&gt;
+  &lt;li&gt;Configure scheduled reports&lt;/li&gt;
+  &lt;li&gt;Describe alerts&lt;/li&gt;
+  &lt;li&gt;Create alerts&lt;/li&gt;
+  &lt;li&gt;View fired alerts
+    &lt;h3 id=&quot;module-12---using-pivot&quot;&gt;Module 12 - Using Pivot&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Describe Pivot&lt;/li&gt;
+  &lt;li&gt;Understand the relationship between data models and pivot&lt;/li&gt;
+  &lt;li&gt;Select a data model object&lt;/li&gt;
+  &lt;li&gt;Create a pivot report&lt;/li&gt;
+  &lt;li&gt;Create an instant pivot from a search&lt;/li&gt;
+  &lt;li&gt;Add a pivot report to a dashboard&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I studied for the Core User Certification by going through the course videos and quizzes once and then doing the final quiz. The module quizzes don’t count towards your grade but they are important in preparing you. The final quiz is important though, you have to pass it so that you can register for the actual certification exam. It has 39 questions and the pass mark is 75%. If you fail you can retake it in 5 days. 
+I passed the final quiz (92%) but I wasn’t ready for the real thing yet so I rewatched the videos while going through the pdf notes they provided and redoing the labs and this helped a lot, I began to truly grasp the content and I was now more confident. I retook the final quiz and got a 97% but I was still not ready. I then registered for another free course: &lt;a href=&quot;https://www.splunk.com/en_us/training/free-courses/splunk-infastructure-overview.html&quot;&gt;Splunk Infrastructure Overview&lt;/a&gt;. This course will give you a high level overview of Splunk’s Enterprise infrastructure from a single instance deployment to a distributed environment. 
+After completing this course I again reviewed the Splunk Fundamentals 1 pdf notes and labs and I now felt ready for the certification text.
+To register for the test you can follow Splunk’s instructions here. Please be careful while registering, I suggest reading through the instructions at least once before beginning the process so that you don’t make avoidable mistakes. Once you register on Pearson VUE you can pay, revise for your test and go crush it!&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Wed, 06 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/splunk/certification/splunk</link>
+          <guid isPermaLink="true">http://localhost:4000/splunk/certification/splunk</guid>
+          
+          
+          <category>splunk</category>
+          
+          <category>certification</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>A Letter from The Devil</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;this-post-first-appeared-on-my-first-wordpress-blog-here&quot;&gt;This post first appeared on my first wordpress blog &lt;a href=&quot;https://atonui.wordpress.com/2012/10/&quot;&gt;here&lt;/a&gt;.&lt;/h2&gt;
+&lt;p&gt;Dear earthlings,&lt;/p&gt;
+
+&lt;p&gt;How are things up there? Still sinning I hope…eh?  Anyway it has now reached a point in this good vs. evil war and I think am getting pretty good at beating you wretched beings. You know Eve wagered me I wouldn’t have a billion of her offspring by now but guess what…my gate keeper, Legion (yeah, yeah, the pig guy), called and we just hit and surpassed the target in the last hour! Ha! Ha! Ha! I never thought I’d ever say this but we are running out of torture space and it’s getting a little crowded here but no worries, the more the merrier. I must be doing a pretty good job then, and the competition seems to be slipping up eh… anybody care to answer that? Pope… Michael… anyone? I thought so.&lt;/p&gt;
+
+&lt;p&gt;But don’t think I haven’t any problems. Sanitation issues, congestion, slum development, demon resources (can you believe they have a union…?! I mean who would they complain to… God? For some reason I don’t think He’d be too interested), energy (my furnaces don’t run on water you know, and even if they did there’s only two bottles of Dasani in my safe. I’ll tell you about them later). I’ve tried getting you to go green but you people seem hell bent (nice one eh…?) on depleting my oil reserves and not just that, this morning I had to fire two demons (literally). They wanted air conditioning…?! Can you believe that?! The nerve on those two! The last time something like this happened, I got kicked out of heaven (yeah it exists and it’s very beautiful up there. Oh the memories…) and my buddy Mike took over the military. Anyway what I’m saying is I can feel a rebellion precipitating and who better to handle it than the king of mutiny himself? Heads will roll (once again, literally) and I will restore sanity in this place.&lt;/p&gt;
+
+&lt;p&gt;My latest intelligence report says that Hollywood is putting doomsday at twelve o’clock December the twenty first 2012. You know, I don’t think you can get any dumber than that. I’ve been around longer than any of you and I’ll tell you this: alcoholic’s prayer; Lord give me the strength to change the things I can, the serenity to accept those I can’t and the wisdom to know the difference (I bet you didn’t think I knew that…?).&lt;/p&gt;
+
+&lt;p&gt;Judgment day is coming all right, that’s a definite, but only one guy knows when and He’s not letting on. Personally I think that’s selfish but who am I to judge, right? Damn, am on fire tonight! Ha! Ha! Ha! There I go again. I’m loving this. But don’t get me wrong, I love Hollywood, they’ve single handedly got me more souls than I would care to count, maybe the Pharisees (imbeciles, made me look like a fool on Calvary) could learn a thing or two from them. Hollywood’s smart, dedicated, aggressive, creative and very suggestible. A nudge here, a wink there and presto! Gay is good! Even priests are falling for it. Moses (very angry guy, didn’t see Canaan and all…) warned you and what do you do? You spit right in his face! Do you know how long he took on those stone tablets with just a mallet and chisel? He almost lost a thumb (yeah it was me). He must be seething like a rabid wolf right now. I hope they have anger management classes up there. Kudos movie industry, our alliance is working out pretty well.&lt;/p&gt;
+
+&lt;p&gt;The only beef I have with Hollywood is their portrayal of me. The horns, carnivorous teeth, pointed tail, clawed feet and the three pronged fork don’t really work for me. I’ve been getting bad press for thousands of years and you’d think I’d be used to it by now but my self esteem is closely tied with my physical appeal and am nothing near that ghastly image. I am very handsome you know, Delilah says I look like Joseph, and we all know how he drove Pontifah’s missus bananas, my bad. But I did it just for fun. Those days were very boring, after the floods and the stalling of project Babel there wasn’t much a guy could do here. Wait, why am I apologizing for doing my job? I really have to stop that, my PR guy says this is a sign of weakness.&lt;/p&gt;
+
+&lt;p&gt;About week ago I met with Cain. Can you believe the guy still treads the earth! I know am supposed to be cold hearted and all but this guy just got it real bad. I remember that beautiful early morning when he woke up an hour early (he wasn’t the early bird type) so he could give back his ten percent then God tells him he couldn’t care less about the wheat and nduma. Now that got Cain seething with rage and enter Lucifer. I have this neat trick where I help to redirect the anger to someone and next thing I knew the grim reaper handled his first job and Abel could take his stuffed lamb straight to the angels for all I care. Ever since, Cain hasn’t been very friendly, I wonder why…?&lt;/p&gt;
+
+&lt;p&gt;Now politicians, what can I say? A masterpiece, absolutely wonderful. A crowning jewel of my very evil genius. Outsourcing some of their services is reaping me huge dividends. Now I can even afford to pull out half of my demon squad around elections and watch my very own Frankenstein monster at its best. Jews, Rwandans and Kenyans can confirm this.&lt;/p&gt;
+
+&lt;p&gt;I remember when Je… no, the son of Man triumphantly entered Jerusalem on Palm Sunday. Everyone was out there singing, shouting and waving just about anything they could get their hands on. The guy was sitting up there on his donkey looking all royal and feeling good about himself but I had a plan, big plan. Oh I always have a plan and this one was particularly special.&lt;/p&gt;
+
+&lt;p&gt;So I got a few of the Sadducee’s and Pharisees together, discreetly of course and suggested a little divide and rule and they took it. I love this method. Just get a few jingoistic, narrow minded ‘leaders’ together, wind them up with a little tension and let them go. Boy, do they are super effective. In under a week, everyone in the capital city was baying for Jesus’ blood. One week! You have got to respect that. Of course he did help a little, trashing the market and all; such things don’t help sway public opinion your way you know.&lt;/p&gt;
+
+&lt;p&gt;Well that’s it for now, I have to leave; it’s Friday night and people throw themselves at me on this night.&lt;/p&gt;
+
+&lt;p&gt;Yours hatefully,&lt;/p&gt;
+
+&lt;p&gt;Lucifer B. Satan&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Wed, 06 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/satan/sin/evil/letter-from-the-devil</link>
+          <guid isPermaLink="true">http://localhost:4000/satan/sin/evil/letter-from-the-devil</guid>
+          
+          
+          <category>satan</category>
+          
+          <category>sin</category>
+          
+          <category>evil</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>How Do Countries Develop?</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h4 id=&quot;what-is-the-role-of-energy-and-scientific-advancement-in-the-socioeconomic-development-of-nations&quot;&gt;&lt;em&gt;What is the role of energy and scientific advancement in the socioeconomic development of nations?&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;How do countries develop? What is development? Owen Barder&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,  argues that development is an emergent property of the socioeconomic system. He further expounds this idea by noting that development is not the sum of the well-being of people in the economy and it cannot be brought about simply by making enough people in the economy better off. Development, he argues, is instead a system-wide manifestation of the way people, firms, technologies and institutions interact with each other within the economic, social and political system. Specifically, development is the capacity of those systems to provide self-organising complexity.  Self-organising complexity in an adaptive system cannot be deliberately designed; it arises from a process of continuous adaptation and evolution.&lt;/p&gt;
+
+&lt;p&gt;This is a complex topic to tackle so I have narrowed down my question to just how important energy is to the development of a nation, specifically, electricity and the role of scientific advancement. This is because electrical consumption is a measure of not just the ability to utilise electricity but a measure of just how good a country’s infrastructure is because electricity is complex to generate, transmit and use and like all other forms of energy it must be reliable and cheap. Attention to scientific advancements is also important as new and more complex goods and services are developed through research and the application of newly discovered or acquired knowledge. A nation that pays attention to and deliberately funds research and development will tend to have a more advanced and complex economy.&lt;/p&gt;
+
+&lt;p&gt;Therefore I will be using the GDP per capita, electricity consumption per capita, economic complexity index, and the number of scientific papers published per nation to investigate my hypothesis.&lt;/p&gt;
+
+&lt;p&gt;Developing nations have been struggling to move to middle-income and finally high-income status. Loans, grants and donations have been poured into trying to alleviate poverty and improve the lot of these nations but sadly not much happens. Exactly what does it take to transform a struggling economy into a robust and complex one? Is it just money that is required? In this investigation, we will discover that the process of development is much more subtle than government-initiated economic projects and rather it is a complex function of the interactions between multiple systems in an organic manner that leads to a prosperous, complex and robust economy of a nation.&lt;/p&gt;
+
+&lt;h3 id=&quot;data-sources&quot;&gt;Data Sources&lt;/h3&gt;
+&lt;p&gt;Data was acquired and assembled from multiple online sources listed below:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Electricity consumption per capita (kWh) and GDP per capita ($) from the World Bank data repository&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;List of oil-producing countries from Wikipedia, scraped using R&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Economic Complexity Index, Harvard University, (The Atlas of Economic Complexity by @HarvardGrwthLab, n.d.)&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Democracy Index from Economist Intelligence Unit, 2023&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Gini Coefficient by Country 2023, n.d&lt;sup id=&quot;fnref:6&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;results-and-discussion&quot;&gt;Results and Discussion&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://app.powerbi.com/groups/me/reports/4612f545-418e-4f89-8f22-4b4e964cc05b/ReportSectione390957330933048a7a1&quot;&gt;Here&lt;/a&gt; is the Power BI dashboard.&lt;/p&gt;
+
+&lt;h4 id=&quot;1-average-electricity-consumption-per-capita-vs-average-gdp-per-capita&quot;&gt;1. Average Electricity Consumption per Capita vs Average GDP per Capita&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Average Electricity Consumption per Capita vs Average GDP per Capita&quot; src=&quot;/images/elec_vs_gdp.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   Average Electricity Consumption per Capita vs Average GDP per Capita
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- | ![image](/images/elec_vs_gdp.JPG){:height=&quot;550%&quot; width=&quot;150%&quot;} |
+|:--:|
+| *Average Electricity Consumption per Capita vs Average GDP per Capita* | --&gt;
+
+&lt;p&gt;The chart above clearly shows a strong positive correlation between GDP per capita and electricity consumption per capita. In other words, the more electricity citizens use, the more productive they are.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-electricity-consumption-per-capita-vs-gdp-per-capita-for-selected-countries&quot;&gt;2. Electricity consumption per capita vs GDP per Capita for selected countries&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Electricity consumption per capita vs GDP per Capita for selected countries&quot; src=&quot;/images/elec_vs_gdp_select.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   Electricity consumption per capita vs GDP per Capita for selected countries
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This next chart examines the relationship between electricity consumption and GDP per capita between selected countries. 
+Three clear categories emerge.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Developing Economies&lt;/strong&gt;: Represented by Kenya. These economies are struggling to improve their GDP per capita and their electricity consumption is also lagging. These nations have not made much progress in the last 30 years.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Rapidly Developing Economies&lt;/strong&gt;: These are represented by China and Brazil. These countries are rapidly increasing their economic output, and their electricity consumption is matching this output. They are well on their way to becoming developed economies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Mature Economies&lt;/strong&gt;: Represented by Germany, USA and Luxembourg. These nations have high economic outputs and electrical consumption per capita however something interesting is observed here. At some point, these countries seem to be increasing their economic output while maintaining or even decreasing their electricity consumption! This is because as economies become mature they improve their efficiency and effectiveness such that they can produce more with less energy. This is the ultimate goal of every economy.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;3-gdp-per-capita-vs-economic-complexity-index&quot;&gt;3. GDP per Capita vs Economic Complexity Index&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;GDP per Capita vs Economic Complexity Index&quot; src=&quot;/images/gdp_vs_eci.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   GDP per Capita vs Economic Complexity Index
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;From the above chart, there is another strong positive correlation between GDP per capita and Economic complexity. There are some exceptions like Qatar, the UAE, Kuwait etc. These can be explained by the presence of oil deposits that these countries export thus they do not need to have complex economies to have a high GDP per capita. However, their goal should be to invest their income in creating a sufficiently advanced and complex economy to buffer themselves against upsets in their major export. Suppose a new source of energy is discovered or invented that will replace oil. Or perhaps their deposits run out? What then? 
+To flourish a nation needs to generate wealth consistently, and the way to create more is through innovation. Innovation is essential to African stability and growth in the upcoming decades. Currently, much of that wealth creation is the creation of microenterprises, small businesses that only employ one or two people&lt;sup id=&quot;fnref:7&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;4-number-of-scientific-publications-per-country&quot;&gt;4. Number of Scientific Publications per Country&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Number of Scientific Publications per Country&quot; src=&quot;/images/publications_per_country.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   Number of Scientific Publications per Country
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This chart shows the number of scientific publications per country (for the selected countries) per year from 2000 to 2018. The notable development here is the meteoric rise of scientific publications in China, which is in tandem with its economic growth. India and Brazil, other rapidly developing nations, are also following the Chinese path of investing in research and development as their engine for economic growth.&lt;/p&gt;
+
+&lt;h4 id=&quot;5-electricity-consumption-per-capita-vs-economic-complexity-index&quot;&gt;5. Electricity Consumption per Capita vs Economic Complexity Index&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Electricity Consumption per Capita vs Economic Complexity Index&quot; src=&quot;/images/elec_vs_eci.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   Electricity Consumption per Capita vs Economic Complexity Index
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here we see a strong positive correlation between electricity consumption per capita and the Economic Complexity Index. The more complex goods and services an economy can produce and export the higher its electricity consumption i.e. one man in an advanced automated factory can produce more and higher quality products than several workers labouring in the sun in a developing economy. Here again, we see that the more mature economies can increase their economic complexity without necessarily increasing their electricity consumption because they are now becoming more efficient and effective. As for the still developing nations, until they become mature economies, it seems the best way to develop is to increase their electricity consumption.&lt;/p&gt;
+
+&lt;h4 id=&quot;6-scientific-papers-published-vs-economic-complexity-index&quot;&gt;6. Scientific Papers Published vs. Economic Complexity Index&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Scientific Papers Published vs. Economic Complexity Index&quot; src=&quot;/images/papers_vs_eci.JPG&quot; /&gt;
+  &lt;figcaption&gt;
+   Scientific Papers Published vs. Economic Complexity Index
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;From this chart, we can conclude that one of the best ways to create a complex economy is to invest in research and development. China, which has invested heavily in research and development for the past two decades has seen a corresponding rise in the complexity of the goods and services it produces and exports. Japan, Germany, the UK e.t.c. also demonstrate highly complex economies in tandem with their high GDP per capita.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;From this investigation, we can conclude the following:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;To move from developing to rapidly developing and finally to a mature developed economy, a nation must lay the necessary groundwork in terms of access to cheap and reliable energy for its citizens. There is no substitute for this step. Every nation first has to harness energy to multiply the productivity of its workers to develop. We have seen how China and other rapidly developing nations are doing this and we have seen how Kenya has remained stagnant because of not taking this step.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For long-term economic gains, a nation must invest in high-quality education, research and the development of new products/ ideas from the research. This is a precursor to developing a complex economy and there is no escaping this. No amount of external loans or grants will ever replace this. A nation has to develop and deploy intellectual property to develop complexity in the economy. The Americans for example applied physics to the development of the atomic bomb and from this, they won the Second World War, catapulted themselves into a superpower and developed several other technologies from this research like nuclear weapons. Their military also developed the internet and now the USA is reaping huge dividends from the internet.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nations also have to intentionally set the stage for organic economic complexity i.e. systems that work, and the freedom to work and be creative. Something simple like the physical addressing system in the Western world enabled the establishment of efficient and effective delivery systems like Amazon. Their political system of democracy and freedom for all also encourages their populace to be daring and entrepreneurial in their pursuits and also attracts immigrants from all over the world who go to these countries and add value to their economies. Contrast this with China which has a capitalistic economic system but a socialist political system. China is certainly making rapid development progress but how sustainable is it? Does it attract the best and brightest from other cultures?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Finally, there has been a lot of talk and action in the climate change area. Mature economies have become more conscious of their energy footprints and are taking steps towards becoming more energy efficient and that is why we see them increasing their GDP per capita without a corresponding increase in electricity consumption. As for developing nations, this may be difficult as the data suggests that first, you have to multiply your worker productivity by consuming more energy per capita until your economy stabilizes then you can begin taking steps towards efficiency. It is like teaching a baby to first walk in halting unsteady steps before they can properly walk then now they can learn to run fast and efficiently. From this, I would like to caution developing countries to be careful when adopting green energy policies copied from developing nations since they are not operating in the same economic environment as the mature economies. The most important thing for developing nations is first to multiply worker productivity then, economic complexity and finally efficiency.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://www.cgdev.org/blog/what-development &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://data.worldbank.org/ &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://en.wikipedia.org/wiki/List_of_countries_by_oil_production &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://atlas.cid.harvard.edu/rankings &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://www.eiu.com/n/campaigns/democracy-index-2022/ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:6&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:7&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;Makhtar Diop, World Bank’s Vice President for Africa. (2017, December 1). Innovation in Africa. World Bank. https://www.worldbank.org/en/news/speech/2017/11/30/innovation-in-africa &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+
+          </description>
+          <pubDate>Wed, 06 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/development/economy/politics/how-do-countries-develop</link>
+          <guid isPermaLink="true">http://localhost:4000/development/economy/politics/how-do-countries-develop</guid>
+          
+          
+          <category>development</category>
+          
+          <category>economy</category>
+          
+          <category>politics</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>Back In High School</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;this-post-first-appeared-on-my-first-wordpress-blog-here&quot;&gt;This post first appeared on my first wordpress blog &lt;a href=&quot;https://atonui.wordpress.com/2012/10/15/back-in-high-school/&quot;&gt;here&lt;/a&gt;.&lt;/h2&gt;
+&lt;p&gt;Back in high school, young, naïve and hot blooded when we thought we would conquer the world – before reality caught up with us that is, I had my first teacher crush. Many more would follow later in life but then they would have rosier endings than this one.&lt;/p&gt;
+
+&lt;p&gt;She was straight out of college. Young, ambitious and eager to make an impression and boy did she make one. Unfortunately for her, it was to the wrong crowd – the boys and male staff of Kazimoto Secondary School.&lt;/p&gt;
+
+&lt;p&gt;She was introduced to us one bitterly cold Monday morning. The assembly was as usual, a boring mind numbing routine. The master on duty was a certain King’ori esquire, whose receding hairline, double chin and protruding belly, ‘inexplicably’ reminded me of those pure bred Friesian cows that were always on exhibition at the agricultural show..&lt;/p&gt;
+
+&lt;p&gt;“Good morning school?” he croaked, his watery eyes or rather eyeballs, for they seemed to have popped an inch from their blubber lined sockets, probably to make room for more fat roving around.&lt;/p&gt;
+
+&lt;p&gt;‘Good morning sir” came the weak reply from the still green first formers or as they were more popularly referred to ‘monos’. They’d soon learn to ignore the pleasantries.&lt;/p&gt;
+
+&lt;p&gt;“This morning I noticed som…”&lt;/p&gt;
+
+&lt;p&gt;I lost him in a chuckle as someone made a face that implied he ate just as much, if not more than the said cow whose image his presence inspired.&lt;/p&gt;
+
+&lt;p&gt;“…the staffroom will be…” he suddenly cut off mid sentence as his eyes wandered in my direction.&lt;/p&gt;
+
+&lt;p&gt;“Mwibani!” he barked with a twisted look that elicited more snickering than it scared.&lt;/p&gt;
+
+&lt;p&gt;“Come forward and kneel down!” commanded a slit where his mouth was supposed to be. The rolls of fat had long since invaded and occupied mouth territory.&lt;/p&gt;
+
+&lt;p&gt;My light moment fast came to a stop and I quickly marched forward in obedience. My knobby knees touched down next to the now seething King’ori. I couldn’t help but notice that at this range he now resembled the lovely Mukami, our school cow, which despite frequent bouts of mastitis still provided milk for our very thin tea. Little wonder I’d been having periodic episodes of flatulence. I was carrying on with this train of thought, completely at ease with my kneeling position, when Mr. Fanyakazi, the principal, stepped up.&lt;/p&gt;
+
+&lt;p&gt;“Good morning school?” he boomed in a crisp clear voice.&lt;/p&gt;
+
+&lt;p&gt;“Good morning sir” Mr. King’ori along with every student replied. No one in their right minds dared cross Mr. Fanyakazi. A man famed for his efficiency with words and preferred the talking done with his hands. Rumor had it that he was an ex Air Force officer with a judo black belt. But then again, the rumormongers swore Mr. King’ori was once a long distance athlete. Quite a laughable idea I might add.&lt;/p&gt;
+
+&lt;p&gt;“This morning I would like to introduce a new member of staff. Ms Madiba, please step forward”.&lt;/p&gt;
+
+&lt;p&gt;There was an involuntary gasp as she stepped forward and settled next to me. She was a sight to behold! She was tall; light skinned and smelled of freshly picked roses. Behind her half moon glasses were brown almond shaped eyes that held you captive when you looked into them. They communicated trust with an element of laughter and I wanted to stare into them forever. Her grape sized nose was just perfect and it gave way to luscious full lips that made one think of flowers and kisses and more flowers. She had a cute dimple on her left cheek that dipped ever so slightly as she smiled at the school. It was a beautiful, honest smile that boasted two rows of perfectly white teeth and lit up the gathering and I could almost swear the temperature went up 10 degrees. It was at this precise moment that Mr. King’ori, I suspect, and I fell hopelessly in love. Her breasts were firm and healthy – good for breastfeeding and a host of other things that only a randy teenager could think of. She wore one of those knee length body hugging pencil skirts that ladies fancied in those days and it would later become her trademark. The red skirt with frilly edges merged perfectly into her ridiculously long and expertly shaped legs that disappeared into white pumps with inch high heels.&lt;/p&gt;
+
+&lt;p&gt;“Hello everyone” she chirped in that melodious voice that sounded like the choir of angels that sang to the shepherds and I had no doubt she was one of them, the angels that is.&lt;/p&gt;
+
+&lt;p&gt;“Good… goo…Hel…” The assembly stuttered, unsure of how to respond to the informal greeting from this stunning lady who was somehow supposed to be their teacher.&lt;/p&gt;
+
+&lt;p&gt;“Ms Madiba here will be joining the English department and am sure you will fully cooperate with her as she adjusts to the school” continued Mr. Fanyakazi, completely oblivious of the effect she was having on the boys. “Mr. King’ori, would you please assist her after this”.&lt;/p&gt;
+
+&lt;p&gt;At the sound of those words, Mr. King’ori could barely contain himself. He shifted about his place and shuffled his feet uncomfortably. I shifted nervously away from him as I watched his eyes and waited for the pop that would announce their escape from their suffocating prison and ricochet of the ground towards Ms. Madiba. It didn’t come, obviously, and I somewhat relaxed my position.&lt;/p&gt;
+
+&lt;p&gt;Mr. Fanyakazi rumbled on. Something about the library, or was it about the laboratories? Once or twice he glared in my direction as he mentioned the word discipline. I didn’t care anyway, I was in love, or so I thought at the time.&lt;/p&gt;
+
+&lt;p&gt;Mr. Fanyakazi let us go. Mr. King’ori, a stupid grin plastered on his fleshy face, completely forgot about my misdemeanor as he gaily skipped towards her, fat rippling beneath his yellow polyester shirt and threatening to take out a button if stretched any further. I couldn’t help myself. I stuck a foot in his path and caught his left leg. His hundred ton body turned, the fat momentarily delayed the fall and then he came crashing down like a meteorite. His hands were flailing about his side like a spider or in this case, a toad doing the break dance and not making a very good job of it. I scrambled to my feet and moved away to watch my handiwork. He landed on his bottom exactly where I had been a second ago and yelped in pain, more from his wounded pride I supposed. He rolled on his back and tried to get up but only managed to look like a beetle trapped on its back by its smooth shell. I could barely stifle a laugh and had to look away as the other teachers rushed to his side and amid his outburst of obscenities, help him up.&lt;/p&gt;
+
+&lt;p&gt;“You little nincompoop!” He shouted at me, his face all red and puffy. The other teachers struggled to restrain the raging bull and one of his buttons made good its threat. It flew right off and exposed a forest of mangy chest hair. That did it! I couldn’t hold myself any longer. I howled in laughter at Mr. King’ori’s tough luck. First impressions tend to last especially those that involved dirty chest hair and pretty damsels. Mr. Fanyakazi suddenly appeared behind me and hoisted me by my very short and not so clean khaki shorts.&lt;/p&gt;
+
+&lt;p&gt;“My office this instant!” he ordered. As I was being led away, I could swear I saw Ms. Madiba wink at me, quite a morning this was turning out to be.&lt;/p&gt;
+
+&lt;p&gt;Retribution came. In fact it came hard and fast, six times on my bottom, delivered by the school’s chief executive himself. Now Mr. Fanyakazi, through years of practice and refinement, preferred the soft spot midway between the thigh and bottom. This coupled with the fact that he looked like he could lift a heifer without breaking a sweat meant that I wouldn’t sit straight for a whole week. After leaving his office, let’s just say that I didn’t trip Mr. King’ori anymore.&lt;/p&gt;
+
+&lt;p&gt;Back in class, noisy as usual, I padded my seat with a pullover ‘borrowed’ from an unwilling ‘mono’ and carefully settled my violated bottom down. As I busied myself trading insults with Matusi (the name says it all), in walked my new found love. The class immediately froze all attention focused on her.&lt;/p&gt;
+
+&lt;p&gt;“Good morning class?” she greeted us as her eyes swept the class and settled on me. A bewitching smile slowly formed on her lovely face. Matusi noticed it and suddenly had a very nasty cough.&lt;/p&gt;
+
+&lt;p&gt;“Good morning madam” the class replied.&lt;/p&gt;
+
+&lt;p&gt;“I’d like us to start with introductions. Full name everyone and let’s begin with the first column.”&lt;/p&gt;
+
+&lt;p&gt;How one could be so beautiful, I kept wondering to myself. The boys began introducing themselves. Ms. Madiba chose to sit down through the exercise. The short skirt crawled an inch up her thigh but further progress was quickly rebuffed by her hand. Now she had our absolute undivided attention. The class leaned forward, forty pairs of eyes itching to catch a glimpse of the glorious flesh. Matusi’s incessant coughing suddenly stopped. Then the skirt, as if urged on by the on looking perverts, seemed to take on a mind of its own and clawed its way up, determined to give the people what they wanted. The class held its breath and inwardly cheered on the sleek red cloth. Amazingly enough, Ms. Madiba remained oblivious of the drama playing out before her. Either she was one cool customer or she was deeply engrossed in Konyagiragi trying to spell his ridiculous name. Poor boy caught between an introduction and a powerful Neanderthal urge to steal a glance the lady’s legs.&lt;/p&gt;
+
+&lt;p&gt;Now ladies, before you start rolling your eyes and begin the male bashing, look at it this way. Imagine confining a thousand or so androgen pumped adolescents for close to two months and denying them even a fleeting glance at anything feminine, except for Mukami. Then throw in a woman of goddess like beauty among them, much like throwing a cat among the pigeons or in this case, a pigeon among the much starved cats. Something is bound to happen; tempers would flare and the male ego would be on the line.&lt;/p&gt;
+
+&lt;p&gt;The bell rang to signal the end of the first period. Ms. Madiba rose slowly and collected her things. The forty pairs of lustful eyes followed her every movement with intense concentration as if trying to sear her image onto their memories, probably for future processing with their wild imaginations.&lt;/p&gt;
+
+&lt;p&gt;We had math next. A subject I was not particularly fond of and I preferred to while away my time by doodling on my book as Mr. Rutto droned on about vectors. Matusi’s nasty cough returned and would not leave until Mr. Rutto let him out to see the nurse.&lt;/p&gt;
+
+&lt;p&gt;The day dragged on and by lunchtime everyone had heard about my little encounter and they could not help but stare at me in awe. Anyone who laughed at Mr. King’ori and survived the principal’s thrashing was a hero around here. If only they knew the pain my poor backside was nursing. Tough day it was.&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Wed, 06 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/high/school/mischief/high-school</link>
+          <guid isPermaLink="true">http://localhost:4000/high/school/mischief/high-school</guid>
+          
+          
+          <category>high</category>
+          
+          <category>school</category>
+          
+          <category>mischief</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>Back Tweak</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;this-post-first-appeared-on-an-earlier-vesion-of-this-blog-which-unfortunately-went-down-with-all-my-data&quot;&gt;This post first appeared on an earlier vesion of this blog which unfortunately went down with all my data.&lt;/h2&gt;
+&lt;p&gt;Earlier this year, on the ides of March, as I was pulling my first rep on the deadlift, I felt a pop in my lower back then a sharp jolt of pain radiating from there. My first thought was ‘Oh snap! There goes all my progress!’ (Expression has been translated from a popular non-PG phrase).&lt;/p&gt;
+
+&lt;p&gt;I had recently watched a &lt;a href=&quot;https://youtu.be/riq-DfDDimc?si=J7NlKaNTR4h8Q9vo&quot;&gt;video&lt;/a&gt; on back pain from one of my favorite youtuber’s, Allan Thrall, so I immediately followed his advice.
+I set down the bar and started stretching my back; child’s pose, cat-cow and toe touches. I then did a couple of painful air squats then stopped the workout.
+As soon as I got home I repeated the stretches and air squats; they were incredibly difficult. Walking was difficult, tying my shoelaces was excruciating, and twisting in my seat to get a pen was agonising. However, I did not despair. I knew that my back wasn’t that seriously hurt and the pain was just my brain trying its best to protect a pulled muscle so I ignored the pain as much as I could.&lt;/p&gt;
+
+&lt;p&gt;All day long I kept getting up and stretching my back as well as doing air squats and toe touches. If I needed to pick something up, I forced myself to bend over and do it rather than compensate with my knees. In the afternoon I went to see a chiropractor and he made some adjustments. At night I slept on the floor and on my side rather than my stomach as is my norm.&lt;/p&gt;
+
+&lt;p&gt;The next day my lower back still felt the need to test my resolve but I kept at it. I went to work as usual and did not complain about my back. I kept up with the stretching, squats and toe touches and had a second session with the chiropractor. By evening the tightness was beginning to melt away. I slept on the floor again.&lt;/p&gt;
+
+&lt;p&gt;On Friday morning I was back at the gym. I did my chin-ups properly with no issues then squats with the empty bar and progressed to 10 reps of 60kgs with just some soreness. I also did 60kg deadlifts, bench presses, overhead presses and dumbbell rows. I did all my compound lifts with sub-maximal weights to test my back and they all felt fine! As a precaution, I did them all with a belt. As I went about my day I kept up with the stretches and movements.&lt;/p&gt;
+
+&lt;p&gt;Monday morning I was in the gym and had resumed my program with no pain or soreness at all!
+In conclusion; when you injure your lower back it probably won’t be a slipped disk or something serious like that. It’s most likely just a pulled muscle that feels painful and scary but if you face it head-on and don’t let it have a say, it will shrink and go away.&lt;/p&gt;
+
+&lt;p&gt;Remember, this is not medical advice, just my experience with a back tweak.&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Wed, 06 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/gym/injury/back/recovery/back-tweak</link>
+          <guid isPermaLink="true">http://localhost:4000/gym/injury/back/recovery/back-tweak</guid>
+          
+          
+          <category>gym</category>
+          
+          <category>injury</category>
+          
+          <category>back</category>
+          
+          <category>recovery</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>Learning How to Learn</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;the-following-is-an-essay-i-wrote-after-taking-the-course-learning-how-to-learn-on-coursera-as-taught-by-barbra-oakley-and-terrence-sejnowki-on-coursera&quot;&gt;The following is an essay I wrote after taking the course &lt;a href=&quot;https://www.coursera.org/learn/learning-how-to-learn&quot;&gt;Learning How to Learn on Coursera&lt;/a&gt; as taught by Barbra Oakley and Terrence Sejnowki on Coursera.&lt;/h2&gt;
+&lt;p&gt;I have always been curious and keen to learn new things that interest me. Sometimes, I learn a lot, especially when I implement some kind of routine or system to help me study, but other times, it can be tough to nail down some material. After taking this course, I have come to a better understanding of how our brains learn, the mistakes I made when I failed, and the habits that helped me succeed when I did.&lt;/p&gt;
+
+&lt;p&gt;One of the most memorable things I ever did was in my final year of high school. I formulated and implemented a near-perfect plan to study for my final year examinations and it had all the salient features that Dr. Oakley preaches in her course.&lt;/p&gt;
+
+&lt;p&gt;First I looked up the high school curriculum and figured out what I needed to learn, then drew up a timetable with 30-minute chunks of serious concentration and five five-minute breaks. I also scheduled time to work specifically on assignments, organised a serious study group that met after classes, tested myself endlessly with past papers and made participation in sports a priority. This was the most productive year of my secondary education, I learned 4 years’ worth of material in 9 different subjects in under 9 months! After taking this course, I realised I inadvertently stumbled upon a sure-fire way to study. Over time I seemed to forget this method, especially because learning as an adult now involves navigating ‘life’ and a host of other adult stuff, which is why I took this course.&lt;/p&gt;
+
+&lt;h3 id=&quot;brain-modes&quot;&gt;Brain Modes&lt;/h3&gt;
+&lt;p&gt;Your brain has two major modes of processing and understanding concepts and ideas:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The focused mode&lt;/li&gt;
+  &lt;li&gt;The diffused mode&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The &lt;strong&gt;focused mode&lt;/strong&gt; is when you concentrate on learning something or are trying to solve a problem. You knit your eyebrows and stare intently at what you’re focusing on and after a while, you can hear the gears turning in your head as the solution takes shape. This mode helps us to form and deepen neural patterns for novel ideas or problem-resolution methods.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;diffuse mode&lt;/strong&gt; is when you’re relaxed or doing something boring or routine like taking a bath and suddenly, eureka! Your brain unwittingly makes a connection seemingly from thin air and now you completely understand an idea or hit upon a novel solution to that pesky problem of how to tell gold apart from other metals.&lt;/p&gt;
+
+&lt;p&gt;As you can tell by now both methods feed into each other and both must be engaged to fully tap into that supercomputer you lunge around in your head all day. And here lies an important fact, allowing yourself to be comfortable with boredom is good. We all love our smartphones but they can actually be a hindrance when every time you are feeling bored or disconnected you whip it out and proceed to scroll through a dozen apps all to stave off boredom. Be bored, your subconscious speaks to you in these times and it does have some valuable insights to share if you just listen.&lt;/p&gt;
+
+&lt;p&gt;It is important however to note that the diffuse mode will only work once it’s been served with sufficient material from the focused mode so it’s best to bash away at your problem and when you realize that no solution is forthcoming go take a walk or a bath or better yet, take a nap and before you know it you mind will surprise you.&lt;/p&gt;
+
+&lt;h3 id=&quot;pomodoro&quot;&gt;Pomodoro&lt;/h3&gt;
+&lt;p&gt;This technique helps one to build a habit of focus and helps thwart procrastination by making one focus on the journey rather than the destination. It simply means that you eliminate all distractions for 25 minutes and concentrate on what you want to learn then take a five-minute break then repeat. After about 4 Pomodoro sessions you can take a longer 25-minute break before getting back to the material. Elite pomodorians can do several hours of focus without much effort and this is the holy grail of productivity since it will put you in a state of deep work (Carl Newport, Deep Work) where you are immersed in the material for several hours and your output is phenomenal. If you learn nothing else from this course, learn this, it will vastly improve your studies and work life. You can buy an actual Pomodoro or like everything these days, there’s an app for that.&lt;/p&gt;
+
+&lt;h3 id=&quot;chunking&quot;&gt;Chunking&lt;/h3&gt;
+&lt;p&gt;Remember learning how to ride a bike? You had to remember to pedal, lean to one side while cornering, balance while pedalling, watch out for traffic and listen to the ‘helpful’ advice shouted by your friends. It was horrible; your senses were overloaded with all this information and more often than not you went back home with scraped knees and a wounded pride. But after a while, you got the hang of pedalling and before long you were whizzing down the street without thinking. This is because you learn all the basic moves you need to ride a bike by training your mind to form solid neural patterns that work in concert. This is a chunk. A solid compact, neural pathway of an idea or movement that you have locked down and you don’t have to think about retrieving it, your brain just knows what to do. Developing mastery in a specific field or topic means creating as many chunks on it as possible and what’s more, once you have the basic chunks down you can combine them with other chunks even from different fields and come up with novel ideas or concepts i.e. chunking enhances creativity.&lt;/p&gt;
+
+&lt;p&gt;So how do we build chunks? Usually, we do so in the focused mode by practice and repetition until those neurons are purring. So, get rid of distractions, tune into the focused mode and try to understand the material you intend to chunk. Switching between the focused and diffuse modes will be of great help here and the Pomodoro technique can help you here. Try and grasp the gist of the central idea and link it with something else you know. Once you think you have understood something, test yourself to confirm. You should also see where the chunk fits in the grand scheme of things when to use it and when not to and how it relates with other chunks. Such depth in learning is useful to help you create bigger chunks and with time you will be a master.&lt;/p&gt;
+
+&lt;h3 id=&quot;spaced-repetition&quot;&gt;Spaced Repetition&lt;/h3&gt;
+&lt;p&gt;This is similar to what powerlifters do. They have a target weight to lift, and they know how much they can lift right now so they make a plan and add a little weight to the bar every day as a result, they add a little muscle every day and after a year it’s like magic! You study a little every day and go over the material later. Later can be hours, days or weeks depending on how well you’ve mastered it. You can revise using flashcards, recall or testing so that you can transfer the material from your short-term (working memory) into your long-term memory.
+My people say that you cannot fatten a bull on the market day. Similarly, you cannot learn all your material on the test day just as you cannot build an impressive physique in one day of lifting heavy weights.&lt;/p&gt;
+
+&lt;h3 id=&quot;sleep&quot;&gt;Sleep&lt;/h3&gt;
+&lt;p&gt;Clears toxins from your brain helps consolidate long-term memories and activates the subconscious mind that works to form connections from all the material we learned while in a focused state. So make sure you catch your eight hours every day especially if you have a test the next day or have been hacking away at a problem for a while without making progress, chances are a good night’s sleep will help your brain work through the problem.&lt;/p&gt;
+
+&lt;h3 id=&quot;habits-zombies&quot;&gt;Habits/ zombies&lt;/h3&gt;
+&lt;p&gt;Habits make a man. It is important to understand that success or learning does not come from some magic sauce, willpower or herculean effort or luck (well sometimes it does). It is by the daily habits we build and adhere to. If you build habits that inch you closer to your goal every day then a year of compounding those habits produces exponential results. Similarly, destructive habits like procrastination will compound and doom you to anxiety and failure.
+To study well you need to harness the power of habits. Build tiny everyday habits that draw you closer to mastery of your study material daily and you need not rely on willpower or luck, you will be confident in yourself. To do this you need to understand how habits work.&lt;/p&gt;
+
+&lt;p&gt;Habits are patterns of behaviour that are so ingrained in us that we don’t even realize that we’re doing them. Case in point: your phone rings while you are reading, your automatic response will be to pick it up because you have built a habit of responding once your phone wails for attention like a spoiled toddler. Dr. Oakley likens habits to zombies since just like zombies hungry for brains, you don’t have to think, you just act. This is a powerful element of our psychology, one that you can harness to help you study better. Make it a habit to study in the same place at the same time and with bursts of concentration and rewards and soon enough the zombies will be working for you. All you have to do is cue them and off they go. Wonderful, isn’t it? cue-belief-behaviour-response&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-and-illusions-of-competence&quot;&gt;Testing and illusions of competence&lt;/h3&gt;
+&lt;p&gt;Merely rereading your material and going over the easy stuff can trick you into thinking you know your stuff when you really don’t. Deliberate practice can help you overcome illusions of competence by making you test yourself and then practise what you failed, not just the easy stuff. Consistently working on the things you find difficult is a habit that will lead you to mastery over time (Outliers, Michael Gladwell). Remember, boiling seas make great sailors.&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Tue, 05 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/learning/self-improvememt/2024/11/05/learning.html</link>
+          <guid isPermaLink="true">http://localhost:4000/learning/self-improvememt/2024/11/05/learning.html</guid>
+          
+          
+          <category>learning</category>
+          
+          <category>self-improvememt</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>How To Develop Kenya - a concerned citizen’s approach</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;h2 id=&quot;this-post-first-appeared-on-an-earlier-vesion-of-this-blog-which-unfortunately-went-down-with-all-my-data&quot;&gt;This post first appeared on an earlier vesion of this blog which unfortunately went down with all my data.&lt;/h2&gt;
+&lt;p&gt;Development can be loosely defined as the process that advances the population’s quality of life in a useful way. This broad definition includes economic development, human development, social development, and environmental sustenance.&lt;/p&gt;
+
+&lt;p&gt;A while back economic development was the only dimension of development but as it turns out economic development does not necessarily improve the quality of life of a population.
+Development is a complex concept with multiple faucets that must be carefully considered and balanced over time to achieve the desired results.
+Successive Kenyan governments have attempted to develop the country but one regime stands out, the Kibaki regime of 2003 - 2013. Other governments have had misplaced priorities, simplistic interpretations of development, have sought to politicise it, had little to no interest in actually doing the work or are just outright incompetent and corrupt like the current Jubilee government.&lt;/p&gt;
+
+&lt;p&gt;The UNDP developed the &lt;a href=&quot;http://hdr.undp.org/en/content/human-development-index-hdi&quot;&gt;Human Development Index&lt;/a&gt; (HDI) about 3 decades ago centred on people and their capabilities as the chief criteria for assessing a country’s development rather than just economic growth. The 3 elements of the HDI are:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;A long and healthy life&lt;/li&gt;
+  &lt;li&gt;Being knowledgeable&lt;/li&gt;
+  &lt;li&gt;Having a decent standard of living&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;healthcare&quot;&gt;Healthcare&lt;/h3&gt;
+&lt;p&gt;Specifically, basic high-quality universal healthcare. Every Kenyan should be able to walk into a health centre in their neighbourhood and be accorded free, high-quality, dignified basic health services. &lt;strong&gt;EVERY KENYAN&lt;/strong&gt;. This is just the first step in ensuring a healthy population that can engage in nation-building. A citizenry who is assured of such a service is more likely to be patriotic and think in terms of advancing themselves and the nation rather than worry about survival. This service ought to be exceptional and staffed by competent and motivated medics such that no private facility can compete. Mental health must be pushed into the mainstream. Advanced medical services like medical imaging, specialized surgical procedures etc ought to be available in every sub-county in this nation. People should not have to travel hundreds of kilometres from Mandera to Nairobi to get life-saving chemotherapy.&lt;/p&gt;
+
+&lt;p&gt;The selection, training, remuneration and welfare of healthcare workers should be a national priority as they will help give us a long, healthy and productive life.
+Referral and research hospitals and institutions should be staffed with top-notch doctors, scientists and administrators and should be sufficiently encouraged to develop drugs, medical procedures and policies that will keep Kenyans healthy and kill medical tourism that is expensive and available only to the wealthy. Logistical and procurement institutions like KEMSA should be tightly monitored and continually pushed to deliver life-saving drugs, equipment and materials everywhere it is needed.
+Finally, we can measure all this by using such indicators as life expectancy, infant mortality rate, number of functioning clinics, number of healthcare workers, number of patients treated, sick leave days taken etc.&lt;/p&gt;
+
+&lt;p&gt;In my opinion, there are four key elements that successive Kenyan governments must prioritize over a long period of time to get things right. I am by no means suggesting that this will be a simple task to undertake but I do believe that 80% of our results will come from these four areas.&lt;/p&gt;
+
+&lt;h3 id=&quot;education&quot;&gt;Education&lt;/h3&gt;
+&lt;p&gt;Free high-quality education to tertiary education for every Kenyan. Most of us confuse schooling with learning. Schooling is mostly about confining students in classrooms and drilling them with information over and over again. Schooling discourages creativity and innovation, is rigid and goes against human instinct.&lt;/p&gt;
+
+&lt;p&gt;When I talk about education my core focus is the development of the following core skills; independent thought, creativity, autodidactism, research, personal financial management and critical thinking. In addition, I think learners ought to interact and learn in their natural environment as much as possible i.e. they can visit a local river while learning about geographical features and have their class there. We also need to learn and appreciate our indigenous languages as they will help shape our identity. These competencies should be baked into the curriculum and learners ought to be exposed to them as frequently as possible as these are the critical skills for the holistic development of a person.&lt;/p&gt;
+
+&lt;p&gt;Teachers just like medical professionals ought to be selected, trained, compensated and motivated as much as possible by both the government and society. We should strive for low teacher-to-student ratios that bring out the best in both parties. Schools with adequate facilities (classrooms, desks, books, water etc) should be a national priority. Every child should be able to walk a reasonable distance to the nearest school and expect to receive a world-class education to enable them to develop the very best versions of themselves.&lt;/p&gt;
+
+&lt;p&gt;Co-curricular activities like sports, debates and interest clubs should be funded and encouraged&lt;/p&gt;
+
+&lt;h3 id=&quot;agriculture&quot;&gt;Agriculture&lt;/h3&gt;
+&lt;p&gt;In 2019, about half of Kenya’s exports were agricultural; tea, coffee, flowers, fruits nuts etc formed the bulk of these exports. Kenya is a nation of farmers and that is where our economic focus ought to be. The government ought to encourage farmers by expanding current markets, seeking out new ones, providing high-quality farm inputs (fertilizer, seeds etc), building quality access roads, carrying out in-depth, cutting-edge research and seeking to add value to raw products as much as possible to improve returns to the farmer and the country.&lt;/p&gt;
+
+&lt;p&gt;Pumping money into irrigation projects, forestry and animal husbandry will reap greater rewards than borrowing billions to build railways to nowhere and roads from airports to affluent suburbs.&lt;/p&gt;
+
+&lt;p&gt;Investing in agriculture makes sense since we already have a good farming foundation, excellent soils and climate, tons of unexplored potential in irrigation, value addition as well as branding and marketing, it gives excellent returns for the capital invested and we are not yet food sufficient. Laser focus in this area will kick out poverty in most of the population and start many on the journey to upward social mobility.&lt;/p&gt;
+
+&lt;h3 id=&quot;slay-mega-corruption&quot;&gt;Slay Mega Corruption&lt;/h3&gt;
+&lt;p&gt;Corruption is difficult to eliminate as it is human nature to want to do things the easy way. However, we can crush the mega corruption that has ravaged this country in the last decade or so. Politicians borrowing money for dead-on-arrival grand projects so that they can pick up obscene kickbacks and buy massive fuel guzzlers to intimidate ‘wananchi’ should be done away with. These men and women hurt the economy more than we can tell and ruthlessly crushing such people is the best way to deal with their callousness. 
+The EACC should be outfitted with massive fangs and a venom sac to boot then set loose amongst mega looters. Retrieval of stolen funds and repossession of assets and material resulting from the proceeds of corruption will certainly help repress this vice.&lt;/p&gt;
+
+
+          </description>
+          <pubDate>Tue, 05 Nov 2024 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/development/economy/corruption/how-to-develop-kenya</link>
+          <guid isPermaLink="true">http://localhost:4000/development/economy/corruption/how-to-develop-kenya</guid>
+          
+          
+          <category>development</category>
+          
+          <category>economy</category>
+          
+          <category>corruption</category>
+          
+        </item>
+      
+    
+  </channel>
+</rss>

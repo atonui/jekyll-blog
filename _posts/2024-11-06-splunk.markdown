@@ -1,0 +1,106 @@
+---
+title:  How I Got Splunk Certified
+date:   2024-11-06 10:53:37 +0300
+categories: splunk certification
+permalink: /:categories/:title
+---
+This post first appeared on an earlier vesion of this blog which unfortunately went down with all my data. 
+---------------------------------------------------------------------------------------------------------
+Splunk is a useful tool that can help an organisation make sense of their machine data. In the modern company setting, most of the data generated is machine data originating from various sources like web servers, IoT devices, network devices, email servers, machine logs etc. 
+
+Hidden amongst this pile of gobbledygook are golden insights into your customers, markets, operations and the power to make sound decisions and take over the world! Muhahahahaha!
+Lots of companies have no idea what to do with all the data they collect so they just archive it and kick it down the road hoping for the best. Splunk seeks to help companies with this problem by taking their machine data, indexing it and making it easy to search through this seemingly incomprehensible pile and come up with useful information.
+I recently came to understand this and thus decided to study splunk further. Now, they do have a certification program that goes all the way from the fundamentals to Splunk architect. I will focus on the [Splunk Core Certified User][splunk-core] as it’s the basic entry level certification (not to mention the only one I have tackled...)
+
+To earn this certification you have to head over to the [Splunk][splunk] website, register as a student and enrol for either the free self paced Splunk Fundamentals 1 course or the instructor led course. Both will have you install the [free splunk][free-splunk] edition but remember, the course will only be accessible for 30 days so you need to be sure that you will complete it in time.
+The fundamentals course includes the following topics:
+
+- Introduction to Splunk's interface
+- Basic searching
+- Using fields in searches
+- Search fundamentals
+- Transforming commands
+- Creating reports and dashboards
+- Datasets
+- The Common Information Model (CIM)
+- Creating and using lookups
+- Scheduled Reports
+- Alerts
+- Using Pivot
+
+The course objectives are:
+
+### Module 1 – Introduction
+- Overview of Buttercup Games Inc. (Love these guys!)
+### Module 2 – What is Splunk?
+- Splunk components
+- Installing Splunk
+- Getting data into Splunk
+### Module 3 – Introduction to Splunk's User Interface
+- Understand the uses of Splunk
+- Define Splunk Apps
+- Customizing your user settings
+- Learn basic navigation in Splunk
+### Module 4 – Basic Searching
+- Run basic searches
+- Use autocomplete to help build a search
+- Set the time range of a search
+- Identify the contents of search results
+- Refine searches
+- Use the timeline
+- Work with events
+- Control a search job
+- Save search results
+### Module 5 – Using Fields in Searches
+- Understand fields
+- Use fields in searches
+- Use the fields sidebar
+### Module 6 – Search Language Fundamentals
+- Review basic search commands and general search practices
+- Examine the search pipeline
+- Specify indexes in searches
+- Use autocomplete and syntax highlighting
+- Use SPL search commands to perform searches:
+### Module 7 – Using Basic Transforming Commands
+- The top command
+- The rare command
+- The stats command
+### Module 8 – Creating Reports and Dashboards
+- Save a search as a report
+- Edit reports
+- Create reports that include visualizations such as charts and tables
+- Create a dashboard
+- Add a report to a dashboard
+- Edit a dashboard
+### Module 9 – Datasets and the Common Information Model
+- Naming conventions
+- What are datasets?
+- What is the Common Information Model (CIM)?
+### Module 10 – Creating and Using Lookups
+- Describe lookups 
+- Create a lookup file and create a lookup definition
+- Configure an automatic lookup
+### Module 11 – Creating Scheduled Reports and Alerts
+- Describe scheduled reports
+- Configure scheduled reports
+- Describe alerts
+- Create alerts
+- View fired alerts
+### Module 12 - Using Pivot
+- Describe Pivot
+- Understand the relationship between data models and pivot
+- Select a data model object
+- Create a pivot report
+- Create an instant pivot from a search
+- Add a pivot report to a dashboard
+
+I studied for the Core User Certification by going through the course videos and quizzes once and then doing the final quiz. The module quizzes don’t count towards your grade but they are important in preparing you. The final quiz is important though, you have to pass it so that you can register for the actual certification exam. It has 39 questions and the pass mark is 75%. If you fail you can retake it in 5 days. 
+I passed the final quiz (92%) but I wasn’t ready for the real thing yet so I rewatched the videos while going through the pdf notes they provided and redoing the labs and this helped a lot, I began to truly grasp the content and I was now more confident. I retook the final quiz and got a 97% but I was still not ready. I then registered for another free course: [Splunk Infrastructure Overview][sio]. This course will give you a high level overview of Splunk’s Enterprise infrastructure from a single instance deployment to a distributed environment. 
+After completing this course I again reviewed the Splunk Fundamentals 1 pdf notes and labs and I now felt ready for the certification text.
+To register for the test you can follow Splunk’s instructions here. Please be careful while registering, I suggest reading through the instructions at least once before beginning the process so that you don’t make avoidable mistakes. Once you register on Pearson VUE you can pay, revise for your test and go crush it!
+
+
+[splunk-core]: https://www.splunk.com/en_us/training/certification-track/splunk-core-certified-user.html
+[splunk]:   https://www.splunk.com/
+[free-splunk]: https://www.splunk.com/en_us/download.html
+[sio]: https://www.splunk.com/en_us/training/free-courses/splunk-infastructure-overview.html

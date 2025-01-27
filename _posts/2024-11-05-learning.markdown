@@ -1,0 +1,52 @@
+---
+title:  "Learning How to Learn"
+date:   2024-11-05 10:53:37 +0300
+categories: learning self-improvememt
+---
+The following is an essay I wrote after taking the course [Learning How to Learn on Coursera][mooc-course] as taught by Barbra Oakley and Terrence Sejnowki on Coursera.
+-----------------------------------------------------------------------------------------------
+I have always been curious and keen to learn new things that interest me. Sometimes, I learn a lot, especially when I implement some kind of routine or system to help me study, but other times, it can be tough to nail down some material. After taking this course, I have come to a better understanding of how our brains learn, the mistakes I made when I failed, and the habits that helped me succeed when I did. 
+
+One of the most memorable things I ever did was in my final year of high school. I formulated and implemented a near-perfect plan to study for my final year examinations and it had all the salient features that Dr. Oakley preaches in her course. 
+
+First I looked up the high school curriculum and figured out what I needed to learn, then drew up a timetable with 30-minute chunks of serious concentration and five five-minute breaks. I also scheduled time to work specifically on assignments, organised a serious study group that met after classes, tested myself endlessly with past papers and made participation in sports a priority. This was the most productive year of my secondary education, I learned 4 years' worth of material in 9 different subjects in under 9 months! After taking this course, I realised I inadvertently stumbled upon a sure-fire way to study. Over time I seemed to forget this method, especially because learning as an adult now involves navigating ‘life’ and a host of other adult stuff, which is why I took this course. 
+
+### Brain Modes
+Your brain has two major modes of processing and understanding concepts and ideas:
+1. The focused mode
+2. The diffused mode
+
+The **focused mode** is when you concentrate on learning something or are trying to solve a problem. You knit your eyebrows and stare intently at what you’re focusing on and after a while, you can hear the gears turning in your head as the solution takes shape. This mode helps us to form and deepen neural patterns for novel ideas or problem-resolution methods. 
+
+The **diffuse mode** is when you’re relaxed or doing something boring or routine like taking a bath and suddenly, eureka! Your brain unwittingly makes a connection seemingly from thin air and now you completely understand an idea or hit upon a novel solution to that pesky problem of how to tell gold apart from other metals.
+
+As you can tell by now both methods feed into each other and both must be engaged to fully tap into that supercomputer you lunge around in your head all day. And here lies an important fact, allowing yourself to be comfortable with boredom is good. We all love our smartphones but they can actually be a hindrance when every time you are feeling bored or disconnected you whip it out and proceed to scroll through a dozen apps all to stave off boredom. Be bored, your subconscious speaks to you in these times and it does have some valuable insights to share if you just listen.
+
+It is important however to note that the diffuse mode will only work once it’s been served with sufficient material from the focused mode so it’s best to bash away at your problem and when you realize that no solution is forthcoming go take a walk or a bath or better yet, take a nap and before you know it you mind will surprise you.
+
+### Pomodoro
+This technique helps one to build a habit of focus and helps thwart procrastination by making one focus on the journey rather than the destination. It simply means that you eliminate all distractions for 25 minutes and concentrate on what you want to learn then take a five-minute break then repeat. After about 4 Pomodoro sessions you can take a longer 25-minute break before getting back to the material. Elite pomodorians can do several hours of focus without much effort and this is the holy grail of productivity since it will put you in a state of deep work (Carl Newport, Deep Work) where you are immersed in the material for several hours and your output is phenomenal. If you learn nothing else from this course, learn this, it will vastly improve your studies and work life. You can buy an actual Pomodoro or like everything these days, there's an app for that.
+
+### Chunking
+Remember learning how to ride a bike? You had to remember to pedal, lean to one side while cornering, balance while pedalling, watch out for traffic and listen to the ‘helpful’ advice shouted by your friends. It was horrible; your senses were overloaded with all this information and more often than not you went back home with scraped knees and a wounded pride. But after a while, you got the hang of pedalling and before long you were whizzing down the street without thinking. This is because you learn all the basic moves you need to ride a bike by training your mind to form solid neural patterns that work in concert. This is a chunk. A solid compact, neural pathway of an idea or movement that you have locked down and you don’t have to think about retrieving it, your brain just knows what to do. Developing mastery in a specific field or topic means creating as many chunks on it as possible and what's more, once you have the basic chunks down you can combine them with other chunks even from different fields and come up with novel ideas or concepts i.e. chunking enhances creativity.
+
+So how do we build chunks? Usually, we do so in the focused mode by practice and repetition until those neurons are purring. So, get rid of distractions, tune into the focused mode and try to understand the material you intend to chunk. Switching between the focused and diffuse modes will be of great help here and the Pomodoro technique can help you here. Try and grasp the gist of the central idea and link it with something else you know. Once you think you have understood something, test yourself to confirm. You should also see where the chunk fits in the grand scheme of things when to use it and when not to and how it relates with other chunks. Such depth in learning is useful to help you create bigger chunks and with time you will be a master.
+
+### Spaced Repetition
+This is similar to what powerlifters do. They have a target weight to lift, and they know how much they can lift right now so they make a plan and add a little weight to the bar every day as a result, they add a little muscle every day and after a year it’s like magic! You study a little every day and go over the material later. Later can be hours, days or weeks depending on how well you’ve mastered it. You can revise using flashcards, recall or testing so that you can transfer the material from your short-term (working memory) into your long-term memory.
+My people say that you cannot fatten a bull on the market day. Similarly, you cannot learn all your material on the test day just as you cannot build an impressive physique in one day of lifting heavy weights.
+
+### Sleep
+Clears toxins from your brain helps consolidate long-term memories and activates the subconscious mind that works to form connections from all the material we learned while in a focused state. So make sure you catch your eight hours every day especially if you have a test the next day or have been hacking away at a problem for a while without making progress, chances are a good night's sleep will help your brain work through the problem.
+
+### Habits/ zombies
+Habits make a man. It is important to understand that success or learning does not come from some magic sauce, willpower or herculean effort or luck (well sometimes it does). It is by the daily habits we build and adhere to. If you build habits that inch you closer to your goal every day then a year of compounding those habits produces exponential results. Similarly, destructive habits like procrastination will compound and doom you to anxiety and failure.
+To study well you need to harness the power of habits. Build tiny everyday habits that draw you closer to mastery of your study material daily and you need not rely on willpower or luck, you will be confident in yourself. To do this you need to understand how habits work.
+
+Habits are patterns of behaviour that are so ingrained in us that we don’t even realize that we’re doing them. Case in point: your phone rings while you are reading, your automatic response will be to pick it up because you have built a habit of responding once your phone wails for attention like a spoiled toddler. Dr. Oakley likens habits to zombies since just like zombies hungry for brains, you don’t have to think, you just act. This is a powerful element of our psychology, one that you can harness to help you study better. Make it a habit to study in the same place at the same time and with bursts of concentration and rewards and soon enough the zombies will be working for you. All you have to do is cue them and off they go. Wonderful, isn’t it? cue-belief-behaviour-response
+
+### Testing and illusions of competence
+Merely rereading your material and going over the easy stuff can trick you into thinking you know your stuff when you really don’t. Deliberate practice can help you overcome illusions of competence by making you test yourself and then practise what you failed, not just the easy stuff. Consistently working on the things you find difficult is a habit that will lead you to mastery over time (Outliers, Michael Gladwell). Remember, boiling seas make great sailors.
+
+
+[mooc-course]: https://www.coursera.org/learn/learning-how-to-learn
