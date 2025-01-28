@@ -17,8 +17,8 @@ title: KibetKoech.com
 email: 
 description: >- # this means to ignore newlines until "baseurl:"
   Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.kibetkoech.com" # the base hostname & protocol for your site, e.g. http://example.com
+# baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.kibetkoech.com" # the base hostname & protocol for your site, e.g. http://example.com
 icon: /assets/images/icon-512.png
 twitter_username: 
 github_username:  atonui
