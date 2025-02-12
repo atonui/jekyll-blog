@@ -1,7 +1,7 @@
 ---
-title:  The Kenyan Economy: A 10,000 foot Overview
+title:  The Kenyan Economy - A 10,000 foot Overview
 date:   2025-02-12 07:09:37 +0300
-categories: development economy corruption
+categories: development economy kenya
 permalink: /:categories/:title
 ---
 Recently, I have become interested in how economies function and develop. To better understand this, I decided to take a closer look at Kenya’s economy, particularly regarding international trade. I discovered a useful visualisation website called [the Observatory of Economic Complexity](https://oec.world/en). Looking at Kenya’s 2022 data, our figures are as follows:
