@@ -1,6 +1,6 @@
 ---
 # layout: post
-title:  Should Ai Make Moral Descisions?
+title:  Should AI Make Moral Descisions?
 date:   2025-02-20 9:06:37 +0300
 categories: ai psychology morality childhood
 permalink: /:categories/:title
