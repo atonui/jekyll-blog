@@ -5,9 +5,62 @@
     <description>Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed/index.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 23 Feb 2025 08:27:38 +0300</pubDate>
-    <lastBuildDate>Sun, 23 Feb 2025 08:27:38 +0300</lastBuildDate>
+    <pubDate>Sun, 23 Feb 2025 18:03:04 +0300</pubDate>
+    <lastBuildDate>Sun, 23 Feb 2025 18:03:04 +0300</lastBuildDate>
     <generator>Jekyll v4.4.1</generator>
+    
+      
+        <item>
+          
+            <title>Quotes In PHP</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;p&gt;Every day you learn something new in PHP. For example, did you know the difference between the single quote &lt;strong&gt;‘&lt;/strong&gt; and the double quote &lt;strong&gt;“&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;When you use the single quote the string will be taken exactly as it is but if you use the double quote the string will be evaluated e.g.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;The value is $value&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// The value is $value` &lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;The value is &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// The value is 100. The &lt;/span&gt;
+                  &lt;span class=&quot;c1&quot;&gt;// {} are optional but nice to have &lt;/span&gt;
+                  &lt;span class=&quot;c1&quot;&gt;// for readability&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This nuance is especially important when writing SQL statements that have variables (a bad habit, by the way, you should be using &lt;a href=&quot;https://www.kibetkoech.com/php/sql/security/webdev/SQL-injection&quot;&gt;prepared statements&lt;/a&gt;). So be careful and always wrap your SQL statements in double quotes when you are passing variables e.g.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SELECT * FROM users 
+WHERE email=&apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// will pass actual &lt;/span&gt;
+                          &lt;span class=&quot;c1&quot;&gt;// variable held by $email&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;SELECT * FROM users 
+WHERE email=$email&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// will pass $email which &lt;/span&gt;
+                      &lt;span class=&quot;c1&quot;&gt;// will return an error when you &lt;/span&gt;
+                      &lt;span class=&quot;c1&quot;&gt;// need to parse the query result&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+          </description>
+          <pubDate>Sun, 23 Feb 2025 17:58:25 +0300</pubDate>
+          <link>http://localhost:4000/php/sql/quotes/webdev/SQL-injection-copy</link>
+          <guid isPermaLink="true">http://localhost:4000/php/sql/quotes/webdev/SQL-injection-copy</guid>
+          
+          
+          <category>php</category>
+          
+          <category>sql</category>
+          
+          <category>quotes</category>
+          
+          <category>webdev</category>
+          
+        </item>
+      
     
       
         <item>

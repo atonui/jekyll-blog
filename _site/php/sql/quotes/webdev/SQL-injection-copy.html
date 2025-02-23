@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>KibetKoech.com &mdash; Quotes In PHP</title>
+
+    <meta name="description" content="Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.">  
+
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css?1740322984679630700">
+
+    <link rel="apple-touch-icon" href="/assets/images/icon-512.png">
+
+    
+
+  </head>
+  <body>
+
+    
+      <a href="#main" class="skip-navigation">
+        Skip to content
+      </a>
+    
+
+    
+  
+
+
+  <nav class="site-navigation" role="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+    
+      <li >
+        
+          <a href="/about.html">
+            About
+          </a>
+        
+      </li>
+    
+    </ul>
+  </nav>
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
+
+  
+    <h1 class="post-title divided p-name" itemprop="name headline">
+      Quotes In PHP
+    </h1>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Every day you learn something new in PHP. For example, did you know the difference between the single quote <strong>‘</strong> and the double quote <strong>“</strong>?</p>
+
+<p>When you use the single quote the string will be taken exactly as it is but if you use the double quote the string will be evaluated e.g.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$value</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="k">echo</span> <span class="s1">'The value is $value'</span><span class="p">;</span> <span class="c1">// The value is $value` </span>
+
+<span class="k">echo</span> <span class="s2">"The value is </span><span class="si">{</span><span class="nv">$value</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span> <span class="c1">// The value is 100. The </span>
+                  <span class="c1">// {} are optional but nice to have </span>
+                  <span class="c1">// for readability</span>
+
+</code></pre></div></div>
+
+<p>This nuance is especially important when writing SQL statements that have variables (a bad habit, by the way, you should be using <a href="https://www.kibetkoech.com/php/sql/security/webdev/SQL-injection">prepared statements</a>). So be careful and always wrap your SQL statements in double quotes when you are passing variables e.g.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="nf">query</span><span class="p">(</span><span class="s2">"SELECT * FROM users 
+WHERE email='</span><span class="si">{</span><span class="nv">$email</span><span class="si">}</span><span class="s2">'"</span><span class="p">);</span> <span class="c1">// will pass actual </span>
+                          <span class="c1">// variable held by $email</span>
+
+<span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="nf">query</span><span class="p">(</span><span class="s1">'SELECT * FROM users 
+WHERE email=$email'</span><span class="p">);</span> <span class="c1">// will pass $email which </span>
+                      <span class="c1">// will return an error when you </span>
+                      <span class="c1">// need to parse the query result</span>
+
+</code></pre></div></div>
+
+  </div>
+
+  <div class="post-meta">
+    
+      <div itemprop="author">Allan Koech</div>
+    
+    <time class="post-date dt-published" datetime="2025-02-23T17:58:25+03:00" itemprop="datePublished">February 23, 2025</time>
+  </div>
+
+  
+
+</article>
+
+
+    
+
+    
+
+
+  <nav class="site-navigation" role="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+    
+      <li >
+        
+          <a href="/about.html">
+            About
+          </a>
+        
+      </li>
+    
+    </ul>
+  </nav>
+
+
+    
+      <aside class="site-credits">
+        <p>
+          <small><a href="https://github.com/patdryburgh/hitchens">Hitchens Theme</a> powered by <a href="http://jekyllrb.com">Jekyll</a></small>
+        </p>
+      </aside>
+    
+
+  </body>
+</html>
