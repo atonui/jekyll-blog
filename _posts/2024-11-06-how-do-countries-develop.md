@@ -101,7 +101,7 @@ Here we see a strong positive correlation between electricity consumption per ca
   </figcaption>
 </figure>
 
-From this chart, we can conclude that one of the best ways to create a complex economy is to invest in research and development. China, which has invested heavily in research and development for the past two decades has seen a corresponding rise in the complexity of the goods and services it produces and exports. Japan, Germany, the UK e.t.c. also demonstrate highly complex economies in tandem with their high GDP per capita. 
+From this chart, we can conclude that one of the best ways to create a complex economy is to invest in research and development. China, which has invested heavily in research and development for the past two decades has seen a corresponding rise in the complexity of the goods and services it produces and exports. Japan, Germany, the UK e.t.c. also demonstrate highly complex economies in tandem with their high GDP per capita.
 
 #### Conclusion
 

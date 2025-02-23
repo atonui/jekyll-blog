@@ -12,20 +12,24 @@ Our system will have an email field where a user can enter an email address and 
 
 Here is our HTML form:
 
-`<!DOCTYPE html>`  
-`<html lang="en">`  
-`<h2>SQL Injection Demo</h2>`
+```html
 
-`<body>`  
-   `<form action="" method="post">`  
-       `<input type="text" name="email"><br>`  
-       `<input type="submit" name="submit" value="Check Email">`
+<!DOCTYPE html>
+<html lang="en">
+<h2>SQL Injection Demo</h2>
 
-   `</form>`
+<body>
+   <form action="" method="post">
+    <input type="text" name="email"><br>
+    <input type="submit" name="submit" 
+            value="Check Email">
+   </form>
 
-`</body>`
+</body>
 
-`</html>`
+</html>
+
+```
 
 This is the browser output:
 
@@ -36,42 +40,50 @@ This is the browser output:
   </figcaption>
 </figure>
 
-Now we add php code to read the database and echo an appropriate output.  
-`<?php`  
-`// create a PDO connection`  
-`$host = 'localhost';`  
-`$username = 'root';`  
-`$password = '';`  
-`$dbname = 'sql_injection';`
+Now we add php code to read the database and echo an appropriate output.
 
-`$connection = new PDO('mysql:host='.$host.';dbname='.$dbname, $username, $password);`
+```php
 
-`if (isset($_POST['email'])) {`  
-   `$email = $_POST['email'];`  
-   `$sql = $connection->query("SELECT * FROM users WHERE email='{$email}'");`
+<?php  
+// create a PDO connection
+$host = 'localhost';
+$username = 'root';
+$password = '';
+$dbname = 'sql_injection';
 
-   `if ($sql->rowCount() > 0) {`  
-       `echo 'Your email exists: '.$email;`  
-   `} else {`  
-       `echo 'This email does not exist.';`  
-   `}`  
-`}`  
-`?>`
+$connection = new PDO('mysql:host='.$host.';
+              dbname='.$dbname, $username, $password);
 
-`<!DOCTYPE html>`  
-`<html lang="en">`  
-`<h2>SQL Injection Demo</h2>`
+if (isset($_POST['email'])) {
+   $email = $_POST['email'];
+   $sql = $connection->query(
+        "SELECT * FROM users WHERE email='{$email}'");
 
-`<body>`  
-   `<form action="" method="post">`  
-       `<input type="text" name="email"><br>`  
-       `<input type="submit" name="submit" value="Check Email">`
+   if ($sql->rowCount() > 0) {
+       echo 'Your email exists: '.$email;
+   } else {
+       echo 'This email does not exist.';
+   }
+}  
+?>
 
-   `</form>`
+<!DOCTYPE html>
+<html lang="en">
+<h2>SQL Injection Demo</h2>
 
-`</body>`
+<body>
+  <form action="" method="post">
+   <input type="text" name="email"><br>
+   <input type="submit" name="submit"
+                 value="Check Email">
 
-`</html>`
+  </form>
+
+</body>
+
+</html>
+
+```
 
 Now if we enter the valid email address into the browser we get the following correct response:
 
@@ -111,7 +123,7 @@ We will perform a simple injection to delete the posts table from the database u
 
 This will effectively make our SQL query look like this:  
 **SELECT \* FROM users WHERE email=’;DROP TABLES posts;--’**  
-When we click the button and this query runs it will delete our ‘posts’ table\! 
+When we click the button and this query runs it will delete our ‘posts’ table\!
 
 <figure>
   <img alt="sql injection demo" src="/images/Picture6.png" />
@@ -132,17 +144,22 @@ We all know and love our mysql\_query() function, she’s a simple girl but reme
 
 We mitigate against this kind of attack by using prepared statements. I cannot stress this enough, if you are going to be using some variable in a SQL statement you MUST use prepared statements. I will use PDO prepared statements but you should know you can also use mysql prepared statements. Here is the modified code:
 
-`if (isset($_POST['email'])) {`  
-   `$email = $_POST['email'];`  
-   `$sql = $connection->prepare('SELECT * FROM users WHERE email=?');`  
-   `$sql->bindParam(1, $email);`  
-   `$sql->execute();`
+```php
 
-   `if ($sql->rowCount() > 0) {`  
-       `echo 'Your email exists: '.$email;`  
-   `} else {`  
-       `echo 'This email does not exist.';`  
-   `}`  
-`}`
+if (isset($_POST['email'])) {
+   $email = $_POST['email'];
+   $sql = $connection->prepare(
+    "SELECT * FROM users WHERE email=?");
+   $sql->bindParam(1, $email);  
+   $sql->execute();
+
+   if ($sql->rowCount() > 0) {
+       echo 'Your email exists: '.$email;
+   } else {
+       echo 'This email does not exist.';
+   } 
+}
+
+```
 
 We use a placeholder (**?**) in place of the actual variable in the SQL statement, prepare the statement, bind the actual parameter, and finally execute it. This allows us to mitigate against SQL injection attacks.

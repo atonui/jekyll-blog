@@ -5,9 +5,471 @@
     <description>Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed/index.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Jan 2025 09:51:11 +0300</pubDate>
-    <lastBuildDate>Tue, 28 Jan 2025 09:51:11 +0300</lastBuildDate>
-    <generator>Jekyll v4.3.4</generator>
+    <pubDate>Sun, 23 Feb 2025 08:27:38 +0300</pubDate>
+    <lastBuildDate>Sun, 23 Feb 2025 08:27:38 +0300</lastBuildDate>
+    <generator>Jekyll v4.4.1</generator>
+    
+      
+        <item>
+          
+            <title>SQL Injection</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;p&gt;SQL injection is when a malevolent user surreptitiously introduces malicious SQL statements into your code and can potentially destroy your application or commandeer it for their own nefarious purposes. These malevolent statements are usually ingested from user input fields e.g. email address, name and other fields where user input is allowed. No developer wants this so let’s see how we can defend against this.&lt;/p&gt;
+
+&lt;p&gt;We’ll build a simple system to demonstrate this and then learn how to mitigate it. I created a simple database named ‘sql_injection’ with two tables ‘users’ and ‘posts’. Users table has an ID field and an email field and I inserted the email ‘me@me.com’. Populate your database with a few emails of your choice.&lt;br /&gt;
+Our system will have an email field where a user can enter an email address and the system will determine if the email exists or not and display a helpful message to the user.&lt;/p&gt;
+
+&lt;p&gt;Here is our HTML form:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;SQL Injection Demo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; 
+            &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Check Email&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the browser output:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture1.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Form output
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now we add php code to read the database and echo an appropriate output.&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;  
+&lt;span class=&quot;c1&quot;&gt;// create a PDO connection&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$dbname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sql_injection&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PDO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;mysql:host=&apos;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;;
+              dbname=&apos;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$dbname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;email&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;email&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+   &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;SELECT * FROM users WHERE email=&apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rowCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Your email exists: &apos;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;This email does not exist.&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;SQL Injection Demo&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;post&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt;
+                 &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Check Email&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now if we enter the valid email address into the browser we get the following correct response:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture2.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Correct email output
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;If we enter the wrong email address this is the response we get:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture3.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Inorrect email output
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Now let’s have a bit of fun with some SQL injection, but first, here is what my database looks like:&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture4.png&quot; /&gt;
+  &lt;figcaption&gt;
+   My database
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We will perform a simple injection to delete the posts table from the database using the following string in the input text field: &lt;strong&gt;‘;DROP TABLES posts;–‘&lt;/strong&gt; rather than inputting a legitimate email address.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture5.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Injection
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This will effectively make our SQL query look like this:&lt;br /&gt;
+&lt;strong&gt;SELECT * FROM users WHERE email=’;DROP TABLES posts;–’&lt;/strong&gt;&lt;br /&gt;
+When we click the button and this query runs it will delete our ‘posts’ table!&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;sql injection demo&quot; src=&quot;/images/Picture6.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Injection in the database
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Let’s examine the injected statement in some detail:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The semicolon (;) symbol usually serves as an indicator of the end of the SQL statement. It is unnecessary, but if you have multiple statements that you want to execute in one query, then you will need to use it and that is why we added it to the beginning and end of our injected payload.&lt;/li&gt;
+  &lt;li&gt;The double hyphen (–) is a SQL symbol for an inline comment i.e. anything after this symbol is treated as a comment and thus ignored. We added it to our payload to ignore whatever comes after.&lt;/li&gt;
+  &lt;li&gt;As for getting the table name correct, this is where an attacker needs a bit of luck, they can keep guessing table names until they get it right. If this was a blog website, there’s a good chance we have a table named posts, right?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Do you see how simple yet powerful this attack is? A competent attacker will not just delete a table, they will gain root access to your database and application and can cause some serious damage.&lt;/p&gt;
+
+&lt;p&gt;We all know and love our mysql_query() function, she’s a simple girl but remember, she has a thing for hackers and she will invite them in any time. Be wary of her shy smiles and simple execution methods.&lt;/p&gt;
+
+&lt;p&gt;We mitigate against this kind of attack by using prepared statements. I cannot stress this enough, if you are going to be using some variable in a SQL statement you MUST use prepared statements. I will use PDO prepared statements but you should know you can also use mysql prepared statements. Here is the modified code:&lt;/p&gt;
+
+&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;email&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;email&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+   &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;SELECT * FROM users WHERE email=?&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bindParam&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  
+   &lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rowCount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Your email exists: &apos;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+       &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;This email does not exist.&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We use a placeholder (&lt;strong&gt;?&lt;/strong&gt;) in place of the actual variable in the SQL statement, prepare the statement, bind the actual parameter, and finally execute it. This allows us to mitigate against SQL injection attacks.&lt;/p&gt;
+
+          </description>
+          <pubDate>Thu, 20 Feb 2025 17:30:25 +0300</pubDate>
+          <link>http://localhost:4000/php/sql/security/webdev/SQL-injection</link>
+          <guid isPermaLink="true">http://localhost:4000/php/sql/security/webdev/SQL-injection</guid>
+          
+          
+          <category>php</category>
+          
+          <category>sql</category>
+          
+          <category>security</category>
+          
+          <category>webdev</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>Should AI Make Moral Descisions?</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;p&gt;Many years ago when I was in class 6, our town’s first major supermarket opened. It was on my way home from school and it had everything in the world, or so I thought. I would wander in there any chance I got and would turn my friends at school green with envy with tales of my ‘adventures’ there. One day my classmate, Mike, gave me 50 shillings and asked me to buy him a bottle of glue from the supermarket. As usual, I passed through the supermarket but I forgot all about the glue while admiring the toys.&lt;/p&gt;
+
+&lt;p&gt;The next day I apologised to Mike and assured him that I would get it to him the next day. That evening I went straight home to get the money from the shorts I had on the previous day only to find my mother breathing fire and pacing about the house. As soon as she saw me she demanded to know when I had become a thief. I was puzzled for a moment and Mom, deciding that I was attempting to stall then lie, followed up the question with a couple of vicious slaps to my person. She had a mean backhand that would extract instant confessions from me. I fell back still baffled with what was going on. She stood over me and waved a 50 shilling note in my face and demanded again when I had become a thief. Then I understood it all in a flash. Since I had forgotten the note in yesterday’s shorts she must’ve found them when doing the laundry and instantly concluded that I had stolen it. I started explaining to her that my friend Mike had asked me to buy him glue but before I could finish, another slap cut me off. By this time my brother and aunt came into the room wondering what was going on. Mom shut the door and proceeded to give me the whipping of my life! I begged and pleaded with her but she did not for a second believe my story and instead declared that she would not raise a thief. After her fury abated, I was soaked in tears and stinging all over from the beating.&lt;/p&gt;
+
+&lt;p&gt;The next day at school I still did not have any glue for Mike and he was beginning to get impatient and a little suspicious. I was between a rock and the deep blue sea. I had to resolve this problem quickly to avoid it escalating into a school issue. That evening, I did not waste time after school, I went straight home, opened Mom’s purse, and took Ksh. 50 and went to the supermarket. I got the glue but I also had a startling realisation; the Ksh. 50 note was wrapped around a Ksh. 200 note! Now I had a proper moral dilemma, what do I do with this extra money? I decided to spend it. I bought some sweets, oranges and my very first comic book, ‘The X-Men’.&lt;/p&gt;
+
+&lt;p&gt;I delivered the glue to Mike the next day, and my mother never found out that I had stolen 200 shillings from her. As far as I was concerned, this was compensation for the unfair thrashing I had received the previous day. Young as I was, I understood the principle of double jeopardy.&lt;/p&gt;
+
+&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
+
+&lt;p&gt;We judge the morality of a decision according to 3 main elements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Moral object&lt;/li&gt;
+  &lt;li&gt;Intention&lt;/li&gt;
+  &lt;li&gt;Circumstances&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When I ‘stole’ back the Ksh. 50, the moral objective of the decision wasn’t sound; I was stealing so right off the bat this was immoral. Secondly, when I discovered that I had taken more than was due I should have at least returned the Ksh. 200 but did I? No, I decided that I was owed damages and gladly spent my ‘compensation’. Besides, movies have taught me that criminals get caught when they return to the scene of the crime. I should have been a lawyer.&lt;/p&gt;
+
+&lt;p&gt;I intended to ‘steal’ back the Ksh. 50 to get Mike’s glue while avoiding an uncomfortable encounter with Mom. My intentions were good, but we all know that the road to hell is paved with good intentions. For example, King Saul spared King Agag (1 Samuel 15) and the best of the Amalekite sheep and cattle so that he could later sacrifice them to God despite being under direct orders to destroy them all. God rejected his sacrifice because of the blatant disobedience. His intention was good but the moral object, disobedience, wasn’t.&lt;/p&gt;
+
+&lt;p&gt;The circumstances surrounding my moral dilemma were strange. My mother’s reading of the situation was wrong and unforeseeable. Talking to her yielded nothing but I needed to make amends without causing further trouble. Later in life when I recalled this incident to Mom I understood her position. Back then my father had just passed on leaving her as the sole breadwinner of the family. Then came the infamous Structural Adjustment Program (SAP) by the IMF. It came to our lives in the form of retrenchment for Mum at the worst possible time. They say when it rains, it pours. Mom was under tremendous pressure and my young mind sensed that presenting my case would only yield more whipping.&lt;/p&gt;
+
+&lt;p&gt;Was my decision moral? At the time and for a long time afterwards, it seemed so to me. I was only getting back what was mine, and the extra money was just compensation. However, using the three elements of morality, wasn’t a moral decision because it failed the test of morality. I stole the 250 shillings, and nothing else makes it okay. Maybe I should have waited for Mom to calm down and then spoken to her, but hindsight is 20/20.&lt;/p&gt;
+
+&lt;p&gt;In 1945, right after the fall of Germany, the US turned its full attention to Japan, a relentless and unyielding enemy who never surrendered and fought for every inch of ground to the last man. The path to victory for the Americans would be paved with the blood of millions of soldiers. It is with this information that President Truman decided to drop 2 atomic bombs on the Japanese. The bombs instantly killed more than 200,000 people and the radiation after effects are still being felt to date.&lt;/p&gt;
+
+&lt;p&gt;The highest good is existence and life. President Truman decided that losing 1 million soldiers was worse than killing the 200,000 Japanese. He intended to preserve as much life as he could. The moral object was to win the war in the Pacific as quickly as possible and with as little death as possible. However, the bomb was also dropped as a demonstration of the might of the USA which isn’t moral. The circumstances surrounding the decision was that the world had been embroiled in a devastating war for about 5 years and it needed to end quickly for it threatened to consume the world. For these reasons, I think this was a moral decision by President Truman. I have also come to realise that &lt;strong&gt;&lt;em&gt;the greater the scope of a leader, the more moral they have to be but paradoxically, the less likely that it is that the application of ideals will result in an optimal solution.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Fyodor Dostoevsky, the towering Russian writer, addressed the issue of morality in his book Crime and Punishment. The main character, Rodion Raskolnikov, a destitute university dropout, decides to murder a despicable pawnbroker who thrives on the affliction and poverty of the downtrodden. He rationalises that by killing her and taking her wealth, he will free himself from poverty and become magnanimous with the old woman’s money in service to humanity.&lt;/p&gt;
+
+&lt;p&gt;As he is planning the practical aspects of this murder, his mind also seeks to justify the act. He decides that the good which will come from using her money justifies her murder. Once he kills her, however, his soul rebels. He is plagued with guilt, confusion and disgust and his previous intellectual justifications crumble as he confronts the consequences of the murder. His intentions are noble, to help his fellow men. His circumstances were dire, he was poor, bankrupt and out of school for lack of money and he had cut himself off from society and thus had no one to anchor him to reality. His moral object, however, to kill the old pawnbroker was morally objectionable and turned the whole thing sour. He ended up confessing his crime and taking his punishment to pacify his spirit.&lt;/p&gt;
+
+&lt;p&gt;Thanos is a Titan in the Marvel Cinematic Universe. He is intelligent, strong-willed and capable. His mission in life is to bring about balance in the universe because he theorised that the problems prevalent in the universe, poverty and want, disease and crime all stemmed from overpopulation which placed a strain on the universe. So he went about killing half the population of any planet he visited. He wreaked untold havoc wherever he went all in the name of making the world a better place. Later, he discovered that the quickest path to this goal was to acquire the five infinity stones and thus have the power to instantly and indiscriminately kill half of the universe with just the snap of his fingers! Thanos was such a capable character that he succeeded in doing this. I remember feeling numb and confused as I left the theatre when I watched the movie. I was confused because at some level I understood his logic and agreed with him but my conscience kept bothering me that something was wrong with the decision. He intended to have a peaceful and just universe teeming with life but his moral object was to kill half the universe! This was a completely immoral decision and I suspect that this movie was deeper than most people suspect.&lt;/p&gt;
+
+&lt;h2 id=&quot;reflection&quot;&gt;Reflection&lt;/h2&gt;
+
+&lt;p&gt;Making a moral decision can be both quite simple or extremely difficult depending on the moral object, intention and the circumstances surrounding the decision. For example, what was I supposed to do about Mike’s Ksh. 50? Telling him that my mother took it would only result in a confrontation with Mike or a teacher at school and a long drawn-out investigation which would probably lead to more whipping for me. It certainly was easier to steal it back and that is how moral decisions generally present themselves, they are not easy, they require some moral fibre and the willingness to be misunderstood and even punished for making them.&lt;br /&gt;
+Secondly, a moral decision requires alignment of all 3 elements. It has to be morally objective, have good intentions and suit the circumstances. Applying only logic and rhetoric to make a moral decision will result in lopsided decisions like Thanos’ decision to kill half the universe. A strong moral grounding, and a high moral quotient, are much more important than all the justifications one can come up with.&lt;br /&gt;
+It is difficult enough for human beings to make moral decisions and we have the advantage of emotional depth as well as natural language to elucidate our thoughts and feelings. Codifying morality into artificial intelligence will be quite a feat but for now, I do not think we should let A.I. make any moral decisions, especially ones that have severe consequences.&lt;/p&gt;
+
+          </description>
+          <pubDate>Thu, 20 Feb 2025 09:06:37 +0300</pubDate>
+          <link>http://localhost:4000/ai/psychology/morality/childhood/should-ai-make-moral-decisions</link>
+          <guid isPermaLink="true">http://localhost:4000/ai/psychology/morality/childhood/should-ai-make-moral-decisions</guid>
+          
+          
+          <category>ai</category>
+          
+          <category>psychology</category>
+          
+          <category>morality</category>
+          
+          <category>childhood</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>The Kenyan Economy - A 10,000 foot Overview</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;p&gt;Recently, I have become interested in how economies function and develop. To better understand this, I decided to take a closer look at Kenya’s economy, particularly regarding international trade. I discovered a useful visualisation website called &lt;a href=&quot;https://oec.world/en&quot;&gt;the Observatory of Economic Complexity&lt;/a&gt;. Looking at Kenya’s 2022 data, our figures are as follows:&lt;/p&gt;
+
+&lt;h2 id=&quot;exports&quot;&gt;Exports&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Kenyan exports, 2022. Source OEC&quot; src=&quot;/images/Exports-2022---Click-to-Select-a-Product.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Kenyan exports, 2022. Source OEC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see, most of our exports are agricultural commodities subsequently processed in other countries. The refined petroleum and palm oil we export are just passing through the country to our landlocked neighbours.&lt;/p&gt;
+
+&lt;p&gt;We have also been exporting titanium ore, again a raw material for many &lt;a href=&quot;https://en.wikipedia.org/wiki/Titanium_dioxide#Applications&quot;&gt;manufactured goods&lt;/a&gt; like paint pigment, food additives, sunscreen etc. In fact, did you know that 80% of our annual mineral revenue comes from this one mineral mined in Kwale? Unfortunately, we have mined it clean and Base Titanium, the mining company, is winding up operations (&lt;a href=&quot;https://african.business/2023/11/resources/what-next-for-kenyas-extractives-sector-after-base-titanium-exit&quot;&gt;link&lt;/a&gt;). So in one fell stroke, we will lose about $290 from mineral exports. This is the curse of dependence on commodities.&lt;/p&gt;
+
+&lt;h3 id=&quot;where-does-kenya-export&quot;&gt;Where Does Kenya Export?&lt;/h3&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Kenyan export destination, 2022. Source OEC&quot; src=&quot;/images/Destinations-2022---Click-to-Select-a-Country.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Kenyan export destination, 2022. Source OEC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The USA is our biggest customer, marginally edging out Uganda. Guess what we chiefly export to the USA? Clothes. 57% of our exports to the USA are clothes! We sell them new, high-quality clothes while we import second-hand clothes from them. Ironic, right? I wonder where we get the yarn, other materials, and clothing designs. Is it exclusively our local cotton and wool? Exclusively imported, or a mix of both?&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Kenya exports to the USA, 2022. Source OEC&quot; src=&quot;/images/Exports-to-United-States-2022.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Kenya exports to the USA, 2022. Source OEC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Since tea is our biggest export and the Middle East and Arab countries are our biggest customers, it should be of great interest what happens there. What do we as a nation know about Pakistan? We sell them about half of our tea, $534M worth. Has a sitting Pakistan head of state ever made an official visit to Kenya or vice versa? Remember &lt;a href=&quot;https://www.bbc.com/news/world-africa-63426794&quot;&gt;Arshad Sharif&lt;/a&gt;? The Pakistani journalist killed by Kenyan police in 2022? Did we take that assassination seriously or did we take the Pakistanis round and round in circles hoping the heat would die down?&lt;/p&gt;
+
+&lt;p&gt;Do we realize that stability in the Middle East means that they will have more money to spend on tea? In 2022, we exported well over $50 million worth of goat and sheep meat to the Middle East, and we have immense potential for much more. Why do we not take a keener interest in their affairs and our relationship with them? We focus so much on the West, but really, the African, Asian, and Middle Eastern countries are our best customers.&lt;/p&gt;
+
+&lt;p&gt;How about our neighbours? East Africa and the rest of Africa take up 40% of our exports! Their prosperity is our prosperity. We should be driving the integration of East and Central Africa to stimulate trade and the movement of people. But what do we do? Our president, Dr Ruto, in his most recent &lt;a href=&quot;https://www.standardmedia.co.ke/health/national/article/2001487655/kenyas-year-of-diplomatic-gaffes-loud-criticism-and-clarifications&quot;&gt;international relations blunder&lt;/a&gt;, angered the Congolese by calling the French president to help resolve the M23 issue in Eastern Congo, a move the locals didn’t take too kindly and they reacted by &lt;a href=&quot;https://www.kenyans.co.ke/news/108445-govt-vows-action-after-protestors-attack-kenyan-embassy-employees-drc&quot;&gt;trashing our high commission in Kinshasa&lt;/a&gt;. I wonder how far this will set back our relations given how emotive the M23 issue is in the DRC.&lt;/p&gt;
+
+&lt;h2 id=&quot;imports&quot;&gt;Imports&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Kenya imports, 2022. Source OEC&quot; src=&quot;/images/Imports-2022---Click-to-Select-a-Product (2).png&quot; /&gt;
+  &lt;figcaption&gt;
+   Kenyan imports, 2022. Source OEC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;our-suppliers&quot;&gt;Our Suppliers&lt;/h3&gt;
+
+&lt;figure&gt;
+  &lt;img alt=&quot;Kenya imports source countries, 2022. Source OEC&quot; src=&quot;/images/Origins-2022---Click-to-Select-a-Country.png&quot; /&gt;
+  &lt;figcaption&gt;
+   Kenyan imports, 2022. Source OEC
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Kenya chiefly imports finished products except for palm oil which we import from the South Asian countries of Indonesia and Malaysia. But did you know that the palm tree is native to Africa? This plant has made billionaires in Asia, South America and Europe. Why is the palm oil business lucrative? Palm oil is an important ingredient in many finished products, from cooking oils to soap and biofuels. We should be cultivating this crop and exporting palm oil ourselves. Thankfully, we have realised this and &lt;a href=&quot;https://www.youtube.com/watch?v=d-O7xe7s0bc&amp;amp;ab_channel=CitizenTVKenya&quot;&gt;BIDCO&lt;/a&gt;, put up a plant in Uganda and they are planning to do the same in Kenya after their success in Uganda.&lt;/p&gt;
+
+&lt;p&gt;I wonder why we import so much wheat, $576M worth of wheat in fact and we have thousands of &lt;a href=&quot;https://www.businessdailyafrica.com/bd/economy/israeli-investors-eye-kenya-idle-land-for-wheat-farming-4742366&quot;&gt;hectares&lt;/a&gt; of idle land.&lt;/p&gt;
+
+&lt;p&gt;As for cars, we let our only homegrown car manufacturer, Mobius Motors &lt;a href=&quot;https://www.businessdailyafrica.com/bd/corporate/companies/mobius-shuts-down-4715626&quot;&gt;die&lt;/a&gt; rather than prop it up and boost our manufacturing sector. I wonder what would have happened to the company had the government ordered 111 &lt;a href=&quot;https://www.businessdailyafrica.com/bd/corporate/companies/dci-to-lease-sh510m-volkswagen-tiguan-vehicles-4001340&quot;&gt;police cars&lt;/a&gt; from Mobius rather than VW.&lt;/p&gt;
+
+&lt;p&gt;We also imported $135.1 million worth of milk and concentrated milk. We are not taking our dairy industry seriously, probably because there is everything for the people to gain and nothing for the politicians to grab. Kenya’s annual milk &lt;a href=&quot;https://www.ilri.org/news/dairy-farmer-extension-services-model-successful-research-trial-kenyas-dairy-sector&quot;&gt;demand&lt;/a&gt; is about 8 billion litres, compared to local production of 4.6 billion litres largely fueled by small-scale farmers. The demand exists, but the sector has been neglected, and it is largely a &lt;a href=&quot;https://nation.africa/kenya/business/why-dairy-farming-is-a-loss-making-venture-4430722&quot;&gt;loss-&lt;/a&gt;making venture for small-scale farmers. What if we upgraded our dairy industry and superseded our current demand? We could then diversify into making ghee, butter and cheese thus eliminating the need for margarine and palm oil. This one move could reduce our import bill, and increase local production and exports while improving our health as a nation. Imagine that.&lt;/p&gt;
+
+&lt;p&gt;Our economy is relatively unsophisticated. We grow things, harvest them, and then sell them. There is little value addition or processing, which denies us much-needed revenue and development.&lt;/p&gt;
+
+&lt;p&gt;Why do we supply substandard seeds and fertilizers to maize farmers and expect them to feed the nation? Why do we not have a vibrant irrigation culture in the country? We set up the &lt;a href=&quot;https://nation.africa/kenya/news/how-crooked-profiteers-took-galana-kulalu-project-down-the-drain--4079252&quot;&gt;Galana Kulalu irrigation&lt;/a&gt; project back in 2014 then proceeded to bungle the project in the most incompetent fashion possible. And now we want to &lt;a href=&quot;https://www.businessdailyafrica.com/bd/corporate/companies/selu-to-invest-sh13bn-in-galana-kulalu-project--4499674&quot;&gt;resuscitate&lt;/a&gt; this monster. We have the land, water and expertise but not the political will.&lt;/p&gt;
+
+&lt;p&gt;Why do we think animal husbandry is building slaughterhouses everywhere? County governments are falling over themselves to build abattoirs. What value do slaughterhouses add to meat? Why do we not invest in extension services, water harvesting, pasture management, and fattening centres/ feed lots? Why does our government think that buildings, railways, and such infrastructure equate to economic development? &lt;br /&gt;
+This foolish policy of &lt;em&gt;‘if we build they will come’&lt;/em&gt; is just plain stupid trickle-down economics that does not work! Cue Konza City, a laughable attempt to recreate Silicon Valley in Kenya by building skyscrapers and airports rather than building local human capital and internet infrastructure. Silicon Valley was built around Stanford University on a foundation of cutting-edge research and application.&lt;/p&gt;
+
+&lt;p&gt;Our government also focuses intensely on &lt;a href=&quot;https://www.theelephant.info/analysis/2018/08/16/invisible-citizens-branding-kenya-for-foreign-investors-and-tourists/&quot;&gt;pleasing foreign investors&lt;/a&gt; and tourists rather than empowering locals who will propel the economy upwards from the ground up. How many wealthy countries became so through foreign investors? Some countries did start this way but eventually, the locals absorbed whatever knowledge they imported from foreigners and then applied it in their way until eventually, they were able to create and innovate on their own. How much do foreign investors bring in to warrant such attention? If the same laser focus was turned on agriculture, value addition, local innovations, manufacturing, the service economy and most importantly, the citizens themselves, it would have a lasting multiplier effect on the economy.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;We shall never get wealthy exporting raw materials.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;According to the statistics on &lt;a href=&quot;https://www.gapminder.org/upgrader/q9/&quot;&gt;Gapminder&lt;/a&gt;, in the last two centuries, the share of income from agriculture, forestry and fishing has been dropping steadily and it is now at 5% of global income. No country has become rich by relying on these traditional industries for their income, instead, manufacturing, processing raw materials, complex services and natural resources like oil are the main propellers to wealth. Now, this does not mean that you reduce agricultural output, no, it means you drive up other sectors exponentially such that agriculture even though it is growing, is dwarfed by these more complex industries.&lt;/p&gt;
+
+&lt;p&gt;In many low and mid-income countries, a substantial percentage of tax revenue is collected from import taxes and the small pool of formal employees since the majority of the economy is informal and thus difficult to tax. The best way out of this is to focus on developing the informal sector into a large formal sector so that the tax burden is more evenly spread out rather than shouldered by just a few. Failure to recognize and remedy this leads to higher and higher taxation on fewer and fewer citizens and businesses as the government struggles to raise revenue to run the country. Taxes and interest rates inevitably rise and a money-hungry, inefficient government sucks cash and private debt from the economy leading to depleted savings, lower money velocity, lower investment and ironically, lower income to tax! New bills to increase tax or device new taxes will come up in a bid to raise the tax revenue but this is a reinforcing loop that will drive an economy to the ground if not checked early enough. Sound familiar?&lt;/p&gt;
+
+          </description>
+          <pubDate>Wed, 12 Feb 2025 07:09:37 +0300</pubDate>
+          <link>http://localhost:4000/development/economy/kenya/The-Kenyan-Economy-Overview</link>
+          <guid isPermaLink="true">http://localhost:4000/development/economy/kenya/The-Kenyan-Economy-Overview</guid>
+          
+          
+          <category>development</category>
+          
+          <category>economy</category>
+          
+          <category>kenya</category>
+          
+        </item>
+      
+    
+      
+        <item>
+          
+            <title>How To Develop Kenya II</title>
+          
+          <author> (KibetKoech.com)</author>
+          <description>
+            &lt;p&gt;I am beginning to suspect that our failure to launch is not a technical problem, it is political.
+A bitter pill that we should all swallow is that &lt;strong&gt;Politicians do not care about you&lt;/strong&gt;. They never have and never will. It took the Europeans well over 2 centuries to wrestle power away from their elites and distribute it amongst the entire populace and thus set themselves on the path to prosperity. So getting rid of politics and politicians seems like a viable shortcut. However, the only alternative to politics is war and however bad our politics might be, it is infinitely preferable to war. You just have to look at our next-door neighbours, Somalia, Sudan and Ethiopia to see this.&lt;/p&gt;
+
+&lt;p&gt;Our current political system is set up such that it attracts the worst of us. I, therefore, propose that we reconcile these opposing desires by intertwining public interest with that of politicians. Get their skin in the game because over time they have managed to insulate themselves from the drudgery and struggles of the average Kenyan. How should we do this?&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;All politicians and public servants should receive their medical insurance only from SHIF/SHA. No private insurance. They should also be restricted to public hospitals unless it is an emergency. This will ensure that our public hospitals are well equipped and well stocked with drugs and the staff will never go on strike.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Everyone who receives a paycheck from the exchequer along with their children and spouses should only attend public school. If they want to attend a private school, they can resign. Again we will see an almost magical improvement in the service delivery of public schools as well as the motivation of teachers. As for elected official, their children must attend schools within their constituency.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;No car grants and soft mortgages from the treasury for any politician or civil servant. They can join SACCOs and line up at the bank like the rest of us. Suddenly, the CRB will begin to function as it was intended, a pricer of risk and loans. Greedy banks will be reigned in and the insane import taxation on vehicles and overpriced real estate will suddenly be uncomfortable for legislators.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Pensions for MPs will be after 20 years of continuous service. This will be provided strictly through NSSF, not a private pension fund. Suddenly, NSSF will no longer be broke and pensions will be processed immediately.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The salaries of politicians should be pegged to the GDP per capita or a multiple of the minimum wage/ average wage in Kenya as reported by independent institutions like the World Bank, just like CEOs get a performance bonus. Our politicians will be forced to make prudent financial decisions. Using a multiple of say 10, if we use the GDP per capita &lt;a href=&quot;https://tradingeconomics.com/kenya/gdp-per-capita&quot;&gt;here&lt;/a&gt;, this works out to roughly 196,000 per month. Using the average monthly &lt;a href=&quot;https://www.businessdailyafrica.com/bd/economy/kenyans-average-income-of-sh20-123-hits-six-year-high--4043204&quot;&gt;income&lt;/a&gt; it works out to about 201,230 shillings per month. For governors and MCAs, we can use numbers from their respective counties.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Fuel allowances should be the current AA rate, not set by parliament. This is chiefly for humility’s sake, just to make sure that they stay in touch with the prices that affect our everyday lives.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;End per diems for elected officials. Their travel and accommodation logistics can be arranged and paid for by parliament or the county assembly. If they spend on food, they must claim the expenses via receipts just like the rest of us.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Campaign finances. There should be a hard ceiling on how much can be raised and spent on campaigns. Get volunteers who believe in your cause to campaign for you. Also, campaign finance should be audited and made public and any violation should attract punitive measures like loss of a seat and disbarment from participation in elective politics or holding any public office.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Every year, a list of companies owned by elected and top officials, their spouses, siblings and children over 25 years old to be published along with their audited accounts. And no, they cannot do business with the government. This will force them to expand the private sector to get any business.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;AHP should be ring-fenced and used to develop or improve infrastructure to support housing development, such as access to water, inlet roads, sewerage, and last-mile power. &lt;em&gt;(I have a problem with this, though. I will be paying KPLC for power every month; why should I finance their capital outlay?)&lt;/em&gt;. The government has no business building houses; if it can’t house police officers, then how can we expect it to build houses for us?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Information. National budgets are grand and easily escape the scrutiny of Wanjiku. Budget allocations and expenditures for public institutions/centres, such as local clinics, schools, etc., should be posted publicly on the institution’s notice boards website, and at the local administrative offices (chief, DO, etc.).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;All government contracts and agreements must be made public before ascension and must require parliamentary approval otherwise they are illegal, will not be honoured and the signees will be held personally liable. I’m thinking of SGR, Adani and other such contracts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Half of all government vehicles must be locally manufactured.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;CDF must go.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;County governments will be financed at a multiple of their revenue. For example, if a county raises 200 million a year, then it gets a 4 multiple to 1 billion. This nonsense of giving counties 17 billion instead of their own 100 million that they then proceed to loot and mismanage has got to end.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Senators, MPs, governors, MCAs and CSs, Supreme Court judges and their spouse’s tax returns will be made public.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Protective detail will only be for the president, deputy president, speakers of parliament, CJ and DCJ. The rest can tough it out with us. I bet police service delivery will improve greatly.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;EACC and IPOA should be given teeth - prosecutorial powers.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We must develop an overarching vision that will be executed in phases by the various governments that come into power to ensure continuity. Vision 2030 started well but we seem to have abandoned it.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The rules and laws of demonstrations should apply to political rallies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Anyone with an active criminal court case should not be allowed to run for any public office or be appointed to any public office - this may be prone to abuse but I think the benefits outweigh the risks.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Civic education. This should take place in schools. Every child should be educated on our entire constitution and its history.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Any law, rule, regulation or policy that seeks to control the media, social media or free speech should be okayed by the executive (cabinet), ⅔ majority (of the total, not of the quorum) in parliament and the assemblies of all counties before it is accepted.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Agriculture should be a compulsory subject in every school in Kenya, even those working on international curriculums.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These measures seem punitive and invasive because they are. The intention is twofold:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sieve out the bad apples who cannot take the scrutiny. Caesar’s wife should be beyond suspicion.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;If some manage to squeeze through, make sure that life will be unpleasant for them.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+
+          </description>
+          <pubDate>Mon, 03 Feb 2025 10:53:37 +0300</pubDate>
+          <link>http://localhost:4000/development/economy/corruption/how-to-develop-kenya-II</link>
+          <guid isPermaLink="true">http://localhost:4000/development/economy/corruption/how-to-develop-kenya-II</guid>
+          
+          
+          <category>development</category>
+          
+          <category>economy</category>
+          
+          <category>corruption</category>
+          
+        </item>
+      
     
       
         <item>
@@ -198,7 +660,7 @@ To register for the test you can follow Splunk’s instructions here. Please be 
           <description>
             &lt;h4 id=&quot;what-is-the-role-of-energy-and-scientific-advancement-in-the-socioeconomic-development-of-nations&quot;&gt;&lt;em&gt;What is the role of energy and scientific advancement in the socioeconomic development of nations?&lt;/em&gt;&lt;/h4&gt;
 
-&lt;p&gt;How do countries develop? What is development? Owen Barder&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,  argues that development is an emergent property of the socioeconomic system. He further expounds this idea by noting that development is not the sum of the well-being of people in the economy and it cannot be brought about simply by making enough people in the economy better off. Development, he argues, is instead a system-wide manifestation of the way people, firms, technologies and institutions interact with each other within the economic, social and political system. Specifically, development is the capacity of those systems to provide self-organising complexity.  Self-organising complexity in an adaptive system cannot be deliberately designed; it arises from a process of continuous adaptation and evolution.&lt;/p&gt;
+&lt;p&gt;How do countries develop? What is development? Owen Barder&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;,  argues that development is an emergent property of the socioeconomic system. He further expounds this idea by noting that development is not the sum of the well-being of people in the economy and it cannot be brought about simply by making enough people in the economy better off. Development, he argues, is instead a system-wide manifestation of the way people, firms, technologies and institutions interact with each other within the economic, social and political system. Specifically, development is the capacity of those systems to provide self-organising complexity.  Self-organising complexity in an adaptive system cannot be deliberately designed; it arises from a process of continuous adaptation and evolution.&lt;/p&gt;
 
 &lt;p&gt;This is a complex topic to tackle so I have narrowed down my question to just how important energy is to the development of a nation, specifically, electricity and the role of scientific advancement. This is because electrical consumption is a measure of not just the ability to utilise electricity but a measure of just how good a country’s infrastructure is because electricity is complex to generate, transmit and use and like all other forms of energy it must be reliable and cheap. Attention to scientific advancements is also important as new and more complex goods and services are developed through research and the application of newly discovered or acquired knowledge. A nation that pays attention to and deliberately funds research and development will tend to have a more advanced and complex economy.&lt;/p&gt;
 
@@ -210,11 +672,11 @@ To register for the test you can follow Splunk’s instructions here. Please be 
 &lt;p&gt;Data was acquired and assembled from multiple online sources listed below:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Electricity consumption per capita (kWh) and GDP per capita ($) from the World Bank data repository&lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
-  &lt;li&gt;List of oil-producing countries from Wikipedia, scraped using R&lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
-  &lt;li&gt;Economic Complexity Index, Harvard University, (The Atlas of Economic Complexity by @HarvardGrwthLab, n.d.)&lt;sup id=&quot;fnref:4&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
-  &lt;li&gt;Democracy Index from Economist Intelligence Unit, 2023&lt;sup id=&quot;fnref:5&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
-  &lt;li&gt;Gini Coefficient by Country 2023, n.d&lt;sup id=&quot;fnref:6&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Electricity consumption per capita (kWh) and GDP per capita ($) from the World Bank data repository&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;List of oil-producing countries from Wikipedia, scraped using R&lt;sup id=&quot;fnref:3&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Economic Complexity Index, Harvard University, (The Atlas of Economic Complexity by @HarvardGrwthLab, n.d.)&lt;sup id=&quot;fnref:4&quot;&gt;&lt;a href=&quot;#fn:4&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Democracy Index from Economist Intelligence Unit, 2023&lt;sup id=&quot;fnref:5&quot;&gt;&lt;a href=&quot;#fn:5&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
+  &lt;li&gt;Gini Coefficient by Country 2023, n.d&lt;sup id=&quot;fnref:6&quot;&gt;&lt;a href=&quot;#fn:6&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;results-and-discussion&quot;&gt;Results and Discussion&lt;/h3&gt;
@@ -268,7 +730,7 @@ Three clear categories emerge.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;From the above chart, there is another strong positive correlation between GDP per capita and Economic complexity. There are some exceptions like Qatar, the UAE, Kuwait etc. These can be explained by the presence of oil deposits that these countries export thus they do not need to have complex economies to have a high GDP per capita. However, their goal should be to invest their income in creating a sufficiently advanced and complex economy to buffer themselves against upsets in their major export. Suppose a new source of energy is discovered or invented that will replace oil. Or perhaps their deposits run out? What then? 
-To flourish a nation needs to generate wealth consistently, and the way to create more is through innovation. Innovation is essential to African stability and growth in the upcoming decades. Currently, much of that wealth creation is the creation of microenterprises, small businesses that only employ one or two people&lt;sup id=&quot;fnref:7&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+To flourish a nation needs to generate wealth consistently, and the way to create more is through innovation. Innovation is essential to African stability and growth in the upcoming decades. Currently, much of that wealth creation is the creation of microenterprises, small businesses that only employ one or two people&lt;sup id=&quot;fnref:7&quot;&gt;&lt;a href=&quot;#fn:7&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot; role=&quot;doc-noteref&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 
 &lt;h4 id=&quot;4-number-of-scientific-publications-per-country&quot;&gt;4. Number of Scientific Publications per Country&lt;/h4&gt;
 
@@ -323,25 +785,25 @@ To flourish a nation needs to generate wealth consistently, and the way to creat
 
 &lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
   &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
       &lt;p&gt;https://www.cgdev.org/blog/what-development &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
       &lt;p&gt;https://data.worldbank.org/ &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:3&quot;&gt;
       &lt;p&gt;https://en.wikipedia.org/wiki/List_of_countries_by_oil_production &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:4&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:4&quot;&gt;
       &lt;p&gt;https://atlas.cid.harvard.edu/rankings &lt;a href=&quot;#fnref:4&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:5&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:5&quot;&gt;
       &lt;p&gt;https://www.eiu.com/n/campaigns/democracy-index-2022/ &lt;a href=&quot;#fnref:5&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:6&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:6&quot;&gt;
       &lt;p&gt;https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country &lt;a href=&quot;#fnref:6&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
-    &lt;li id=&quot;fn:7&quot; role=&quot;doc-endnote&quot;&gt;
+    &lt;li id=&quot;fn:7&quot;&gt;
       &lt;p&gt;Makhtar Diop, World Bank’s Vice President for Africa. (2017, December 1). Innovation in Africa. World Bank. https://www.worldbank.org/en/news/speech/2017/11/30/innovation-in-africa &lt;a href=&quot;#fnref:7&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>KibetKoech.com &mdash; SQL Injection</title>
+
+    <meta name="description" content="Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.">  
+
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css?1740288458115492500">
+
+    <link rel="apple-touch-icon" href="/assets/images/icon-512.png">
+
+    
+
+  </head>
+  <body>
+
+    
+      <a href="#main" class="skip-navigation">
+        Skip to content
+      </a>
+    
+
+    
+  
+
+
+  <nav class="site-navigation" role="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+    
+      <li >
+        
+          <a href="/about.html">
+            About
+          </a>
+        
+      </li>
+    
+    </ul>
+  </nav>
+
+
+
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
+
+  
+    <h1 class="post-title divided p-name" itemprop="name headline">
+      SQL Injection
+    </h1>
+  
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>SQL injection is when a malevolent user surreptitiously introduces malicious SQL statements into your code and can potentially destroy your application or commandeer it for their own nefarious purposes. These malevolent statements are usually ingested from user input fields e.g. email address, name and other fields where user input is allowed. No developer wants this so let’s see how we can defend against this.</p>
+
+<p>We’ll build a simple system to demonstrate this and then learn how to mitigate it. I created a simple database named ‘sql_injection’ with two tables ‘users’ and ‘posts’. Users table has an ID field and an email field and I inserted the email ‘me@me.com’. Populate your database with a few emails of your choice.<br />
+Our system will have an email field where a user can enter an email address and the system will determine if the email exists or not and display a helpful message to the user.</p>
+
+<p>Here is our HTML form:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;h2&gt;</span>SQL Injection Demo<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+   <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"email"</span><span class="nt">&gt;&lt;br&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"submit"</span> 
+            <span class="na">value=</span><span class="s">"Check Email"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+
+<p>This is the browser output:</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture1.png" />
+  <figcaption>
+   Form output
+  </figcaption>
+</figure>
+
+<p>Now we add php code to read the database and echo an appropriate output.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?php</span>  
+<span class="c1">// create a PDO connection</span>
+<span class="nv">$host</span> <span class="o">=</span> <span class="s1">'localhost'</span><span class="p">;</span>
+<span class="nv">$username</span> <span class="o">=</span> <span class="s1">'root'</span><span class="p">;</span>
+<span class="nv">$password</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="nv">$dbname</span> <span class="o">=</span> <span class="s1">'sql_injection'</span><span class="p">;</span>
+
+<span class="nv">$connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PDO</span><span class="p">(</span><span class="s1">'mysql:host='</span><span class="mf">.</span><span class="nv">$host</span><span class="mf">.</span><span class="s1">';
+              dbname='</span><span class="mf">.</span><span class="nv">$dbname</span><span class="p">,</span> <span class="nv">$username</span><span class="p">,</span> <span class="nv">$password</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]))</span> <span class="p">{</span>
+   <span class="nv">$email</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'email'</span><span class="p">];</span>
+   <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="nf">query</span><span class="p">(</span>
+        <span class="s2">"SELECT * FROM users WHERE email='</span><span class="si">{</span><span class="nv">$email</span><span class="si">}</span><span class="s2">'"</span><span class="p">);</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$sql</span><span class="o">-&gt;</span><span class="nf">rowCount</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">echo</span> <span class="s1">'Your email exists: '</span><span class="mf">.</span><span class="nv">$email</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">echo</span> <span class="s1">'This email does not exist.'</span><span class="p">;</span>
+   <span class="p">}</span>
+<span class="p">}</span>  
+<span class="cp">?&gt;</span>
+
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;h2&gt;</span>SQL Injection Demo<span class="nt">&lt;/h2&gt;</span>
+
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"email"</span><span class="nt">&gt;&lt;br&gt;</span>
+   <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">name=</span><span class="s">"submit"</span>
+                 <span class="na">value=</span><span class="s">"Check Email"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;/form&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre></div></div>
+
+<p>Now if we enter the valid email address into the browser we get the following correct response:</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture2.png" />
+  <figcaption>
+   Correct email output
+  </figcaption>
+</figure>
+
+<p>If we enter the wrong email address this is the response we get:</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture3.png" />
+  <figcaption>
+   Inorrect email output
+  </figcaption>
+</figure>
+
+<p>Now let’s have a bit of fun with some SQL injection, but first, here is what my database looks like:</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture4.png" />
+  <figcaption>
+   My database
+  </figcaption>
+</figure>
+
+<p>We will perform a simple injection to delete the posts table from the database using the following string in the input text field: <strong>‘;DROP TABLES posts;–‘</strong> rather than inputting a legitimate email address.</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture5.png" />
+  <figcaption>
+   Injection
+  </figcaption>
+</figure>
+
+<p>This will effectively make our SQL query look like this:<br />
+<strong>SELECT * FROM users WHERE email=’;DROP TABLES posts;–’</strong><br />
+When we click the button and this query runs it will delete our ‘posts’ table!</p>
+
+<figure>
+  <img alt="sql injection demo" src="/images/Picture6.png" />
+  <figcaption>
+   Injection in the database
+  </figcaption>
+</figure>
+
+<p>Let’s examine the injected statement in some detail:</p>
+
+<ul>
+  <li>The semicolon (;) symbol usually serves as an indicator of the end of the SQL statement. It is unnecessary, but if you have multiple statements that you want to execute in one query, then you will need to use it and that is why we added it to the beginning and end of our injected payload.</li>
+  <li>The double hyphen (–) is a SQL symbol for an inline comment i.e. anything after this symbol is treated as a comment and thus ignored. We added it to our payload to ignore whatever comes after.</li>
+  <li>As for getting the table name correct, this is where an attacker needs a bit of luck, they can keep guessing table names until they get it right. If this was a blog website, there’s a good chance we have a table named posts, right?</li>
+</ul>
+
+<p>Do you see how simple yet powerful this attack is? A competent attacker will not just delete a table, they will gain root access to your database and application and can cause some serious damage.</p>
+
+<p>We all know and love our mysql_query() function, she’s a simple girl but remember, she has a thing for hackers and she will invite them in any time. Be wary of her shy smiles and simple execution methods.</p>
+
+<p>We mitigate against this kind of attack by using prepared statements. I cannot stress this enough, if you are going to be using some variable in a SQL statement you MUST use prepared statements. I will use PDO prepared statements but you should know you can also use mysql prepared statements. Here is the modified code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">if</span> <span class="p">(</span><span class="k">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">'email'</span><span class="p">]))</span> <span class="p">{</span>
+   <span class="nv">$email</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">'email'</span><span class="p">];</span>
+   <span class="nv">$sql</span> <span class="o">=</span> <span class="nv">$connection</span><span class="o">-&gt;</span><span class="nf">prepare</span><span class="p">(</span>
+    <span class="s2">"SELECT * FROM users WHERE email=?"</span><span class="p">);</span>
+   <span class="nv">$sql</span><span class="o">-&gt;</span><span class="nf">bindParam</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nv">$email</span><span class="p">);</span>  
+   <span class="nv">$sql</span><span class="o">-&gt;</span><span class="nf">execute</span><span class="p">();</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="nv">$sql</span><span class="o">-&gt;</span><span class="nf">rowCount</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+       <span class="k">echo</span> <span class="s1">'Your email exists: '</span><span class="mf">.</span><span class="nv">$email</span><span class="p">;</span>
+   <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">echo</span> <span class="s1">'This email does not exist.'</span><span class="p">;</span>
+   <span class="p">}</span> 
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>We use a placeholder (<strong>?</strong>) in place of the actual variable in the SQL statement, prepare the statement, bind the actual parameter, and finally execute it. This allows us to mitigate against SQL injection attacks.</p>
+
+  </div>
+
+  <div class="post-meta">
+    
+      <div itemprop="author">Allan Koech</div>
+    
+    <time class="post-date dt-published" datetime="2025-02-20T17:30:25+03:00" itemprop="datePublished">February 20, 2025</time>
+  </div>
+
+  
+
+</article>
+
+
+    
+
+    
+
+
+  <nav class="site-navigation" role="navigation">
+    <ul>
+      <li>
+        <a href="/">
+          Home
+        </a>
+      </li>
+    
+      <li >
+        
+          <a href="/about.html">
+            About
+          </a>
+        
+      </li>
+    
+    </ul>
+  </nav>
+
+
+    
+      <aside class="site-credits">
+        <p>
+          <small><a href="https://github.com/patdryburgh/hitchens">Hitchens Theme</a> powered by <a href="http://jekyllrb.com">Jekyll</a></small>
+        </p>
+      </aside>
+    
+
+  </body>
+</html>

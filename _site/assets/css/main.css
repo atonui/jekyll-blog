@@ -80,9 +80,7 @@ input, select {
 
 .clearfix {
   display: block;
-}
-
-/**
+} /**
  * Syntax highlighting styles
  */
 code.highlighter-rouge {

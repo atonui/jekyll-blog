@@ -18,7 +18,7 @@ Our current political system is set up such that it attracts the worst of us. I,
 4. Pensions for MPs will be after 20 years of continuous service. This will be provided strictly through NSSF, not a private pension fund. Suddenly, NSSF will no longer be broke and pensions will be processed immediately.
 
 5. The salaries of politicians should be pegged to the GDP per capita or a multiple of the minimum wage/ average wage in Kenya as reported by independent institutions like the World Bank, just like CEOs get a performance bonus. Our politicians will be forced to make prudent financial decisions. Using a multiple of say 10, if we use the GDP per capita [here][gdp], this works out to roughly 196,000 per month. Using the average monthly [income][income] it works out to about 201,230 shillings per month. For governors and MCAs, we can use numbers from their respective counties.
-6. Fuel allowances should be the current AA rate, not set by parliament. This is chiefly for humility’s sake, just to make sure that they stay in touch with the prices that affect our everyday lives.#
+6. Fuel allowances should be the current AA rate, not set by parliament. This is chiefly for humility’s sake, just to make sure that they stay in touch with the prices that affect our everyday lives.
 
 7. End per diems for elected officials. Their travel and accommodation logistics can be arranged and paid for by parliament or the county assembly. If they spend on food, they must claim the expenses via receipts just like the rest of us.
 
