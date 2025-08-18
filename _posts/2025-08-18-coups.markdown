@@ -1,6 +1,6 @@
 ---
 title:  Machine Learning Model To Predict Coups
-date:   2025-08-14 17:30:25 +0300
+date:   2025-08-18 17:30:25 +1835
 categories: coup instability politics development democracy machine_learning economics
 permalink: /:categories/:title
 ---
