@@ -59,37 +59,14 @@ df.sample(10)
 
 ```
 
-|index|coup\_id|cowcode|country|year|month|day|event\_type|unrealized|realized|conspiracy|attempt|military|dissident|rebel|palace|foreign|auto|resign|popular|counter|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|450|4106011984|41|Haiti|1984|6|1|conspiracy|1|0|1|0|0|1|0|0|0|0|0|0|0|
-|185|35511101989|355|Bulgaria|1989|11|10|coup|0|1|0|0|0|0|0|1|0|0|1|0|0|
-|338|65104281954|651|Egypt|1954|4|28|conspiracy|1|0|1|0|1|0|0|0|0|0|0|0|0|
-|382|45210031961|452|Ghana|1961|10|3|conspiracy|1|0|1|0|0|1|0|0|0|0|0|0|0|
-|397|35012131967|350|Greece|1967|12|13|attempted|1|0|0|1|0|0|0|1|0|0|0|0|0|
-|803|11508151980|115|Surinam|1980|8|15|coup|0|1|0|0|0|0|0|1|0|1|0|0|0|
-|492|64507141958|645|Iraq|1958|7|14|coup|0|1|0|0|1|0|0|0|0|0|0|0|0|
-|370|48102171964|481|Gabon|1964|2|17|coup|0|1|0|0|1|0|0|0|0|0|0|0|0|
-|93|54005271977|540|Angola|1977|5|27|attempted|1|0|0|1|1|1|0|1|0|0|0|0|0|
-|117|16012031990|160|Argentina|1990|12|3|attempted|1|0|0|1|1|1|0|0|0|0|0|0|0|
+<figure>
+  <img alt="Coup data" src="/images/coup_data.png" />
+  <figcaption>
+   Feature importance for the basic random forest model
+  </figcaption>
+</figure>
 
 ### Exploring the Data (EDA)
-
-```python
-df[['country', 'event_type', 'realized', 'unrealized']].sample(10)
-
-```
-|index|country|event\_type|realized|unrealized|
-|---|---|---|---|---|
-|928|Yemen Arab Republic|coup|1|0|
-|632|Nigeria|attempted|0|1|
-|722|Republic of Korea|attempted|0|1|
-|637|Nigeria|conspiracy|0|1|
-|46|Montenegro|conspiracy|0|1|
-|384|Ghana|conspiracy|0|1|
-|720|Republic of Korea|coup|1|0|
-|125|Bangladesh|coup|1|0|
-|582|Mauritania|coup|1|0|
-|41|Chad|attempted|0|1|
 
 The column 'realized' when equal to 1, and 'coup' mean the same thing.
 
@@ -159,32 +136,12 @@ This dataset had data on instability events, including coups, conspiracies, etc.
 pd.pivot_table(df.sample(10), values = 'realized', index=['country'])
 ```
 
-|country|realized|
-|---|---|
-|Argentina|0\.5|
-|Cambodia|1\.0|
-|El Salvador|1\.0|
-|Ethiopia|1\.0|
-|Indonesia|0\.0|
-|Iraq|0\.0|
-|Mauritania|0\.0|
-|Peru|1\.0|
-
-```python
-pd.pivot_table(df.sample(10), values = 'unrealized', index=['country'])
-```
-|country|unrealized|
-|---|---|
-|Bolivia|0\.0|
-|Dominican Republic|0\.0|
-|Honduras|0\.0|
-|Hungary|0\.0|
-|Pakistan|0\.0|
-|Somalia|1\.0|
-|Surinam|1\.0|
-|Syria|0\.0|
-|Turkey|1\.0|
-|Ukraine|0\.0|
+<figure>
+  <img alt="Pivot data" src="/images/pivot_table.png" />
+  <figcaption>
+   Pivot table
+  </figcaption>
+</figure>
 
 The column 'realized' when equal to 1, and 'coup' means the same thing. We shall now slice the dataframe to include only coup events, then we shall count the coups per country.
 
@@ -192,18 +149,13 @@ The column 'realized' when equal to 1, and 'coup' means the same thing. We shall
 final_coups = coups.iloc[2:,2:6]
 final_coups.head(10)
 ```
-|index|country|year|month|day|
-|---|---|---|---|---|
-|4|Egypt|2013|7|3|
-|5|Fiji|2006|12|5|
-|6|Guinea|2008|12|23|
-|10|Guinea-Bissau|2012|4|12|
-|11|Honduras|2009|6|28|
-|13|Madagascar|2009|3|17|
-|15|Maldives|2012|2|7|
-|16|Mali|2012|3|22|
-|18|Mauritania|2008|8|6|
-|19|Niger|2010|2|18|
+
+<figure>
+  <img alt="Coup data" src="/images/final_coup.png" />
+  <figcaption>
+   Coup Data
+  </figcaption>
+</figure>
 
 We don't need the dates.
 
@@ -230,9 +182,12 @@ final_coups.groupby(['country'])['country'].count()
 To clean this up, we need to drop the added index, then reset it and insert proper column names.
 
 ```python
-country_coups.index.name = None # remove index name
-country_coups = country_coups.reset_index() # reset the index
-country_coups.columns = ["country", "Number_of_coups"] # insert the column names
+# remove index name
+country_coups.index.name = None 
+# reset the index
+country_coups = country_coups.reset_index() 
+# insert the column names
+country_coups.columns = ["country", "Number_of_coups"] 
 ```
 
 |index|country|Number\_of\_coups|
@@ -272,16 +227,18 @@ country_coups.isna()
 |3|false|false|
 |4|false|false|
 |5|false|false|
-...
 |100|false|false|
 |101|false|false|
 |102|false|false|
+
+No missing values.
 
 ```python
 #Checking for duplicate values
 country_coups.duplicated().sum()
 ```
-np.int64(0)
+
+`np.int64(0)`
 
 Good, no missing values or duplicates.
 
@@ -290,7 +247,8 @@ Next, we get a list of oil-producing countries. I have an R script that is short
 ```R
 # load the rvest library
 library(rvest)
-oilurl = read_html('https://en.wikipedia.org/wiki/List_of_countries_by_proven_oil_reserves')
+oilurl = read_html('https://en.wikipedia.org/
+wiki/List_of_countries_by_proven_oil_reserves')
 
 # extract a list of tables in this page
 oil_tables = html_table(oilurl)
@@ -309,18 +267,18 @@ dim(oil_countries)
 
 This yields a table that looks like this:
 
-|index|country|Oil\_production|Years\_of\_production\_in\_reserve|
-|---|---|---|---|
-|0|Venezuela|527063|1578\.0|
-|1|Saudi Arabia|9264921|76\.0|
-|2|Iran|2665809|214\.0|
-|3|Canada|4201101|111\.0|
-|4|Iraq|4102311|97\.0|
+<figure>
+  <img alt="Oil production data" src="/images/oil_production.png" />
+  <figcaption>
+   Oil Production Data
+  </figcaption>
+</figure>
 
 We do not need the production capacities, just a list of oil-producing nations. We will drop all the extra columns and create a column 'oil_producing' which we will fill with 1 for an oil-producing nation and 0 for the others.
 
 ```python
-oil_countries.drop(['Oil_production', 'Years_of_production_in_reserve'], axis = 1, inplace=True)
+oil_countries.drop(['Oil_production', 
+'Years_of_production_in_reserve'], axis = 1, inplace=True)
 oil_countries['oil_producing'] = 1
 oil_countries.to_csv('/content/drive/MyDrive/oil_countries.csv')
 oil_countries.sample(5)
@@ -337,7 +295,7 @@ oil_countries.sample(5)
 On to the Gini Index. To get the data, I did the same thing as the oil-producing countries' data and loaded it into my notebook. This data also came with population data, which I will leave in there.
 
 ```python
-# Data on inequality as measured by the gini index https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country
+# Data on inequality as measured by the gini index 
 gini_index = pd.read_csv(r'/content/drive/MyDrive/gini.csv')
 gini_index.head()
 ```
@@ -348,9 +306,10 @@ gini_index.head()
 |71|1425671352|China|38\.5|
 |75|334506|Vanuatu|37\.6|
 |94|654768|Luxembourg|35\.4|
-|117|3210847|Bosnia and Herzegovina|33\.0|
+|117|3210847|Bosnia and Herzegovina|33\.0|   
 
-Next was the democratic index data and I got it the same way as the others. Here is a sample.
+
+Next was the democratic index data and I got it the same way as the others. Here is a sample.  
 
 |index|country|democracy\_index|
 |---|---|---|
@@ -358,7 +317,7 @@ Next was the democratic index data and I got it the same way as the others. Here
 |1|Albania|6\.41|
 |2|Algeria|3\.66|
 |3|Angola|3\.96|
-|4|Argentina|6\.85|
+|4|Argentina|6\.85|  
 
 Finally, I got a list of all countries in the world to compare against. Looking at all these disparate datasets:
 
@@ -389,17 +348,16 @@ combo.sample(10)
 |146|Portugal|7\.95|
 |62|Fiji|5\.55|
 |141|Papua New Guinea|5\.97|
-|154|Saint Lucia|NaN|
+|154|Saint Lucia|NaN|  
 
 After combining all of these datasets, this is what we have:
 
-|index|country|democracy\_index|oil\_producing|population|gini\_index|Number\_of\_coups|gdp\_per\_capita|
-|---|---|---|---|---|---|---|---|
-|223|Peru|5\.92|1\.0|34352719\.0|41\.5|6\.0|15463\.54324|
-|289|Timor-Leste|7\.06|0\.0|1360596\.0|28\.7|NaN|5096\.451711|
-|108|Greece|7\.97|1\.0|10341277\.0|32\.9|2\.0|33502\.75065|
-|46|Channel Islands|NaN|0\.0|NaN|NaN|NaN|NaN|
-|252|Sierra Leone|5\.03|0\.0|8791092\.0|35\.7|7\.0|2855\.229066|
+<figure>
+  <img alt="Final data" src="/images/final_data.png" />
+  <figcaption>
+   Final Dataset
+  </figcaption>
+</figure>
 
 The NaN values in the 'oil_producing' and 'Number_of_coups' columns were filled with 0 to represent no oil or no coup. All other rows with NaN values were dropped.
 
@@ -409,8 +367,11 @@ The NaN values in the 'oil_producing' and 'Number_of_coups' columns were filled 
 
 ```python
 # select features and target from the dataset
-X = final.loc[:,['democracy_index', 'oil_producing',	'population',	'gini_index',	'Number_of_coups', 'gdp_per_capita']] # features
-y = final['coup'] # target
+# features
+X = final.loc[:,['democracy_index', 'oil_producing','population',
+'gini_index','Number_of_coups', 'gdp_per_capita']]
+# target
+y = final['coup']
 
 # create the train and test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
@@ -473,7 +434,8 @@ We get the same high accuracy even with cross-validation. Since the number of co
 
 ```python
 # feature importance on the basic random forest model
-feature_imp = pd.Series(clf.feature_importances_, index=X.columns).sort_values(ascending=False)
+feature_imp = pd.Series(clf.feature_importances_, 
+index=X.columns).sort_values(ascending=False)
 sns.barplot(x=feature_imp, y=feature_imp.index)
 # Add labels to your graph
 plt.xlabel('Feature Importance Score')
@@ -482,8 +444,9 @@ plt.title("Visualizing Important Features")
 plt.legend()
 plt.show()
 ```
+
 <figure>
-  <img alt="Feature importance for the basic random forest model" src="/images/basic_random_forest_model.png" />
+  <img alt="Feature importance for the basic random forest model" src="/images/basic_model_feature_importance.png" />
   <figcaption>
    Feature importance for the basic random forest model
   </figcaption>
