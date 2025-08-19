@@ -40,6 +40,7 @@ import matplotlib
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
+from sklearn import metrics
 from sklearn.metrics import accuracy_score
 
 import seaborn as sns
@@ -151,7 +152,7 @@ final_coups.head(10)
 ```
 
 <figure>
-  <img alt="Coup data" src="/images/final_coup.png" />
+  <img alt="Coup data" src="/images/final_coups.png" />
   <figcaption>
    Coup Data
   </figcaption>
@@ -333,7 +334,8 @@ Finally, I got a list of all countries in the world to compare against. Looking 
 I combined these datasets using pandas merge and an outer join on the countries column as exemplified below:
 
 ```python
-combo = pd.merge(demo_index, all_countries, on='country', how='outer')
+combo = pd.merge(demo_index, all_countries, 
+on='country', how='outer')
 combo.sample(10)
 ```
 
@@ -368,13 +370,14 @@ The NaN values in the 'oil_producing' and 'Number_of_coups' columns were filled 
 ```python
 # select features and target from the dataset
 # features
-X = final.loc[:,['democracy_index', 'oil_producing','population',
-'gini_index','Number_of_coups', 'gdp_per_capita']]
+X = final.loc[:,['democracy_index', 'oil_producing',
+'population','gini_index','Number_of_coups', 'gdp_per_capita']]
 # target
 y = final['coup']
 
 # create the train and test split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+X_train, X_test, y_train, y_test = train_test_split(X, y,
+ test_size=0.3)
 
 #import random forest model
 from sklearn.ensemble import RandomForestClassifier
@@ -386,11 +389,9 @@ clf = RandomForestClassifier(n_estimators=100)
 clf.fit(X_train, y_train)
 y_predicted = clf.predict(X_test)
 
-# model is trained so we check the accuracy
-# import scikit-learn metrics modeule for accuracy calculation
-from sklearn import metrics
 # model accuracy, how often is the classifier correct?
-print('Accuracy: ', metrics.accuracy_score(y_test, y_predicted))
+print('Accuracy: ', metrics.accuracy_score(y_test, 
+y_predicted))
 ```
 
 `Accuracy:  1.0`
@@ -399,7 +400,8 @@ An accuracy of 1 means our model is perfect, but it could just be overfitting. S
 
 ```python
 # Using StratifiedKFold
-from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.model_selection import StratifiedKFold, 
+cross_val_score
 
 # create train/test split - stratified
 X_train, X_test, y_train, y_test = train_test_split(
@@ -407,11 +409,13 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # set up StratifiedKFold CV for training set
-skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+skf = StratifiedKFold(n_splits=5, shuffle=True, 
+random_state=42)
 
 # create model and run data
 rf_model = RandomForestClassifier(random_state=42)
-cv_scores = cross_val_score(rf_model, X_train, y_train, cv=skf, scoring='accuracy')
+cv_scores = cross_val_score(rf_model, X_train, 
+y_train, cv=skf, scoring='accuracy')
 
 print('CV accuracy per fold: ', cv_scores)
 print('Mean CV accuracy: ', cv_scores.mean())
