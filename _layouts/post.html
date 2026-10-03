@@ -2,30 +2,36 @@
 layout: default
 ---
 
-{% if site.data.menu %}
-  {% include menu.html %}
-{% else %}
-  {% include back-link.html %}
-{% endif %}
-
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
+<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
 
   {% if page.title != "" %}
-    <h1 class="post-title divided p-name" itemprop="name headline">
-      {{ page.title }}
-    </h1>
+    <header class="post-header">
+      <p class="post-kicker">Essay</p>
+      <h1 class="post-title p-name" itemprop="name headline">{{ page.title }}</h1>
+
+      {% assign words = content | number_of_words %}
+      {% assign minutes = words | divided_by: 200 %}
+      {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+
+      <div class="post-byline">
+        {% if page.author %}
+          <span itemprop="author">{{ page.author }}</span>
+          <span aria-hidden="true">·</span>
+        {% endif %}
+        <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span aria-hidden="true">·</span>
+        <span>{{ minutes }} min read</span>
+      </div>
+    </header>
   {% endif %}
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
 
-  <div class="post-meta">
-    {% if page.author %}
-      <div itemprop="author">{{ page.author }}</div>
-    {% endif %}
-    <time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
-  </div>
+  <footer class="post-end">
+    <p><a href="{{ '/writing/' | relative_url }}">More writing</a></p>
+  </footer>
 
   {% if site.disqus.shortname %}
     {% include disqus-comments.html %}
