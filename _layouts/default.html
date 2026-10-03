@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   <head>
-    
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>{{ site.title }}{% if page.title and page.title != "" %} &mdash; {{ page.title }}{% endif %}</title>
 
-    {% if site.description %}<meta name="description" content="{{ site.description }}">{% endif %}  
+    {% seo %}
 
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}?{{ site.time | date: '%s%N' }}">
-
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
+    <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ site.icon }}">
 
     {% if site.google_analytics and jekyll.environment == 'production' %}
       {% include analytics.html %}
     {% endif %}
-
   </head>
   <body>
 
     {% if page.layout == 'home' %}
-      <a href="#main" class="skip-navigation">
-        Skip to list of posts
-      </a>
+      <a href="#main" class="skip-navigation">Skip to latest writing</a>
     {% else %}
-      <a href="#main" class="skip-navigation">
-        Skip to content
-      </a>
+      <a href="#main" class="skip-navigation">Skip to content</a>
     {% endif %}
 
     {{ content }}
@@ -37,15 +29,19 @@
       {% include search.html %}
     {% endunless %}
 
-    {% include menu.html %}
-
-    {% unless site.hide_credits %}
-      <aside class="site-credits">
-        <p>
-          <small><a href="https://github.com/patdryburgh/hitchens">Hitchens Theme</a> powered by <a href="http://jekyllrb.com">Jekyll</a></small>
-        </p>
-      </aside>
+    {% unless page.layout == 'home' %}
+      {% include menu.html %}
     {% endunless %}
+
+    <footer class="site-footer">
+      <p>
+        © {{ 'now' | date: "%Y" }} Allan Koech
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      </p>
+    </footer>
 
   </body>
 </html>
