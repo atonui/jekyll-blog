@@ -1,7 +1,6 @@
-# *.gem
-# .bundle
-# .sass-cache
-# .jekyll-cache
-# _site
-# Gemfile.lock
+.bundle/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+_site/
 Gemfile - Copy.lock
