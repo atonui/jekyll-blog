@@ -1,8 +1,11 @@
+- title: Writing
+  url: /writing/
+
+- title: Projects
+  url: /projects/
+
 - title: About
-  url: /about.html
+  url: /about/
 
-# - title: Source
-#   url: https://github.com/patdryburgh/hitchens
-
-# - title: Designer
-#   url: http://patdryburgh.com
+- title: RSS
+  url: /feed.xml
