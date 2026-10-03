@@ -1,64 +1,41 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: KibetKoech.com
-email: 
-description: >- # this means to ignore newlines until "baseurl:"
-  Clear writing, better thoughts. Better thoughts, better decisions. Better decisions, better actions. Better actions, better life.
-# baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.kibetkoech.com" # the base hostname & protocol for your site, e.g. http://example.com
+title: Kibet Koech
+author:
+  name: Allan Koech
+description: >-
+  Essays and notes on engineering, data, artificial intelligence, software,
+  economics, society, learning, and the things I find worth thinking through.
+tagline: >-
+  Clear writing, better thoughts. Better thoughts, better decisions.
+  Better decisions, better actions. Better actions, better life.
+url: "https://www.kibetkoech.com"
+baseurl: ""
+timezone: Africa/Nairobi
+lang: en
 icon: /assets/images/icon-512.png
-twitter_username: 
-github_username:  atonui
 
-# Build settings
+github_username: atonui
+
 markdown: kramdown
-
 theme: hitchens-theme
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-###############Custom front matter###########################
 defaults:
-  - 
-    scope: 
+  - scope:
       path: "_posts"
+      type: "posts"
     values:
       layout: "post"
       author: "Allan Koech"
-#############################################################
-
-#Excerpts
-# show_excerpts: true
 
 hide_search: true
+hide_credits: true
+show_excerpts: true
 
 plugins:
   - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 paginate: 5
 paginate_path: "/page/:num/"
 
-# Google Analytics
 google_analytics: G-49PF6VYSLV

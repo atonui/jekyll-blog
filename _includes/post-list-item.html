@@ -1,19 +1,27 @@
-<li>
+{% assign words = post.content | number_of_words %}
+{% assign minutes = words | divided_by: 200 %}
+{% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+
+<li class="post-list-item">
   <a href="{{ post.url | absolute_url }}" class="post-link">
     <div class="post-link__heading">
       {% unless post.title == "" %}
-          <h1 class="post-link__title">      
-            {{ post.title }}
-          </h1>
-      {% else %}
-        {% include post-excerpt.html %}
+        <h3 class="post-link__title">{{ post.title }}</h3>
       {% endunless %}
-      {% if post.title != "" and site.show_excerpts == true %}
-        {% include post-excerpt.html %}
-      {% endif %}
+
+      <p class="post-link__excerpt">
+        {% if post.description %}
+          {{ post.description }}
+        {% else %}
+          {{ post.excerpt | strip_html | strip_newlines | truncate: 190 }}
+        {% endif %}
+      </p>
+
+      <p class="post-link__meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <span aria-hidden="true">·</span>
+        <span>{{ minutes }} min read</span>
+      </p>
     </div>
-    <span class="post-date">
-      {{ post.date | date: "%b %-d, '%y" }}
-    </span>
   </a>
 </li>
