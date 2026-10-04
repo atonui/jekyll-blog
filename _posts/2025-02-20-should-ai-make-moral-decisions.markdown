@@ -1,4 +1,5 @@
 ---
+
 # layout: post
 title:  Should AI Make Moral Decisions?
 date:   2025-02-20 9:06:37 +0300
@@ -6,8 +7,10 @@ categories: ai psychology morality childhood
 topic: "AI & Data"
 topic_slug: "ai-data"
 tags: ["ai", "psychology", "morality", "ethics"]
-permalink: /:categories/:title
 # author: Allan Koech
+permalink: /writing/should-ai-make-moral-decisions/
+redirect_from:
+  - /ai/psychology/morality/childhood/should-ai-make-moral-decisions
 ---
 
 Many years ago when I was in Class 6, our town's first major supermarket opened. It was on my way home from school and it had everything in the world, or so I thought. I would wander in there any chance I got and would turn my friends at school green with envy with tales of my ‘adventures’ there. One day my classmate, Mike, gave me 50 shillings and asked me to buy him a bottle of glue from the supermarket. As usual, I passed through the supermarket but I forgot all about the glue while admiring the toys. 
