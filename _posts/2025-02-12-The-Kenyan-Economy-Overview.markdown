@@ -1,6 +1,8 @@
 ---
 
 
+description: "A broad look at Kenya’s economy, trade, manufacturing, agriculture, mineral resources and the structural choices that could drive growth."
+
 title:  The Kenyan Economy - A 10,000-Foot Overview
 date:   2025-02-12 07:09:37 +0300
 categories: development economy kenya

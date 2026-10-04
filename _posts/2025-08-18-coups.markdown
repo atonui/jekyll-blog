@@ -1,5 +1,7 @@
 ---
 
+
+description: "A machine-learning experiment exploring whether political, economic and social indicators can help predict coup attempts across countries."
 title:  Machine Learning Model To Predict Coups
 date:   2025-08-18 17:30:25 +0300
 categories: coup instability politics development democracy machine_learning economics

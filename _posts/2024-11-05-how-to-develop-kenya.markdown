@@ -1,6 +1,8 @@
 ---
 
 
+description: "A citizen’s argument for how Kenya can improve education, infrastructure, agriculture, governance and the institutions that support development."
+
 title:  How To Develop Kenya - a concerned citizen’s approach
 date:   2024-11-05 10:53:37 +0300
 categories: development economy corruption

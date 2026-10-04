@@ -1,6 +1,8 @@
 ---
 
 
+description: "A satirical letter from the Devil on temptation, modern life, morality and the small compromises that make human behaviour easy to exploit."
+
 title:  A Letter from The Devil
 date:   2024-11-06 10:53:37 +0300
 categories: satan sin evil

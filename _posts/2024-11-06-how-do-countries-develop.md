@@ -1,6 +1,8 @@
 ---
 
 
+description: "An exploration of economic complexity, institutions, knowledge and innovation—and why some countries become richer and more capable than others."
+
 title:  How Do Countries Develop?
 date:   2024-11-06 10:53:37 +0300
 categories: development economy politics

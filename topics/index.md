@@ -2,7 +2,7 @@
 layout: page
 title: Topics
 permalink: /topics/
-description: Browse Kibet Koech essays by topic.
+description: Browse essays by Allan Koech across AI and data, software, economics and society, learning, and personal writing.
 ---
 
 # Topics

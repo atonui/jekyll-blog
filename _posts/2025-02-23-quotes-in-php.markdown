@@ -1,5 +1,7 @@
 ---
 
+
+description: "A short guide to single and double quotes in PHP, variable interpolation, and when each style is useful when writing strings and SQL."
 title:  Quotes In PHP
 date:   2025-02-23 17:58:25 +0300
 categories: php sql quotes webdev

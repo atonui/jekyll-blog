@@ -2,7 +2,7 @@
 layout: page
 title: Writing
 permalink: /writing/
-description: Essays, technical notes, and experiments by Allan Koech.
+description: Essays, technical notes and experiments by Allan Koech on engineering, AI, software, economics, society, learning and personal projects.
 ---
 
 # Writing

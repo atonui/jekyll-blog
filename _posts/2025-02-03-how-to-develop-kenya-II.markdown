@@ -1,6 +1,8 @@
 ---
 
 
+description: "A follow-up essay on Kenya’s development, focusing on public accountability, corruption, political incentives and institutional reform."
+
 title:  How To Develop Kenya II
 date:   2025-02-03 10:53:37 +0300
 categories: development economy corruption
