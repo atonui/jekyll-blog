@@ -18,6 +18,10 @@
       </p>
 
       <p class="post-link__meta">
+        {% if post.topic_slug %}
+          <a class="post-topic" href="{{ '/topics/' | append: post.topic_slug | append: '/' | relative_url }}">{{ post.topic }}</a>
+          <span aria-hidden="true">·</span>
+        {% endif %}
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
         <span aria-hidden="true">·</span>
         <span>{{ minutes }} min read</span>
