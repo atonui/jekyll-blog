@@ -1,11 +1,15 @@
 ---
+
 title:  Machine Learning Model To Predict Coups
 date:   2025-08-18 17:30:25 +0300
 categories: coup instability politics development democracy machine_learning economics
 topic: "AI & Data"
 topic_slug: "ai-data"
 tags: ["machine-learning", "politics", "development", "democracy", "economics"]
-permalink: /:categories/:title
+permalink: /writing/machine-learning-model-to-predict-coups/
+redirect_from:
+  - /coup/instability/politics/development/democracy/machine_learning/economics/coups
+  - /coup/instability/politics/development/democracy/machine_learning/economics/coups/
 ---
 
 At 3 am on Sunday, 1 August 1982, a group of Kenya Air Force soldiers led by Senior Private Hezekiah Ochuka attempted to overthrow President Daniel arap Moi’s government. The Kenyan Army foiled the attempt, and President Moi’s government remained in power, although about 100 soldiers and more than 200 civilians died that day. This event would significantly influence the future of Kenya.

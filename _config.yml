@@ -29,6 +29,7 @@ defaults:
     values:
       layout: "post"
       author: "Allan Koech"
+      permalink: /writing/:title/
 
 hide_search: true
 hide_credits: true
@@ -38,6 +39,7 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 paginate: 5
 paginate_path: "/page/:num/"

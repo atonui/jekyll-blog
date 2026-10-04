@@ -1,10 +1,15 @@
 ---
+
+
 title:  "Learning How to Learn"
 date:   2024-11-05 10:53:37 +0300
 categories: learning self-improvement
 topic: "Learning"
 topic_slug: "learning"
 tags: ["learning", "self-improvement"]
+permalink: /writing/learning-how-to-learn/
+redirect_from:
+  - /learning/self-improvement/2024/11/05/learning.html
 ---
 The following is an essay I wrote after taking the course [Learning How to Learn on Coursera][mooc-course] as taught by Barbara Oakley and Terrence Sejnowski on Coursera.
 -----------------------------------------------------------------------------------------------
