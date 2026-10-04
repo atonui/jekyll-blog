@@ -1,6 +1,8 @@
 ---
 
 
+description: "A personal account of tweaking my lower back while deadlifting, what recovery taught me, and why patience matters when returning to training."
+
 # layout: post
 title:  Back Tweak
 date:   2024-11-06 10:53:37 +0300
