@@ -414,3 +414,135 @@
     background: rgba($brand-color, .25);
   }
 }
+
+
+/* Topic taxonomy */
+
+.topic-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  border: 1px solid rgba($text-color, .45);
+  border-radius: 999px;
+  padding: .38rem .72rem;
+  font-size: .8rem;
+  text-decoration: none;
+}
+
+.topic-list a:hover,
+.topic-list a:focus {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.topic-list a span {
+  opacity: .55;
+  font-size: .72rem;
+}
+
+.topic-list--archive {
+  margin: 2rem 0 3.25rem;
+}
+
+.post-topic {
+  color: inherit;
+}
+
+.post-kicker a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-kicker a:hover,
+.post-kicker a:focus {
+  text-decoration: underline;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin-bottom: 1rem;
+}
+
+.post-tags span {
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: .24rem .55rem;
+  font-size: .72rem;
+}
+
+.topic-page {
+  padding-top: 4rem;
+}
+
+.topic-header {
+  margin-bottom: 3rem;
+}
+
+.topic-header h1 {
+  margin: 0 0 1rem;
+  padding: 0;
+  font-size: clamp(2.4rem, 7vw, 4.5rem);
+  line-height: 1;
+  text-align: left;
+}
+
+.topic-header p {
+  max-width: 39rem;
+}
+
+.topic-count {
+  color: $muted-text-color;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.topic-post-list {
+  max-width: 46rem;
+  margin: 0;
+  padding: 0;
+}
+
+.topic-back {
+  margin-top: 3rem;
+}
+
+.topic-directory {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.topic-card {
+  display: grid;
+  gap: .35rem;
+  border: 1px solid #ddd;
+  padding: 1.15rem 1.25rem;
+  text-decoration: none;
+}
+
+.topic-card strong {
+  font-size: 1.15rem;
+}
+
+.topic-card span {
+  opacity: .78;
+  line-height: 1.45;
+}
+
+.topic-card small {
+  color: $muted-text-color;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (prefers-color-scheme: dark) {
+  .topic-list a,
+  .topic-card,
+  .post-tags span {
+    border-color: rgba(255,255,255,.18);
+  }
+}
