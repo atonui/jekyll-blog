@@ -1,11 +1,14 @@
 ---
+
 title:  Quotes In PHP
 date:   2025-02-23 17:58:25 +0300
 categories: php sql quotes webdev
 topic: "Software"
 topic_slug: "software"
 tags: ["php", "sql", "web-development"]
-permalink: /:categories/:title
+permalink: /writing/quotes-in-php/
+redirect_from:
+  - /php/sql/quotes/webdev/quotes-in-php
 ---
 
 Every day you learn something new in PHP. For example, did you know the difference between the single quote **‘** and the double quote **“**?
