@@ -57,14 +57,17 @@ layout: default
 
   {% if paginator.page == 1 or paginator.page == nil %}
   <section class="home-section topics">
-    <h2>Writing about</h2>
+    <div class="section-heading">
+      <h2>Writing about</h2>
+      <a href="{{ '/topics/' | relative_url }}">All topics</a>
+    </div>
     <div class="topic-list" aria-label="Topics">
-      <span>AI &amp; Data</span>
-      <span>Engineering</span>
-      <span>Software</span>
-      <span>Economics &amp; Society</span>
-      <span>Learning</span>
-      <span>Personal</span>
+      {% for topic in site.data.topics %}
+        {% assign topic_posts = site.posts | where: "topic_slug", topic.slug %}
+        <a href="{{ '/topics/' | append: topic.slug | append: '/' | relative_url }}">
+          {{ topic.name }} <span>{{ topic_posts.size }}</span>
+        </a>
+      {% endfor %}
     </div>
   </section>
 
