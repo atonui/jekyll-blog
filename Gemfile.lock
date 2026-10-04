@@ -60,6 +60,8 @@ GEM
       sass-embedded (~> 1.54)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
+    jekyll-sitemap (1.4.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-theme-primer (0.6.0)
       jekyll (> 3.5, < 5.0)
       jekyll-github-metadata (~> 2.9)
@@ -117,6 +119,8 @@ DEPENDENCIES
   bundler (~> 2.1)
   hitchens-theme!
   jekyll-paginate
+  jekyll-seo-tag
+  jekyll-sitemap
   jekyll-theme-primer
   rake (~> 12.0)
 
