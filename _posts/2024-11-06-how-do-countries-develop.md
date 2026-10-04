@@ -10,6 +10,7 @@ tags: ["development", "economy", "politics"]
 permalink: /writing/how-do-countries-develop/
 redirect_from:
   - /development/economy/politics/how-do-countries-develop
+  - /development/economy/politics/how-do-countries-develop/
 ---
 #### *What is the role of energy and scientific advancement in the socioeconomic development of nations?*
 
