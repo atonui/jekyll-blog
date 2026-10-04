@@ -10,6 +10,7 @@ tags: ["high-school", "mischief"]
 permalink: /writing/back-in-high-school/
 redirect_from:
   - /high/school/mischief/high-school
+  - /high/school/mischief/high-school/
 ---
 This post first appeared on my first WordPress blog [here][here].
 ----------------------------------------------------------------------------
