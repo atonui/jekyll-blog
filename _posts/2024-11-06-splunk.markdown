@@ -1,6 +1,8 @@
 ---
 
 
+description: "How I prepared for and passed the Splunk Core Certified User exam, including the courses, notes and study approach that worked for me."
+
 title:  How I Got Splunk Certified
 date:   2024-11-06 10:53:37 +0300
 categories: splunk certification
