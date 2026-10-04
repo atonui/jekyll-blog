@@ -9,6 +9,7 @@ tags: ["php", "sql", "web-development"]
 permalink: /writing/quotes-in-php/
 redirect_from:
   - /php/sql/quotes/webdev/quotes-in-php
+  - /php/sql/quotes/webdev/quotes-in-php/
 ---
 
 Every day you learn something new in PHP. For example, did you know the difference between the single quote **‘** and the double quote **“**?
