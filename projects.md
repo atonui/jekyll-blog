@@ -23,7 +23,7 @@ A Kenya-focused calculator for comparing the financial consequences of buying a 
 
 Instead of treating the decision as “rent is wasted money” versus “mortgages build equity”, it makes the assumptions explicit: interest rates, deposits, rent, appreciation, maintenance, transaction costs, and the value of the asset at the end.
 
-[Try Buy or Rent?](https://buyorrent.co.ke/) · [Source](https://github.com/atonui/buy_or_rent)
+[Try Buy or Rent?](https://www.buyorrent.co.ke/) · [Source](https://github.com/atonui/buy_or_rent)
 
 ## EdgeMonitor
 
@@ -42,5 +42,3 @@ The system extracts structured events from PDFs and uses them to calculate downt
 The site itself is intentionally small: Jekyll, Markdown, Sass, Git and static hosting.
 
 That constraint is part of the design. A writing site should remain easy to understand, easy to move, and easy to maintain ten years from now.
-
-[View the source](https://github.com/atonui/jekyll-blog)
