@@ -1,11 +1,14 @@
 ---
+
 title:  How Do Countries Develop?
 date:   2024-11-06 10:53:37 +0300
 categories: development economy politics
 topic: "Economics & Society"
 topic_slug: "economics-society"
 tags: ["development", "economy", "politics"]
-permalink: /:categories/:title
+permalink: /writing/how-do-countries-develop/
+redirect_from:
+  - /development/economy/politics/how-do-countries-develop
 ---
 #### *What is the role of energy and scientific advancement in the socioeconomic development of nations?*
 
