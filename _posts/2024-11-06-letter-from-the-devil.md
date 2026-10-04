@@ -11,6 +11,7 @@ author: Allan Koech
 permalink: /writing/a-letter-from-the-devil/
 redirect_from:
   - /satan/sin/evil/letter-from-the-devil
+  - /satan/sin/evil/letter-from-the-devil/
 ---
 This post first appeared on my first WordPress blog [here][here].
 ----------------------------------------------------------------------------
