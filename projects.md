@@ -15,7 +15,7 @@ A lightweight fundraising tool designed around how Kenyan communities already or
 
 The goal is deliberately simple—make it easier for an organiser to create a fundraiser, keep the ledger accurate, and share an update people can understand immediately.
 
-[Visit m-chango](https://m-chango.com/) · [Source](https://github.com/atonui/m-chango)
+[Visit m-chango](https://www.m-chango.com/) · [Source](https://github.com/atonui/m-chango)
 
 ## Buy or Rent?
 
