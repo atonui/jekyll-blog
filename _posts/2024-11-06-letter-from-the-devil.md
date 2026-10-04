@@ -1,12 +1,15 @@
 ---
+
 title:  A Letter from The Devil
 date:   2024-11-06 10:53:37 +0300
 categories: satan sin evil
 topic: "Personal"
 topic_slug: "personal"
 tags: ["satire", "faith", "morality"]
-permalink: /:categories/:title
 author: Allan Koech
+permalink: /writing/a-letter-from-the-devil/
+redirect_from:
+  - /satan/sin/evil/letter-from-the-devil
 ---
 This post first appeared on my first WordPress blog [here][here].
 ----------------------------------------------------------------------------
