@@ -10,6 +10,7 @@ tags: ["development", "economy", "corruption"]
 permalink: /writing/how-to-develop-kenya/
 redirect_from:
   - /development/economy/corruption/how-to-develop-kenya
+  - /development/economy/corruption/how-to-develop-kenya/
 ---
 This post first appeared on an earlier version of this blog which unfortunately went down with all my data. 
 ---------------------------------------------------------------------------------------------------------
