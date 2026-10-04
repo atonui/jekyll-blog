@@ -2,6 +2,9 @@
 title:  How To Develop Kenya - a concerned citizen’s approach
 date:   2024-11-05 10:53:37 +0300
 categories: development economy corruption
+topic: "Economics & Society"
+topic_slug: "economics-society"
+tags: ["development", "economy", "corruption"]
 permalink: /:categories/:title
 ---
 This post first appeared on an earlier version of this blog which unfortunately went down with all my data. 
