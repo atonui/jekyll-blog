@@ -10,6 +10,9 @@ tags: ["development", "economy", "corruption", "governance"]
 permalink: /writing/how-to-develop-kenya-ii/
 redirect_from:
   - /development/economy/corruption/how-to-develop-kenya-II
+  - /development/economy/corruption/how-to-develop-kenya-II/
+  - /development/economy/corruption/how-to-develop-kenya-ii
+  - /development/economy/corruption/how-to-develop-kenya-ii/
 ---
 I am beginning to suspect that our failure to launch is not a technical problem, it is political.
 A bitter pill that we should all swallow is that **Politicians do not care about you**. They never have and never will. It took the Europeans well over 2 centuries to wrestle power away from their elites and distribute it amongst the entire populace and thus set themselves on the path to prosperity. So getting rid of politics and politicians seems like a viable shortcut. However, the only alternative to politics is war and however bad our politics might be, it is infinitely preferable to war. You just have to look at our next-door neighbours, Somalia, Sudan and Ethiopia to see this.
