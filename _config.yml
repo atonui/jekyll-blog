@@ -20,6 +20,10 @@ theme: hitchens-theme
 
 defaults:
   - scope:
+      path: ""
+    values:
+      image: /assets/images/social-card.png
+  - scope:
       path: "_posts"
       type: "posts"
     values:
