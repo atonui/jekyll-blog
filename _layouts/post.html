@@ -6,7 +6,11 @@ layout: default
 
   {% if page.title != "" %}
     <header class="post-header">
-      <p class="post-kicker">Essay</p>
+      {% if page.topic_slug %}
+        <p class="post-kicker"><a href="{{ '/topics/' | append: page.topic_slug | append: '/' | relative_url }}">{{ page.topic }}</a></p>
+      {% else %}
+        <p class="post-kicker">Essay</p>
+      {% endif %}
       <h1 class="post-title p-name" itemprop="name headline">{{ page.title }}</h1>
 
       {% assign words = content | number_of_words %}
@@ -30,7 +34,20 @@ layout: default
   </div>
 
   <footer class="post-end">
-    <p><a href="{{ '/writing/' | relative_url }}">More writing</a></p>
+    {% if page.tags %}
+      <div class="post-tags" aria-label="Tags">
+        {% for tag in page.tags %}
+          <span>{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <p>
+      {% if page.topic_slug %}
+        <a href="{{ '/topics/' | append: page.topic_slug | append: '/' | relative_url }}">More in {{ page.topic }}</a>
+        <span aria-hidden="true">·</span>
+      {% endif %}
+      <a href="{{ '/writing/' | relative_url }}">All writing</a>
+    </p>
   </footer>
 
   {% if site.disqus.shortname %}

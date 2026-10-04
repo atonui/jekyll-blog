@@ -2,6 +2,9 @@
 title:  Back In High School
 date:   2024-11-06 10:53:37 +0300
 categories: high school mischief
+topic: "Personal"
+topic_slug: "personal"
+tags: ["high-school", "mischief"]
 permalink: /:categories/:title
 ---
 This post first appeared on my first WordPress blog [here][here].

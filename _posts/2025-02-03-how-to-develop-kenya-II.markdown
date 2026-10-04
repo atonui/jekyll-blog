@@ -2,6 +2,9 @@
 title:  How To Develop Kenya II
 date:   2025-02-03 10:53:37 +0300
 categories: development economy corruption
+topic: "Economics & Society"
+topic_slug: "economics-society"
+tags: ["development", "economy", "corruption", "governance"]
 permalink: /:categories/:title
 ---
 I am beginning to suspect that our failure to launch is not a technical problem, it is political.

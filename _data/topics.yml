@@ -1,0 +1,19 @@
+- name: AI & Data
+  slug: ai-data
+  description: Machine learning, artificial intelligence, data, and the questions that emerge when computation meets society.
+
+- name: Software
+  slug: software
+  description: Programming, security, tooling, and lessons from building and using software.
+
+- name: Economics & Society
+  slug: economics-society
+  description: Development, governance, trade, institutions, and the systems that shape countries and communities.
+
+- name: Learning
+  slug: learning
+  description: Notes on learning, memory, study, and becoming better at acquiring difficult skills.
+
+- name: Personal
+  slug: personal
+  description: Stories, reflections, experiments, humour, and experiences that do not belong neatly anywhere else.

@@ -3,6 +3,9 @@
 title:  Back Tweak
 date:   2024-11-06 10:53:37 +0300
 categories: gym injury back recovery
+topic: "Personal"
+topic_slug: "personal"
+tags: ["gym", "injury", "back", "recovery"]
 permalink: /:categories/:title
 # author: Allan Koech
 ---

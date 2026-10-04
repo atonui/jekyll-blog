@@ -2,6 +2,9 @@
 title:  How I Got Splunk Certified
 date:   2024-11-06 10:53:37 +0300
 categories: splunk certification
+topic: "Software"
+topic_slug: "software"
+tags: ["splunk", "certification", "data-tools"]
 permalink: /:categories/:title
 ---
 This post first appeared on an earlier version of this blog which unfortunately went down with all my data. 

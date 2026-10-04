@@ -3,6 +3,9 @@
 title:  Should AI Make Moral Decisions?
 date:   2025-02-20 9:06:37 +0300
 categories: ai psychology morality childhood
+topic: "AI & Data"
+topic_slug: "ai-data"
+tags: ["ai", "psychology", "morality", "ethics"]
 permalink: /:categories/:title
 # author: Allan Koech
 ---
