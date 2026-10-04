@@ -1,6 +1,6 @@
 ---
 title:  Machine Learning Model To Predict Coups
-date:   2025-08-18 17:30:25 +1835
+date:   2025-08-18 17:30:25 +0300
 categories: coup instability politics development democracy machine_learning economics
 permalink: /:categories/:title
 ---
@@ -11,7 +11,7 @@ Instability in a country involves political, social, or economic upheaval. It ma
 
 I am fascinated by how society behaves, evolves, and reacts to external and internal events, as well as machine learning. Therefore, I decided to develop a machine learning model that can predict coups based on historical and socio-economic data.
 
-## Factors that lead to economic instability
+## Factors that lead to political instability
 
 * Full democracies are least likely to undergo significant political upheaval and instability. Countries undergoing political transitions face high risks of political instability and violent conflict. Luckily, the [Economist Group](https://www.economistgroup.com/) publishes an annual democracy index that tracks the quality of democracy per country. The lower the value, the worse the democratic standards. Denmark, for example, had a near-perfect 9.28 (full democracy) while Syria had a dismal 1.32 (authoritarian) in 2024\.  
 * Democracy is often preceded by economic development, but this alone is not enough to sustain a democracy, especially in the presence of natural resources like oil, which lends massive financial resources to the regime. A study conducted in the period 1950-1990 showed that no democracy with a per capita income above US $6,000 (in 1985 prices) has had its democratic system collapse. However, economic growth neither leads necessarily to democratisation nor to improvements in other aspects of governance. For our investigation, this means that we will have to find data on GDP per capita to measure the economic development of countries.  
@@ -21,12 +21,12 @@ I am fascinated by how society behaves, evolves, and reacts to external and inte
 
 ### Datasets
 
-* Historic Data(previous coups) : [Kaggle](https://www.kaggle.com/datasets/michaelbryantds/coup-outcomes)
-* Economic/GDP Data: [World Bank](https://data.worldbank.org/indicator/NY.GDP.PCAP.CD)
-* Democracy Index : [Economist Intelligence](https://www.eiu.com/n/campaigns/democracy-index-2022/) and [Wikipedia](https://en.wikipedia.org/wiki/The_Economist_Democracy_Index)
-* Oil Deposits in Countries : [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_proven_oil_reserves)
-* Inequality Data (class & tribal): [gini index](https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country)
-* List of all the countries in the world: [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area)
+* Historical data (previous coups) : [Kaggle](https://www.kaggle.com/datasets/michaelbryantds/coup-outcomes)
+* Economic/GDP data: [World Bank](https://data.worldbank.org/indicator/NY.GDP.PCAP.CD)
+* Democracy Index: [Economist Intelligence](https://www.eiu.com/n/campaigns/democracy-index-2022/) and [Wikipedia](https://en.wikipedia.org/wiki/The_Economist_Democracy_Index)
+* Oil deposits by country: [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_by_proven_oil_reserves)
+* Inequality data: [gini index](https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country)
+* List of countries: [Wikipedia](https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_area)
 
 ### Importing the Libraries and Loading the Dataset
 
@@ -50,7 +50,7 @@ import warnings
 warnings.filterwarnings('ignore')
 %matplotlib inline
 
-# load the goggle drive connector
+# load the Google Drive connector
 from google.colab import drive
 drive.mount('/content/drive')
 
@@ -69,7 +69,7 @@ df.sample(10)
 
 ### Exploring the Data (EDA)
 
-The column 'realized' when equal to 1, and 'coup' mean the same thing.
+When the `realized` column equals 1, it represents a coup.
 
 ```python
 df.columns
@@ -144,7 +144,7 @@ pd.pivot_table(df.sample(10), values = 'realized', index=['country'])
   </figcaption>
 </figure>
 
-The column 'realized' when equal to 1, and 'coup' means the same thing. We shall now slice the dataframe to include only coup events, then we shall count the coups per country.
+When the `realized` column equals 1, it represents a coup. We shall now slice the dataframe to include only coup events, then we shall count the coups per country.
 
 ```python
 final_coups = coups.iloc[2:,2:6]
@@ -296,7 +296,7 @@ oil_countries.sample(5)
 On to the Gini Index. To get the data, I did the same thing as the oil-producing countries' data and loaded it into my notebook. This data also came with population data, which I will leave in there.
 
 ```python
-# Data on inequality as measured by the gini index 
+# Data on inequality as measured by the Gini index 
 gini_index = pd.read_csv(r'/content/drive/MyDrive/gini.csv')
 gini_index.head()
 ```
@@ -310,7 +310,7 @@ gini_index.head()
 |117|3210847|Bosnia and Herzegovina|33\.0|   
 
 
-Next was the democratic index data and I got it the same way as the others. Here is a sample.  
+Next was the democracy index data and I got it the same way as the others. Here is a sample.  
 
 |index|country|democracy\_index|
 |---|---|---|
@@ -325,11 +325,11 @@ Finally, I got a list of all countries in the world to compare against. Looking 
 * Democracy index data has 167 countries.  
 * All countries dataset has 192 countries.  
 * Gini index dataset has 177 countries.  
-* Oil oil-producing nations dataset has 105 countries.  
+* Oil-producing nations dataset has 105 countries.  
 * How do we reconcile all this data?  
 * We will use the democracy data as our base; countries not in there will be dropped.  
 * Oil data will be used in totality, as this is just the list of countries which produce oil; all others do not.  
-* We can join all these data frames by using the country columns, then drop all the null values.
+* We can join all these dataframes by using the country columns, then drop all the null values.
 
 I combined these datasets using pandas merge and an outer join on the countries column as exemplified below:
 
@@ -382,7 +382,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 #import random forest model
 from sklearn.ensemble import RandomForestClassifier
 
-# create a Gaussian clasiffier
+# create a Gaussian classifier
 clf = RandomForestClassifier(n_estimators=100)
 
 # Train the model using the training data
@@ -396,7 +396,7 @@ y_predicted))
 
 `Accuracy:  1.0`
 
-An accuracy of 1 means our model is perfect, but it could just be overfitting. So let's try using cross validation.
+An accuracy of 1 means our model is perfect, but it could just be overfitting. So let's try using cross-validation.
 
 ```python
 # Using StratifiedKFold
@@ -432,7 +432,7 @@ print('Holdout test accuracy:', test_accuracy)
 `Mean CV accuracy:  0.992`  
 `Holdout test accuracy: 1.0`
 
-We get the same high accuracy even with cross-validation. Since the number of countries in the world is limited, we can increase the complexity if the data by increasing the columns to capture other dimesions of countries like the unemployment rate, the youth population, the average income, the economic comlplexity, the hapiness indes, the UN human development index, trade data, geographical data, poverty data etc.
+We get the same high accuracy even with cross-validation. Since the number of countries in the world is limited, we can increase the complexity of the data by increasing the columns to capture other dimensions of countries like the unemployment rate, the youth population, the average income, the economic complexity, the happiness index, the UN human development index, trade data, geographical data, poverty data etc.
 
 ### Feature Importance
 
@@ -457,16 +457,16 @@ plt.show()
 </figure>
 
 * From the bar chart above, the most important predictor for a coup is a history of previous coups. Remember at the beginning of this post when I said that the foiled Kenya Air Force coup of August 1982 would be important? This is it. The fact that the coup was unsuccessful meant that the chance of illegal and probably violent regime change was greatly reduced.  
-* The GDP per capita is the next most important factor, and it makes sense; the poorer a country is, the more likely that they are dissatisfied enough with the current regime to attempt a violent takeover.\* Next is the democracy levels, which look obvious but are of lower importance. You would think that it would be a much more important factor, but just look at communist China, 2.11 on the democracy index, but never had a coup, and they are definitely getting richer (GPD per capita of $18820.51 in 2023).  
+* The GDP per capita is the next most important factor, and it makes sense; the poorer a country is, the more likely its population is to be dissatisfied enough with the current regime to attempt a violent takeover.\* Next is the democracy levels, which look obvious but are of lower importance. You would think that it would be a much more important factor, but just look at communist China, 2.11 on the democracy index, but never had a coup, and they are definitely getting richer (GDP per capita of $18820.51 in 2023).  
 * The wealth gap, as measured by the Gini index, is also surprisingly not that big a factor.  
 * The presence of natural resources is the lowest predictor, which seems to go against the literature; it seems you can't always trust the machines.
 
 Let us see what the cross-validated model has to say about feature importance.
 
 <figure>
-  <img alt="Feature importance for the cross validated random forest model" src="/images/cross_validated_model_feature_importance.png" />
+  <img alt="Feature importance for the cross-validated random forest model" src="/images/cross_validated_model_feature_importance.png" />
   <figcaption>
-   Feature importance for the cross validated random forest model
+   Feature importance for the cross-validated random forest model
   </figcaption>
 </figure>
 

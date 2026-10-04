@@ -7,7 +7,7 @@ permalink: /:categories/:title
 
 Every day you learn something new in PHP. For example, did you know the difference between the single quote **‘** and the double quote **“**?
 
-When you use the single quote the string will be taken exactly as it is but if you use the double quote the string will be evaluated e.g.
+When you use single quotes, the string will be taken exactly as it is but if you use double quotes, the string will be evaluated e.g.,
 
 ```php
 
@@ -21,7 +21,7 @@ echo "The value is {$value}"; // The value is 100. The
 
 ```
 
-This nuance is especially important when writing SQL statements that have variables (a bad habit, by the way, you should be using [prepared statements](https://www.kibetkoech.com/php/sql/security/webdev/SQL-injection)). So be careful and always wrap your SQL statements in double quotes when you are passing variables e.g.
+This nuance is especially important when writing SQL statements that have variables (a bad habit, by the way, you should be using [prepared statements](https://www.kibetkoech.com/php/sql/security/webdev/SQL-injection)). So be careful and always wrap your SQL statements in double quotes when you are passing variables, e.g.,,
 
 ```php
 

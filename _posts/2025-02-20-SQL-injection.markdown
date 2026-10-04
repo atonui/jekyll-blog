@@ -5,9 +5,9 @@ categories: php sql security webdev
 permalink: /:categories/:title
 ---
 
-SQL injection is when a malevolent user surreptitiously introduces malicious SQL statements into your code and can potentially destroy your application or commandeer it for their own nefarious purposes. These malevolent statements are usually ingested from user input fields e.g. email address, name and other fields where user input is allowed. No developer wants this so let's see how we can defend against this.
+SQL injection is when a malicious user surreptitiously introduces malicious SQL statements into your code and can potentially destroy your application or commandeer it for their own nefarious purposes. These malicious statements are usually ingested from user input fields e.g. email address, name and other fields where user input is allowed. No developer wants this so let's see how we can defend against this.
 
-We’ll build a simple system to demonstrate this and then learn how to mitigate it. I created a simple database named ‘sql\_injection’ with two tables ‘users’ and ‘posts’. Users table has an ID field and an email field and I inserted the email ‘me@me.com’. Populate your database with a few emails of your choice.  
+We’ll build a simple system to demonstrate this and then learn how to mitigate it. I created a simple database named ‘sql\_injection’ with two tables ‘users’ and ‘posts’. The `users` table has an ID field and an email field and I inserted the email ‘me@me.com’. Populate your database with a few emails of your choice.  
 Our system will have an email field where a user can enter an email address and the system will determine if the email exists or not and display a helpful message to the user.
 
 Here is our HTML form:
@@ -40,7 +40,7 @@ This is the browser output:
   </figcaption>
 </figure>
 
-Now we add php code to read the database and echo an appropriate output.
+Now we add PHP code to read the database and echo an appropriate output.
 
 ```php
 
@@ -99,7 +99,7 @@ If we enter the wrong email address this is the response we get:
 <figure>
   <img alt="sql injection demo" src="/images/Picture3.png" />
   <figcaption>
-   Inorrect email output
+   Incorrect email output
   </figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ Now let's have a bit of fun with some SQL injection, but first, here is what my 
   </figcaption>
 </figure>
 
-We will perform a simple injection to delete the posts table from the database using the following string in the input text field: **';DROP TABLES posts;--'** rather than inputting a legitimate email address.
+We will perform a simple injection to delete the posts table from the database using the following string in the input text field: **';DROP TABLE posts;--'** rather than inputting a legitimate email address.
 
 <figure>
   <img alt="sql injection demo" src="/images/Picture5.png" />
@@ -122,7 +122,7 @@ We will perform a simple injection to delete the posts table from the database u
 </figure>
 
 This will effectively make our SQL query look like this:  
-**SELECT \* FROM users WHERE email=’;DROP TABLES posts;--’**  
+**SELECT \* FROM users WHERE email=’;DROP TABLE posts;--’**  
 When we click the button and this query runs it will delete our ‘posts’ table\!
 
 <figure>
@@ -142,7 +142,7 @@ Do you see how simple yet powerful this attack is? A competent attacker will not
 
 We all know and love our mysql\_query() function, she’s a simple girl but remember, she has a thing for hackers and she will invite them in any time. Be wary of her shy smiles and simple execution methods.
 
-We mitigate against this kind of attack by using prepared statements. I cannot stress this enough, if you are going to be using some variable in a SQL statement you MUST use prepared statements. I will use PDO prepared statements but you should know you can also use mysql prepared statements. Here is the modified code:
+We mitigate against this kind of attack by using prepared statements. I cannot stress this enough, if you are going to be using some variable in a SQL statement you MUST use prepared statements. I will use PDO prepared statements but you should know you can also use MySQL prepared statements. Here is the modified code:
 
 ```php
 

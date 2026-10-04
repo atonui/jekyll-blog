@@ -4,13 +4,13 @@ date:   2024-11-06 10:53:37 +0300
 categories: high school mischief
 permalink: /:categories/:title
 ---
-This post first appeared on my first wordpress blog [here][here].
+This post first appeared on my first WordPress blog [here][here].
 ----------------------------------------------------------------------------
-Back in high school, young, naïve and hot blooded when we thought we would conquer the world – before reality caught up with us that is, I had my first teacher crush. Many more would follow later in life but then they would have rosier endings than this one.
+Back in high school, young, naïve and hot-blooded when we thought we would conquer the world – before reality caught up with us that is, I had my first teacher crush. Many more would follow later in life but then they would have rosier endings than this one.
 
 She was straight out of college. Young, ambitious and eager to make an impression and boy did she make one. Unfortunately for her, it was to the wrong crowd – the boys and male staff of Kazimoto Secondary School.
 
-She was introduced to us one bitterly cold Monday morning. The assembly was as usual, a boring mind numbing routine. The master on duty was a certain King’ori esquire, whose receding hairline, double chin and protruding belly, ‘inexplicably’ reminded me of those pure bred Friesian cows that were always on exhibition at the agricultural show..
+She was introduced to us one bitterly cold Monday morning. The assembly was as usual, a boring mind-numbing routine. The master on duty was a certain King’ori esquire, whose receding hairline, double chin and protruding belly, ‘inexplicably’ reminded me of those purebred Friesian cows that were always on exhibition at the agricultural show..
 
 “Good morning school?” he croaked, his watery eyes or rather eyeballs, for they seemed to have popped an inch from their blubber lined sockets, probably to make room for more fat roving around.
 
@@ -20,7 +20,7 @@ She was introduced to us one bitterly cold Monday morning. The assembly was as u
 
 I lost him in a chuckle as someone made a face that implied he ate just as much, if not more than the said cow whose image his presence inspired.
 
-“…the staffroom will be…” he suddenly cut off mid sentence as his eyes wandered in my direction.
+“…the staffroom will be…” he suddenly cut off mid-sentence as his eyes wandered in my direction.
 
 “Mwibani!” he barked with a twisted look that elicited more snickering than it scared.
 
@@ -30,11 +30,11 @@ My light moment fast came to a stop and I quickly marched forward in obedience. 
 
 “Good morning school?” he boomed in a crisp clear voice.
 
-“Good morning sir” Mr. King’ori along with every student replied. No one in their right minds dared cross Mr. Fanyakazi. A man famed for his efficiency with words and preferred the talking done with his hands. Rumor had it that he was an ex Air Force officer with a judo black belt. But then again, the rumormongers swore Mr. King’ori was once a long distance athlete. Quite a laughable idea I might add.
+“Good morning sir” Mr. King’ori along with every student replied. No one in their right minds dared cross Mr. Fanyakazi. A man famed for his efficiency with words and preferred the talking done with his hands. Rumor had it that he was an ex Air Force officer with a judo black belt. But then again, the rumormongers swore Mr. King’ori was once a long-distance athlete. Quite a laughable idea I might add.
 
 “This morning I would like to introduce a new member of staff. Ms Madiba, please step forward”.
 
-There was an involuntary gasp as she stepped forward and settled next to me. She was a sight to behold! She was tall; light skinned and smelled of freshly picked roses. Behind her half moon glasses were brown almond shaped eyes that held you captive when you looked into them. They communicated trust with an element of laughter and I wanted to stare into them forever. Her grape sized nose was just perfect and it gave way to luscious full lips that made one think of flowers and kisses and more flowers. She had a cute dimple on her left cheek that dipped ever so slightly as she smiled at the school. It was a beautiful, honest smile that boasted two rows of perfectly white teeth and lit up the gathering and I could almost swear the temperature went up 10 degrees. It was at this precise moment that Mr. King’ori, I suspect, and I fell hopelessly in love. Her breasts were firm and healthy – good for breastfeeding and a host of other things that only a randy teenager could think of. She wore one of those knee length body hugging pencil skirts that ladies fancied in those days and it would later become her trademark. The red skirt with frilly edges merged perfectly into her ridiculously long and expertly shaped legs that disappeared into white pumps with inch high heels.
+There was an involuntary gasp as she stepped forward and settled next to me. She was a sight to behold! She was tall; light skinned and smelled of freshly picked roses. Behind her half-moon glasses were brown almond-shaped eyes that held you captive when you looked into them. They communicated trust with an element of laughter and I wanted to stare into them forever. Her grape-sized nose was just perfect and it gave way to luscious full lips that made one think of flowers and kisses and more flowers. She had a cute dimple on her left cheek that dipped ever so slightly as she smiled at the school. It was a beautiful, honest smile that boasted two rows of perfectly white teeth and lit up the gathering and I could almost swear the temperature went up 10 degrees. It was at this precise moment that Mr. King’ori, I suspect, and I fell hopelessly in love. Her breasts were firm and healthy – good for breastfeeding and a host of other things that only a randy teenager could think of. She wore one of those knee-length, body-hugging pencil skirts that ladies fancied in those days and it would later become her trademark. The red skirt with frilly edges merged perfectly into her ridiculously long and expertly shaped legs that disappeared into white pumps with inch-high heels.
 
 “Hello everyone” she chirped in that melodious voice that sounded like the choir of angels that sang to the shepherds and I had no doubt she was one of them, the angels that is.
 
@@ -46,7 +46,7 @@ At the sound of those words, Mr. King’ori could barely contain himself. He shi
 
 Mr. Fanyakazi rumbled on. Something about the library, or was it about the laboratories? Once or twice he glared in my direction as he mentioned the word discipline. I didn’t care anyway, I was in love, or so I thought at the time.
 
-Mr. Fanyakazi let us go. Mr. King’ori, a stupid grin plastered on his fleshy face, completely forgot about my misdemeanor as he gaily skipped towards her, fat rippling beneath his yellow polyester shirt and threatening to take out a button if stretched any further. I couldn’t help myself. I stuck a foot in his path and caught his left leg. His hundred ton body turned, the fat momentarily delayed the fall and then he came crashing down like a meteorite. His hands were flailing about his side like a spider or in this case, a toad doing the break dance and not making a very good job of it. I scrambled to my feet and moved away to watch my handiwork. He landed on his bottom exactly where I had been a second ago and yelped in pain, more from his wounded pride I supposed. He rolled on his back and tried to get up but only managed to look like a beetle trapped on its back by its smooth shell. I could barely stifle a laugh and had to look away as the other teachers rushed to his side and amid his outburst of obscenities, help him up.
+Mr. Fanyakazi let us go. Mr. King’ori, a stupid grin plastered on his fleshy face, completely forgot about my misdemeanor as he gaily skipped towards her, fat rippling beneath his yellow polyester shirt and threatening to take out a button if stretched any further. I couldn’t help myself. I stuck a foot in his path and caught his left leg. His hundred-ton body turned, the fat momentarily delayed the fall and then he came crashing down like a meteorite. His hands were flailing about his side like a spider or in this case, a toad doing the breakdance and not making a very good job of it. I scrambled to my feet and moved away to watch my handiwork. He landed on his bottom exactly where I had been a second ago and yelped in pain, more from his wounded pride I supposed. He rolled on his back and tried to get up but only managed to look like a beetle trapped on its back by its smooth shell. I could barely stifle a laugh and had to look away as the other teachers rushed to his side and amid his outburst of obscenities, help him up.
 
 “You little nincompoop!” He shouted at me, his face all red and puffy. The other teachers struggled to restrain the raging bull and one of his buttons made good its threat. It flew right off and exposed a forest of mangy chest hair. That did it! I couldn’t hold myself any longer. I howled in laughter at Mr. King’ori’s tough luck. First impressions tend to last especially those that involved dirty chest hair and pretty damsels. Mr. Fanyakazi suddenly appeared behind me and hoisted me by my very short and not so clean khaki shorts.
 
