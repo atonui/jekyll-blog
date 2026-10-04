@@ -1,5 +1,7 @@
 ---
 
+
+description: "An essay on whether AI should make moral decisions, using a childhood ethical dilemma to examine judgment, context and machine reasoning."
 # layout: post
 title:  Should AI Make Moral Decisions?
 date:   2025-02-20 9:06:37 +0300
