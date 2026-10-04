@@ -372,50 +372,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #181714;
-    color: #eee8dc;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  .site-masthead {
-    background: #181714;
-  }
-
-  .post {
-    background: #22211e;
-    box-shadow: none;
-  }
-
-  .post-content blockquote {
-    border-left-color: $brand-color;
-  }
-
-  .post-content th,
-  .post-content td,
-  .post-end,
-  .archive-year li,
-  .post-list-item,
-  .section-heading {
-    border-color: rgba(255,255,255,.16);
-  }
-
-  .post-link__meta,
-  .post-byline,
-  .archive-year li span {
-    color: #b8b09e;
-  }
-
-  .post a:hover {
-    background: rgba($brand-color, .25);
-  }
-}
-
-
 /* Topic taxonomy */
 
 .topic-list a {
@@ -539,10 +495,3 @@
   text-transform: uppercase;
 }
 
-@media (prefers-color-scheme: dark) {
-  .topic-list a,
-  .topic-card,
-  .post-tags span {
-    border-color: rgba(255,255,255,.18);
-  }
-}
