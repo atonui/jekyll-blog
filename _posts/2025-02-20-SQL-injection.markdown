@@ -2,6 +2,9 @@
 title:  SQL Injection
 date:   2025-02-20 17:30:25 +0300
 categories: php sql security webdev
+topic: "Software"
+topic_slug: "software"
+tags: ["php", "sql", "security", "web-development"]
 permalink: /:categories/:title
 ---
 
