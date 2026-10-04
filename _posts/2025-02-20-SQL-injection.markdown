@@ -10,6 +10,9 @@ tags: ["php", "sql", "security", "web-development"]
 permalink: /writing/sql-injection/
 redirect_from:
   - /php/sql/security/webdev/SQL-injection
+  - /php/sql/security/webdev/SQL-injection/
+  - /php/sql/security/webdev/sql-injection
+  - /php/sql/security/webdev/sql-injection/
 ---
 
 SQL injection is when a malicious user surreptitiously introduces malicious SQL statements into your code and can potentially destroy your application or commandeer it for their own nefarious purposes. These malicious statements are usually ingested from user input fields e.g. email address, name and other fields where user input is allowed. No developer wants this so let's see how we can defend against this.
