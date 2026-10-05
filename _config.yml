@@ -31,7 +31,7 @@ defaults:
       author: "Allan Koech"
       permalink: /writing/:title/
 
-hide_search: true
+hide_search: false
 hide_credits: true
 show_excerpts: true
 
