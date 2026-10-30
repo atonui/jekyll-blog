@@ -38,6 +38,10 @@ for item in index:
     assert not missing, f"Search index item missing fields: {sorted(missing)}"
     assert item["url"].startswith("/"), "Search index URLs must be site-relative"
 
+indexed_urls = {item["url"] for item in index}
+assert "/about/" in indexed_urls, "Search index must include titled site pages such as About"
+assert "/projects/" in indexed_urls, "Search index must include titled site pages such as Projects"
+
 js = search_js.read_text(encoding="utf-8")
 assert "scoreResult" in js, "Search script needs relevance scoring"
 assert "title" in js and "tags" in js and "topic" in js and "description" in js and "content" in js, "Search scoring must consider approved fields"
