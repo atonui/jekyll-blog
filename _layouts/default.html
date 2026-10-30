@@ -13,6 +13,9 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
     <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ site.icon }}">
+    {% unless site.hide_search %}
+      <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
+    {% endunless %}
 
     {% if site.google_analytics and jekyll.environment == 'production' %}
       {% include analytics.html %}
@@ -28,7 +31,7 @@
 
     {{ content }}
 
-    {% unless site.hide_search %}
+    {% unless site.hide_search or page.hide_search %}
       {% include search.html %}
     {% endunless %}
 
