@@ -4,6 +4,7 @@ title: Search
 permalink: /search/
 description: Search essays and notes on KibetKoech.com.
 hide_search: true
+search_exclude: true
 ---
 
 # Search
