@@ -1,0 +1,59 @@
+name: Lighthouse Site Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    name: Lighthouse (${{ matrix.device }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [mobile, desktop]
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Lighthouse CLI
+        run: npm install --global lighthouse@13.5.0
+
+      - name: Verify browser availability
+        run: |
+          google-chrome --version
+          lighthouse --version
+
+      - name: Run Lighthouse audit
+        env:
+          AUDIT_URL: https://www.kibetkoech.com/
+          DEVICE: ${{ matrix.device }}
+        run: |
+          mkdir -p lighthouse-reports
+          args=(
+            "$AUDIT_URL"
+            --chrome-flags="--headless --no-sandbox --disable-gpu"
+            --output=html
+            --output=json
+            --output-path="lighthouse-reports/${DEVICE}"
+            --only-categories=performance,accessibility,best-practices,seo
+            --quiet
+          )
+          if [ "$DEVICE" = desktop ]; then
+            args+=(--preset=desktop)
+          fi
+          lighthouse "${args[@]}"
+
+      - name: Upload HTML and JSON reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-${{ matrix.device }}-${{ github.run_number }}
+          path: lighthouse-reports/
+          if-no-files-found: warn
+          retention-days: 30
