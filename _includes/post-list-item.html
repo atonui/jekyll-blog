@@ -3,8 +3,8 @@
 {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
 
 <li class="post-list-item">
-  <a href="{{ post.url | absolute_url }}" class="post-link">
-    <div class="post-link__heading">
+  <div class="post-link__heading">
+    <a href="{{ post.url | absolute_url }}" class="post-link">
       {% unless post.title == "" %}
         <h3 class="post-link__title">{{ post.title }}</h3>
       {% endunless %}
@@ -16,16 +16,16 @@
           {{ post.excerpt | strip_html | strip_newlines | truncate: 190 }}
         {% endif %}
       </p>
+    </a>
 
-      <p class="post-link__meta">
-        {% if post.topic_slug %}
-          <a class="post-topic" href="{{ '/topics/' | append: post.topic_slug | append: '/' | relative_url }}">{{ post.topic }}</a>
-          <span aria-hidden="true">·</span>
-        {% endif %}
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+    <p class="post-link__meta">
+      {% if post.topic_slug %}
+        <a class="post-topic" href="{{ '/topics/' | append: post.topic_slug | append: '/' | relative_url }}">{{ post.topic }}</a>
         <span aria-hidden="true">·</span>
-        <span>{{ minutes }} min read</span>
-      </p>
-    </div>
-  </a>
+      {% endif %}
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <span aria-hidden="true">·</span>
+      <span>{{ minutes }} min read</span>
+    </p>
+  </div>
 </li>
