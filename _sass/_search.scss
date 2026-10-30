@@ -1,9 +1,16 @@
+#search,
+.search-page {
+  width: min(42rem, calc(100% - 2rem));
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
 #search {
-  width: min(34rem, calc(100% - 2rem));
-  margin: 3.5rem auto 1rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid rgba($text-color, .18);
-  text-align: left;
 }
 
 .search-label {
@@ -21,7 +28,8 @@
   align-items: stretch;
 }
 
-#search__input {
+#search__input,
+#search-page-input {
   min-width: 0;
   flex: 1 1 auto;
   background: transparent;
@@ -33,26 +41,117 @@
   text-align: left;
 }
 
-#search__input:focus {
+#search__input:focus,
+#search-page-input:focus,
+#search .search-submit:focus,
+.search-page .search-submit:focus {
   outline: 2px solid $text-color;
   outline-offset: 2px;
 }
 
-#search .search-submit {
+#search .search-submit,
+.search-page .search-submit {
   flex: 0 0 auto;
   margin: 0;
   padding: .7rem 1rem;
   cursor: pointer;
 }
 
-#search .search-submit:focus {
-  outline: 2px solid $text-color;
-  outline-offset: 2px;
-}
-
-#search__input::placeholder {
+#search__input::placeholder,
+#search-page-input::placeholder {
   color: $muted-text-color;
   opacity: 1;
+}
+
+.search-status {
+  min-height: 1.2em;
+  margin-top: .55rem;
+  color: $muted-text-color;
+  font-size: .72rem;
+}
+
+.search-suggestions {
+  margin-top: .35rem;
+  border-top: 1px solid rgba($text-color, .18);
+}
+
+.search-suggestion {
+  display: block;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba($text-color, .18);
+  color: inherit;
+  text-decoration: none;
+}
+
+.search-suggestion:hover,
+.search-suggestion:focus,
+.search-suggestion.is-active {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.search-suggestion strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.search-suggestion span {
+  display: block;
+  margin-top: .2rem;
+  color: $muted-text-color;
+  font-size: .78rem;
+}
+
+.search-all {
+  display: inline-block;
+  margin-top: .75rem;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.search-page {
+  margin-top: 2rem;
+}
+
+.search-page .search-controls {
+  margin-bottom: 2rem;
+}
+
+.search-results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-result {
+  margin: 0 !important;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba($text-color, .18);
+}
+
+.search-result h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.search-result p {
+  margin: .45rem 0 0;
+  line-height: 1.5;
+}
+
+.search-result__meta {
+  color: $muted-text-color;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.search-empty {
+  margin-top: 1.5rem;
 }
 
 @media (max-width: $on-tablet) {
@@ -61,7 +160,8 @@
     flex-direction: column;
   }
 
-  #search .search-submit {
+  #search .search-submit,
+  .search-page .search-submit {
     width: 100%;
   }
 }
