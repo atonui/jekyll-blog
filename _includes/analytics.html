@@ -1,8 +1,16 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', '{{ site.google_analytics }}');
+
+  // Delay third-party code until the initial page load settles.
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}";
+      document.head.appendChild(script);
+    }, 1500);
+  }, { once: true });
 </script>
