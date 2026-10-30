@@ -44,4 +44,5 @@ assert "title" in js and "tags" in js and "topic" in js and "description" in js 
 assert "URLSearchParams" in js, "Search page must read the q query parameter"
 assert "ArrowDown" in js and "ArrowUp" in js and "Escape" in js, "Live suggestions need keyboard navigation"
 
+# RED: native search files do not exist yet
 print("Native search checks passed")
