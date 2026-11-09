@@ -4,3 +4,78 @@ energy:
   snapshot: 2026-11-09-fe53088a0f44
   dataset_root: /assets/data/development
   updated: 9 November 2026
+
+complexity-income:
+  id: "complexity-income"
+  order: 3
+  title: "Know-how and prosperity"
+  subtitle: "How does the complexity of goods exports relate to income?"
+  category: "Economic complexity"
+  kind: "scatter"
+  science: false
+  complexity: true
+  snapshot: "2026-11-09-24e8d6ada556"
+  dataset_root: "/assets/data/development"
+  updated: "9 November 2026"
+  sources: "<a href=\"https://data.worldbank.org/\">World Bank</a> / <a href=\"https://atlas.hks.harvard.edu/\">Harvard Growth Lab</a>"
+  method_note: "ECI uses the HS92 goods classification."
+
+energy-complexity:
+  id: "energy-complexity"
+  order: 5
+  title: "Power and productive capabilities"
+  subtitle: "Explore electricity consumption alongside the complexity of goods exports."
+  category: "Economic complexity"
+  kind: "scatter"
+  science: false
+  complexity: true
+  snapshot: "2026-11-09-24e8d6ada556"
+  dataset_root: "/assets/data/development"
+  updated: "9 November 2026"
+  sources: "<a href=\"https://data.worldbank.org/\">World Bank</a> / IEA / <a href=\"https://atlas.hks.harvard.edu/\">Harvard Growth Lab</a>"
+  method_note: "ECI uses the HS92 goods classification."
+
+science:
+  id: "science"
+  order: 4
+  title: "Scientific output, in perspective"
+  subtitle: "Compare publication output with and without adjusting for population."
+  category: "Scientific output"
+  kind: "series"
+  science: true
+  complexity: false
+  snapshot: "2026-11-09-24e8d6ada556"
+  dataset_root: "/assets/data/development"
+  updated: "9 November 2026"
+  sources: "<a href=\"https://data.worldbank.org/\">World Bank</a> / NSF"
+  method_note: "Fractional counts are preserved; population adjustment uses the same observation year."
+
+science-complexity:
+  id: "science-complexity"
+  order: 6
+  title: "Research and economic complexity"
+  subtitle: "Does greater publication output accompany more complex goods exports?"
+  category: "Scientific output"
+  kind: "scatter"
+  science: true
+  complexity: true
+  snapshot: "2026-11-09-24e8d6ada556"
+  dataset_root: "/assets/data/development"
+  updated: "9 November 2026"
+  sources: "<a href=\"https://data.worldbank.org/\">World Bank</a> / NSF / <a href=\"https://atlas.hks.harvard.edu/\">Harvard Growth Lab</a>"
+  method_note: "Fractional counts are preserved; population adjustment uses the same observation year."
+
+trajectories:
+  id: "trajectories"
+  order: 2
+  title: "How economies move"
+  subtitle: "Follow electricity use and income through time."
+  category: "Country trajectories"
+  kind: "trajectory"
+  science: false
+  complexity: false
+  snapshot: "2026-11-09-24e8d6ada556"
+  dataset_root: "/assets/data/development"
+  updated: "9 November 2026"
+  sources: "<a href=\"https://data.worldbank.org/\">World Bank</a> / IEA"
+  method_note: "Real PPP income uses constant 2021 international dollars."

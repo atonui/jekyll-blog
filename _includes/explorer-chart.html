@@ -1,0 +1,22 @@
+{% assign chart = site.data.essay_charts[include.chart] %}
+<figure class="data-chart" id="{{ chart.id }}" data-suite-chart data-figure-id="{{ chart.id }}" data-dataset-root="{{ chart.dataset_root | relative_url }}" aria-labelledby="{{ chart.id }}-title">
+  <header class="chart-heading"><p class="chart-eyebrow">0{{ chart.order }} / {{ chart.category }}</p><h3 id="{{ chart.id }}-title">{{ chart.title }}</h3><p>{{ chart.subtitle }}</p></header>
+  <div class="chart-interactive" hidden>
+    <div class="chart-toolbar suite-toolbar">
+      {% if chart.kind != 'scatter' %}<div class="chart-year-group"><label for="{{ chart.id }}-start">From year</label><select id="{{ chart.id }}-start" data-start-select></select></div>{% endif %}
+      <div class="chart-year-group"><label for="{{ chart.id }}-year">{% if chart.kind == 'scatter' %}Explore a year{% else %}To / selected year{% endif %}</label><select id="{{ chart.id }}-year" data-year-select></select></div>
+      <div class="chart-year-track"><label class="chart-sr-only" for="{{ chart.id }}-timeline">{{ chart.title }} observation year</label><input id="{{ chart.id }}-timeline" type="range" data-year-slider><div class="chart-range-labels"><span data-first-year></span><span data-last-year></span></div></div>
+      <div class="chart-scale" role="group" aria-label="{{ chart.title }} positive axis scale"><button type="button" data-scale="log" aria-pressed="true">Log</button><button type="button" data-scale="linear" aria-pressed="false">Linear</button></div>
+    </div>
+    {% if chart.science %}<div class="chart-scale chart-metric" role="group" aria-label="{{ chart.title }} publication measure"><button type="button" data-metric="perMillion" aria-pressed="true">Per million people</button><button type="button" data-metric="total" aria-pressed="false">Total publications</button></div>{% endif %}
+    <div class="chart-comparison"><div class="chart-selection" data-selection aria-label="{{ chart.title }} highlighted economies"></div><label class="chart-country-field" for="{{ chart.id }}-country"><span class="chart-sr-only">{{ chart.title }}: find an economy to highlight</span><input id="{{ chart.id }}-country" type="search" list="{{ chart.id }}-countries" data-country-search placeholder="+ Compare a country" autocomplete="off"><datalist id="{{ chart.id }}-countries" data-country-list></datalist></label><button class="chart-reset" type="button" data-reset>Reset view</button></div>
+    <p class="chart-guide" data-guide>Highlight up to six economies. Missing years are not interpolated.</p>
+    <div class="chart-axis-caption" data-y-caption></div><div class="chart-plot" data-plot></div><div class="chart-x-caption" data-x-caption></div>
+    <div class="chart-inspector"><label for="{{ chart.id }}-inspect">Inspect an economy</label><select id="{{ chart.id }}-inspect" data-inspect aria-describedby="{{ chart.id }}-detail"><option value="">Choose an economy</option></select></div>
+    <div class="chart-detail" id="{{ chart.id }}-detail" data-detail aria-live="off"></div>
+    <p class="chart-status" data-status role="status" aria-live="polite"></p>
+    <div class="chart-actions"><button type="button" data-share>Share this view</button><button type="button" data-csv>Download data</button><button type="button" data-svg>Download SVG</button></div>
+  </div>
+  {% assign fallback = 'generated/' | append: chart.id | append: '.html' %}{% include {{ fallback }} %}
+  <figcaption class="chart-sources"><p><strong>Sources:</strong> {{ chart.sources }} Same-year observations; no interpolation. {{ chart.method_note }}</p><p>Updated analysis · {{ chart.updated }}. <span data-snapshot-note>Snapshot {{ chart.snapshot }}.</span> <a data-manifest-link href="{{ chart.dataset_root | append: '/' | append: chart.snapshot | append: '/manifest.json' | relative_url }}">Data definitions &amp; provenance</a></p><p>Association does not establish causation. {% if chart.science %}Publication counts measure output, not research quality.{% endif %} {% if chart.complexity %}ECI describes the complexity of goods exports, not every activity in an economy.{% endif %}</p></figcaption>
+</figure>
