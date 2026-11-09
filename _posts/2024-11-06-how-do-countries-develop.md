@@ -9,6 +9,7 @@ categories: development economy politics
 topic: "Economics & Society"
 topic_slug: "economics-society"
 tags: ["development", "economy", "politics"]
+charts: [energy]
 permalink: /writing/how-do-countries-develop/
 redirect_from:
   - /development/economy/politics/how-do-countries-develop
@@ -36,7 +37,15 @@ Data was acquired and assembled from multiple online sources listed below:
 ### Results and Discussion
 [Here][dash] is the Power BI dashboard.
 
-#### 1. Average Electricity Consumption per Capita vs Average GDP per Capita
+#### 1. Electricity consumption and income
+
+The interactive figure below is an updated analysis using same-year observations, rather than the multi-year averages in the original figure. Income is now explicitly measured in purchasing-power-adjusted, constant 2021 international dollars. The source data were retrieved on 9 November 2026; the opening year is 2024 because 2025 coverage is still incomplete.
+
+{% include data-chart.html chart="energy" %}
+
+<details>
+<summary>Original 2024 figure</summary>
+<p>This screenshot is preserved from the original article. Its underlying raw dataset is not available in the repository; it is not the dataset used by the updated interactive figure.</p>
 
 <figure>
   <img alt="Average Electricity Consumption per Capita vs Average GDP per Capita" src="/images/elec_vs_gdp.JPG" />
@@ -45,11 +54,13 @@ Data was acquired and assembled from multiple online sources listed below:
   </figcaption>
 </figure>
 
+</details>
+
 <!-- | ![image](/images/elec_vs_gdp.JPG){:height="550%" width="150%"} |
 |:--:|
 | *Average Electricity Consumption per Capita vs Average GDP per Capita* | -->
 
-The chart above clearly shows a strong positive correlation between GDP per capita and electricity consumption per capita. In other words, the more electricity citizens use, the more productive they are. 
+Economies with higher electricity consumption per person tend to have higher income per person. This association alone does not establish causation: electricity can enable production, while rising production also increases electricity demand. The chart measures consumption and income; it does not directly measure worker productivity, power reliability, or electricity prices.
 
 #### 2. Electricity consumption per capita vs GDP per Capita for selected countries
 

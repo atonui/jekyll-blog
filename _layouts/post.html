@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<article class="post h-entry" itemscope itemtype="https://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
+<article class="post h-entry{% if page.charts %} post--data{% endif %}" itemscope itemtype="https://schema.org/BlogPosting" id="main" role="article" aria-label="Content">
 
   {% if page.title != "" %}
     <header class="post-header">

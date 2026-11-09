@@ -45,3 +45,8 @@ paginate: 5
 paginate_path: "/page/:num/"
 
 google_analytics: G-49PF6VYSLV
+
+exclude:
+  - research-data
+  - scripts
+  - docs
