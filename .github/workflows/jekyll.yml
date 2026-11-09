@@ -43,6 +43,7 @@ jobs:
         run: |
           python3 -m unittest discover -s scripts/data -p 'test_*.py'
           node --test scripts/test_chart_model.mjs
+          node --test scripts/test_suite_model.mjs
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"

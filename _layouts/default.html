@@ -19,6 +19,9 @@
     {% if page.charts %}
       <script type="module" src="{{ '/assets/js/charts/energy.mjs' | relative_url }}"></script>
     {% endif %}
+    {% if page.suite_charts %}
+      <script type="module" src="{{ '/assets/js/charts/suite.mjs' | relative_url }}"></script>
+    {% endif %}
 
     {% if site.google_analytics and jekyll.environment == 'production' %}
       {% include analytics.html %}

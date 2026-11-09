@@ -348,6 +348,26 @@
     margin: 1.5rem 0 0.5rem;
     width: 100%;
   }
+  .chart-static-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .chart-static-scroll img {
+    min-width: 1080px;
+    max-width: none;
+  }
+  .chart-metric {
+    width: fit-content;
+    max-width: 100%;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+  }
+  .suite-toolbar {
+    flex-wrap: wrap;
+  }
+  .chart-detail-value {
+    max-width: 100%;
+  }
   .chart-static-note {
     color: $muted-text-color;
     font-size: .88rem;
