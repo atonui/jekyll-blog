@@ -14,16 +14,16 @@
 }
 .data-chart {
   box-sizing: border-box;
-  max-width: 62rem;
-  margin: 3rem auto 4rem;
-  padding: 2rem 1.5rem;
-  color: #203142;
-  background: #fff;
-  border-top: 2px solid #203142;
+  max-width: 43rem;
+  margin: 2.6rem auto;
+  padding: 1.5rem 0;
+  color: $text-color;
+  background: transparent;
+  border-top: 1px solid #ddd;
   border-bottom: 1px solid #dce2e7;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
+  font-family: inherit;
+  font-size: 1.08rem;
+  line-height: 1.68;
   font-style: normal;
   *,
   *::before,
@@ -49,13 +49,13 @@
   input:focus-visible,
   select:focus-visible,
   summary:focus-visible {
-    outline: 3px solid #245b8c;
+    outline: 3px solid $text-color;
     outline-offset: 3px;
   }
   .chart-eyebrow {
-    color: #9c3b18;
+    color: $muted-text-color;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: .88rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     margin: 0 0 0.65rem;
@@ -63,20 +63,20 @@
   .chart-heading h3 {
     margin: 0 0 0.6rem;
     font-family: $font-family;
-    font-size: clamp(2rem, 4vw, 2.9rem);
-    font-weight: 500;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: normal;
   }
   .chart-heading > p:last-child {
-    font-size: 16px;
-    color: #536171;
+    font-size: 1.08rem;
+    color: $muted-text-color;
   }
   .chart-toolbar {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-top: 1.8rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
     padding: 1.1rem 0;
     border-top: 1px solid #e4e9ed;
     border-bottom: 1px solid #e4e9ed;
@@ -87,7 +87,7 @@
     flex: 0 0 110px;
   }
   .chart-year-group label {
-    color: #536171;
+    color: $muted-text-color;
   }
   .chart-year-group select {
     min-height: 44px;
@@ -95,8 +95,8 @@
     padding: 0 0.5rem 0 0;
     border: none;
     background: white;
-    color: #203142;
-    font-size: 28px;
+    color: $text-color;
+    font-size: 1.35rem;
     font-weight: 700;
   }
   .chart-year-track {
@@ -107,14 +107,14 @@
     display: block;
     width: 100%;
     height: 44px;
-    accent-color: #ba4a22;
+    accent-color: $text-color;
     cursor: pointer;
   }
   .chart-range-labels {
     display: flex;
     justify-content: space-between;
-    color: #536171;
-    font-size: 14px;
+    color: $muted-text-color;
+    font-size: .88rem;
   }
   .chart-scale {
     display: flex;
@@ -127,10 +127,10 @@
     border: 0;
     border-radius: 3px;
     background: white;
-    color: #536171;
+    color: $muted-text-color;
   }
   .chart-scale button[aria-pressed="true"] {
-    background: #203142;
+    background: $text-color;
     color: white;
   }
   .chart-comparison {
@@ -152,9 +152,9 @@
     border: 1px solid #dce2e7;
     border-radius: 4px;
     background: white;
-    color: #203142;
+    color: $text-color;
     padding: 0.45rem 0.65rem;
-    font-size: 14px;
+    font-size: .88rem;
   }
   .chart-chip::before {
     content: "";
@@ -164,7 +164,7 @@
     background: var(--country-colour);
   }
   .chart-chip-remove {
-    color: #536171;
+    color: $muted-text-color;
     font-size: 20px;
   }
   .chart-country-field {
@@ -178,8 +178,8 @@
     border: 1px solid #dce2e7;
     border-radius: 4px;
     padding: 0.5rem 0.65rem;
-    background: #fff;
-    color: #203142;
+    background: transparent;
+    color: $text-color;
   }
   .chart-reset {
     border: 0;
@@ -187,22 +187,22 @@
     margin-left: auto;
     background: white;
     text-decoration: underline;
-    color: #536171;
+    color: $muted-text-color;
   }
   .chart-guide {
-    color: #536171;
-    font-size: 14px;
+    color: $muted-text-color;
+    font-size: .88rem;
     margin-bottom: 1.6rem;
   }
   .chart-axis-caption,
   .chart-x-caption {
-    font-size: 14px;
+    font-size: .88rem;
     font-weight: 700;
   }
   .chart-axis-caption span,
   .chart-x-caption span {
     font-weight: 400;
-    color: #536171;
+    color: $muted-text-color;
     margin-left: 0.4rem;
   }
   .chart-x-caption {
@@ -229,8 +229,8 @@
     flex-wrap: wrap;
     gap: 0.8rem 2rem;
     padding: 1rem 1.1rem;
-    background: #f4f6f8;
-    border-left: 3px solid #ba4a22;
+    background: $highlight;
+    border-left: 3px solid $text-color;
     min-height: 90px;
   }
   .chart-inspector {
@@ -247,28 +247,28 @@
     border-radius: 4px;
     padding: 0.4rem 0.6rem;
     background: white;
-    color: #203142;
-    font-size: 14px;
+    color: $text-color;
+    font-size: .88rem;
   }
   .chart-detail-country {
     flex: 1 1 180px;
-    font-size: 16px;
+    font-size: 1.08rem;
   }
   .chart-detail-value {
     display: grid;
     gap: 0.2rem;
-    color: #536171;
+    color: $muted-text-color;
   }
   .chart-detail-value strong {
-    font-size: 22px;
+    font-size: 1.35rem;
     font-weight: 600;
-    color: #203142;
+    color: $text-color;
     font-variant-numeric: tabular-nums;
   }
   .chart-status {
     padding: 0.8rem 0;
-    color: #536171;
-    font-size: 14px;
+    color: $muted-text-color;
+    font-size: .88rem;
   }
   .chart-share-link {
     display: block;
@@ -277,7 +277,7 @@
     margin-top: 0.5rem;
     border: 1px solid #c6d0d9;
     padding: 0.5rem;
-    font-size: 14px;
+    font-size: .88rem;
   }
   .chart-actions {
     display: flex;
@@ -289,17 +289,17 @@
     border: 1px solid #c6d0d9;
     border-radius: 4px;
     background: white;
-    color: #203142;
+    color: $text-color;
     padding: 0.45rem 0.8rem;
-    font-size: 14px;
+    font-size: .88rem;
   }
   .chart-actions button:hover,
   .chart-chip:hover {
-    background: #f4f6f8;
+    background: $highlight;
   }
   .chart-data {
     margin-top: 1rem;
-    font-size: 14px;
+    font-size: .88rem;
   }
   .chart-data summary {
     cursor: pointer;
@@ -314,26 +314,26 @@
   table {
     display: table;
     margin: 0.5rem 0;
-    font-size: 14px;
+    font-size: .88rem;
     width: 100%;
   }
   caption {
     text-align: left;
-    color: #536171;
+    color: $muted-text-color;
     margin-bottom: 0.8rem;
     white-space: normal;
   }
   td,
   th {
-    font-size: 14px;
+    font-size: .88rem;
   }
   .chart-sources {
     text-align: left;
     font-family: inherit;
-    font-size: 14px;
+    font-size: .88rem;
     font-style: normal;
     opacity: 1;
-    color: #536171;
+    color: $muted-text-color;
     margin: 1rem 0 0;
     padding-top: 1rem;
     border-top: 1px solid #e4e9ed;
@@ -342,15 +342,15 @@
     margin-top: 0.45rem;
   }
   .chart-sources a {
-    color: #245b8c;
+    color: $text-color;
   }
   .chart-fallback img {
     margin: 1.5rem 0 0.5rem;
     width: 100%;
   }
   .chart-static-note {
-    color: #536171;
-    font-size: 14px;
+    color: $muted-text-color;
+    font-size: .88rem;
     overflow-wrap: anywhere;
   }
   .chart-sr-only {
