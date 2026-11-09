@@ -37,6 +37,11 @@ jobs:
       - name: Generate social preview card
         run: python3 scripts/generate_social_card.py
 
+      - name: Verify essay data and chart logic
+        run: |
+          python3 -m unittest discover -s scripts/data -p 'test_*.py'
+          node --test scripts/test_chart_model.mjs
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:

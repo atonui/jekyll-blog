@@ -16,6 +16,9 @@
     {% unless site.hide_search %}
       <script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>
     {% endunless %}
+    {% if page.charts %}
+      <script type="module" src="{{ '/assets/js/charts/energy.mjs' | relative_url }}"></script>
+    {% endif %}
 
     {% if site.google_analytics and jekyll.environment == 'production' %}
       {% include analytics.html %}

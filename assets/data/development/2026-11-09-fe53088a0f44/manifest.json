@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "2026-11-09-fe53088a0f44",
+  "retrievedAt": "2026-11-09T17:13:49Z",
+  "sourceUpdatedAt": "2026-10-08",
+  "defaultYear": 2024,
+  "defaultCountries": [
+    "KEN"
+  ],
+  "units": {
+    "electricity": "kWh per person per year",
+    "income": "GDP per capita, PPP (constant 2021 international $)"
+  },
+  "domains": {
+    "electricity": [
+      1,
+      100000
+    ],
+    "income": [
+      100,
+      1000000
+    ]
+  },
+  "years": [
+    1990,
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "coverage": {
+    "1990": 138,
+    "1991": 138,
+    "1992": 138,
+    "1993": 138,
+    "1994": 138,
+    "1995": 139,
+    "1996": 139,
+    "1997": 139,
+    "1998": 139,
+    "1999": 139,
+    "2000": 141,
+    "2001": 141,
+    "2002": 141,
+    "2003": 141,
+    "2004": 141,
+    "2005": 142,
+    "2006": 142,
+    "2007": 142,
+    "2008": 143,
+    "2009": 143,
+    "2010": 143,
+    "2011": 143,
+    "2012": 143,
+    "2013": 143,
+    "2014": 143,
+    "2015": 142,
+    "2016": 142,
+    "2017": 142,
+    "2018": 142,
+    "2019": 142,
+    "2020": 142,
+    "2021": 142,
+    "2022": 142,
+    "2023": 141,
+    "2024": 141,
+    "2025": 40
+  },
+  "rawChecksums": {
+    "EG.USE.ELEC.KH.PC": "691ee13094f089f10bf19fb2e7fb7fbb3ce3322760c2ae8e8d34eca4729a4825",
+    "NY.GDP.PCAP.PP.KD": "1658a1dcac469e33a640b1974da9738ae9cf024ddf7d6367a0c89db5d77cdf8b",
+    "countries": "3491d7dbb4058380718c61d28927e3c7486988be7151a113c1e5697f7345035c"
+  },
+  "sources": [
+    {
+      "provider": "World Bank",
+      "indicator": "EG.USE.ELEC.KH.PC",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/EG.USE.ELEC.KH.PC?format=json&per_page=20000&date=1990:2025",
+      "upstream": "IEA",
+      "license": "CC BY 4.0"
+    },
+    {
+      "provider": "World Bank",
+      "indicator": "NY.GDP.PCAP.PP.KD",
+      "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.PP.KD?format=json&per_page=20000&date=1990:2025",
+      "upstream": "ICP / World Bank",
+      "license": "CC BY 4.0"
+    }
+  ],
+  "countryMetadataUrl": "https://api.worldbank.org/v2/country?format=json&per_page=400"
+}
