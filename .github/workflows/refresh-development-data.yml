@@ -1,0 +1,116 @@
+name: Refresh development chart data
+
+on:
+  schedule:
+    - cron: "23 5 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch, validate, and archive a complete candidate
+        run: python3 scripts/data/refresh_suite.py --root .
+
+      - name: Commit generated snapshot when changed
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain -- assets/data/development research-data/development _includes/generated)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes; skipping commit and deployment."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/data/development research-data/development _includes/generated
+          git commit -m "data: refresh development chart snapshots"
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    outputs:
+      artifact_name: ${{ steps.artifact-name.outputs.name }}
+    steps:
+      - name: Checkout refreshed main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        with:
+          ruby-version: "3.1"
+          bundler-cache: true
+          cache-version: 1
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Generate social preview card
+        run: python3 scripts/generate_social_card.py
+
+      - name: Verify data and chart logic
+        run: |
+          python3 -m unittest discover -s scripts/data -p 'test_*.py'
+          node --test scripts/test_chart_model.mjs
+          node --test scripts/test_suite_model.mjs
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - name: Verify search UX
+        run: python3 scripts/test_search.py
+
+      - name: Verify Lighthouse fixes
+        run: python3 scripts/test_lighthouse_fixes.py
+
+      - name: Name Pages artifact
+        id: artifact-name
+        run: echo "name=github-pages-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: ${{ steps.artifact-name.outputs.name }}
+
+  deploy:
+    needs: [refresh, build]
+    if: needs.refresh.outputs.changed == 'true'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy refreshed Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
