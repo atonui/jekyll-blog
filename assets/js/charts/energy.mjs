@@ -223,8 +223,8 @@ async function enhance(root) {
         state.scale,
       );
     const axis = svgNode("g", {
-      "font-family": "Arial,sans-serif",
-      "font-size": 14,
+      "font-family": "EB Garamond,Garamond,Times New Roman,serif",
+      "font-size": 20,
       fill: "#536171",
     });
     for (const metric of ["electricity", "income"]) {
@@ -265,8 +265,8 @@ async function enhance(root) {
     svg.append(axis);
     const marks = svgNode("g"),
       labels = svgNode("g", {
-        "font-family": "Arial,sans-serif",
-        "font-size": 14,
+        "font-family": "EB Garamond,Garamond,Times New Roman,serif",
+        "font-size": 20,
         "font-weight": 700,
       }),
       placed = [];

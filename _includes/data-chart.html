@@ -25,7 +25,8 @@
     <p class="chart-status" data-status role="status" aria-live="polite"></p>
     <div class="chart-actions"><button type="button" data-share>Share this view</button><button type="button" data-csv>Download data</button><button type="button" data-svg>Download SVG</button></div>
   </div>
-  {% include generated/energy-income.html %}
+  {% capture energy_fallback %}{% include generated/energy-income.html %}{% endcapture %}
+  {{ energy_fallback | replace: "/assets/data/development/2026-11-09-fe53088a0f44/fallback.svg", "/assets/images/development-energy-fallback.svg" }}
   <figcaption class="chart-sources">
     <p><strong>Sources:</strong> <a href="https://data.worldbank.org/indicator/EG.USE.ELEC.KH.PC">World Bank / IEA electricity</a> and <a href="https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.KD">World Bank real PPP income</a>. Same-year observations; no interpolation.</p>
     <p>Updated analysis · {{ chart.updated }}. <span data-snapshot-note>Snapshot {{ chart.snapshot }}.</span> <a data-manifest-link href="{{ chart.dataset_root | append: '/' | append: chart.snapshot | append: '/manifest.json' | relative_url }}">Data definitions &amp; provenance</a></p>
