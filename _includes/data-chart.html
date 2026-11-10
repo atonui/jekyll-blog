@@ -1,10 +1,5 @@
 {% assign chart = site.data.essay_charts[include.chart] %}
-<figure class="data-chart" id="{{ chart.id }}" data-energy-chart data-figure-id="{{ chart.id }}" data-dataset-root="{{ chart.dataset_root | relative_url }}" aria-labelledby="{{ chart.id }}-title">
-  <header class="chart-heading">
-    <p class="chart-eyebrow">01 / Energy &amp; income</p>
-    <h3 id="{{ chart.id }}-title">{{ chart.title }}</h3>
-    <p>Do economies that use more electricity also earn more?</p>
-  </header>
+<figure class="data-chart" id="{{ chart.id }}" data-energy-chart data-figure-id="{{ chart.id }}" data-dataset-root="{{ chart.dataset_root | relative_url }}" aria-label="{{ chart.title }} chart">
   <div class="chart-interactive" hidden>
     <div class="chart-toolbar">
       <div class="chart-year-group"><label for="{{ chart.id }}-year">Explore a year</label><select id="{{ chart.id }}-year" data-year-select></select></div>
