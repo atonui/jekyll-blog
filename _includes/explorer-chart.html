@@ -1,6 +1,5 @@
 {% assign chart = site.data.essay_charts[include.chart] %}
-<figure class="data-chart" id="{{ chart.id }}" data-suite-chart data-figure-id="{{ chart.id }}" data-dataset-root="{{ chart.dataset_root | relative_url }}" aria-labelledby="{{ chart.id }}-title">
-  <header class="chart-heading"><p class="chart-eyebrow">0{{ chart.order }} / {{ chart.category }}</p><h3 id="{{ chart.id }}-title">{{ chart.title }}</h3><p>{{ chart.subtitle }}</p></header>
+<figure class="data-chart" id="{{ chart.id }}" data-suite-chart data-figure-id="{{ chart.id }}" data-dataset-root="{{ chart.dataset_root | relative_url }}" aria-label="{{ chart.title }} chart">
   <div class="chart-interactive" hidden>
     <div class="chart-toolbar suite-toolbar">
       {% if chart.kind != 'scatter' %}<div class="chart-year-group"><label for="{{ chart.id }}-start">From year</label><select id="{{ chart.id }}-start" data-start-select></select></div>{% endif %}
