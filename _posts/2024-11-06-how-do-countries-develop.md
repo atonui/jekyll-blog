@@ -24,7 +24,12 @@ How do countries develop? What is development? Owen Barder[^1] argues that devel
 
 This is a complex topic to tackle so I have narrowed down my question to just how important energy is to the development of a nation, specifically, electricity and the role of scientific advancement. This is because electrical consumption is a measure of not just the ability to utilise electricity but a measure of just how good a country’s infrastructure is because electricity is complex to generate, transmit and use and like all other forms of energy it must be reliable and cheap. Attention to scientific advancements is also important as new and more complex goods and services are developed through research and the application of newly discovered or acquired knowledge. A nation that pays attention to and deliberately funds research and development will tend to have a more advanced and complex economy.
 
-Therefore, I will be using the GDP per capita, electricity consumption per capita, economic complexity index, and the number of scientific papers published per nation to investigate my hypothesis.
+I will use the following measures to test my hypothesis:
+
+1. **GDP per capita ($):** Gross Domestic Product per capita. This measures the value produced per person in a country. It is calculated by dividing GDP by population and is measured in US dollars ($)[^8].
+2. **Electricity consumption per capita (kilowatt-hours):** The electrical energy consumed per person, calculated by dividing a country’s total annual electricity consumption by its population.
+3. **Economic Complexity Index (ECI):** A ranking of countries by the complexity and variety of the goods and products they produce and export. The more complex, specialised, and hard to replicate those goods and services are, the higher a country ranks on the index[^9].
+4. **Number of scientific papers published per country.**
 
 Developing nations have been struggling to move to middle-income and finally high-income status. Loans, grants and donations have been poured into trying to alleviate poverty and improve the lot of these nations but sadly not much happens. Exactly what does it take to transform a struggling economy into a robust and complex one? Is it just money that is required? In this investigation, we will discover that the process of development is much more subtle than government-initiated economic projects and rather it is a complex function of the interactions between multiple systems in an organic manner that leads to a prosperous, complex and robust economy of a nation.
 
@@ -158,4 +163,6 @@ From this investigation, we can conclude the following:
 [^5]: https://www.eiu.com/n/campaigns/democracy-index-2022/
 [^6]: https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country
 [dash]: https://app.powerbi.com/groups/me/reports/4612f545-418e-4f89-8f22-4b4e964cc05b/ReportSectione390957330933048a7a1
-[^7]: Makhtar Diop, World Bank’s Vice President for Africa. (2017, December 1). Innovation in Africa. World Bank. https://www.worldbank.org/en/news/speech/2017/11/30/innovation-in-africa 
+[^7]: Makhtar Diop, World Bank’s Vice President for Africa. (2017, December 1). Innovation in Africa. World Bank. https://www.worldbank.org/en/news/speech/2017/11/30/innovation-in-africa
+[^8]: https://www.investopedia.com/terms/p/per-capita-gdp.asp
+[^9]: https://oec.world/en/rankings/eci/hs6/hs96?year2=2024&showAll=true 
