@@ -11,8 +11,8 @@ topic_slug: "economics-society"
 tags: ["development", "economy", "politics"]
 charts: [energy]
 suite_charts: true
-last_modified_at: 2026-11-09
-reading_minutes: 6
+last_modified_at: 2026-11-10
+reading_minutes: 10
 permalink: /writing/how-do-countries-develop/
 redirect_from:
   - /development/economy/politics/how-do-countries-develop
@@ -22,23 +22,25 @@ redirect_from:
 
 How do countries develop? What is development? Owen Barder[^1] argues that development is an emergent property of the socioeconomic system. He further expounds this idea by noting that development is not the sum of the well-being of people in the economy and it cannot be brought about simply by making enough people in the economy better off. Development, he argues, is instead a system-wide manifestation of the way people, firms, technologies and institutions interact with each other within the economic, social and political system. Specifically, development is the capacity of those systems to provide self-organising complexity.  Self-organising complexity in an adaptive system cannot be deliberately designed; it arises from a process of continuous adaptation and evolution.
 
-This is a complex topic, so I focus on electricity, scientific output, and the complexity of the goods an economy exports. Electricity enables machines and infrastructure to multiply what people can produce. Its consumption is also shaped by industrial structure, climate, and income. Consumption alone does not tell us whether power is cheap, reliable, or available to everyone.
+This is a complex topic to tackle so I have narrowed down my question to just how important energy is to the development of a nation, specifically, electricity and the role of scientific advancement. This is because electrical consumption is a measure of not just the ability to utilise electricity but a measure of just how good a country’s infrastructure is because electricity is complex to generate, transmit and use and like all other forms of energy it must be reliable and cheap. Attention to scientific advancements is also important as new and more complex goods and services are developed through research and the application of newly discovered or acquired knowledge. A nation that pays attention to and deliberately funds research and development will tend to have a more advanced and complex economy.
 
-Scientific knowledge is another part of productive capability. Education, research, firms, and institutions interact in turning knowledge into useful products and services. Publication counts offer one imperfect window into that system; they do not directly measure research quality or commercial innovation.
+Therefore, I will be using the GDP per capita, electricity consumption per capita, economic complexity index, and the number of scientific papers published per nation to investigate my hypothesis.
 
-The comparisons below explore these relationships across countries and over time. They are descriptive evidence. They cannot, on their own, isolate the causes of development or establish a universal sequence every country must follow.
+Developing nations have been struggling to move to middle-income and finally high-income status. Loans, grants and donations have been poured into trying to alleviate poverty and improve the lot of these nations but sadly not much happens. Exactly what does it take to transform a struggling economy into a robust and complex one? Is it just money that is required? In this investigation, we will discover that the process of development is much more subtle than government-initiated economic projects and rather it is a complex function of the interactions between multiple systems in an organic manner that leads to a prosperous, complex and robust economy of a nation.
 
-### Data and definitions
+### Data Sources
+Data was acquired and assembled from multiple online sources listed below:
 
-The interactive figures are an updated analysis, assembled on 9 November 2026. They use:
+1. Electricity consumption per capita (kWh) and GDP per capita ($) from the World Bank data repository[^2].
+2. List of oil-producing countries from Wikipedia, scraped using R[^3].
+3. Economic Complexity Index, Harvard University, (The Atlas of Economic Complexity by @HarvardGrwthLab, n.d.)[^4].
+4. Democracy Index from Economist Intelligence Unit, 2023[^5].
+5. Gini Coefficient by Country 2023, n.d[^6].
 
-1. **World Bank data:** electricity consumption per person, GDP per capita in purchasing-power-adjusted constant 2021 international dollars, population, and scientific publication counts[^2].
-2. **Harvard Growth Lab:** the goods-based Economic Complexity Index (ECI), using the HS92 trade classification[^4]. ECI describes patterns in goods exports; it is not a complete account of domestic production or services.
-3. **NSF scientific output via the World Bank:** fractional publication counts. Credit for internationally coauthored work is apportioned across countries. The figures offer both total fractional counts and counts per million people, using same-year population[^science].
+The interactive figures extend this original analysis. They use same-year World Bank electricity, PPP income and population data; NSF fractional publication counts; and Harvard Growth Lab ECI for HS92 exports. Their controls, coverage, update date and definitions appear with each chart. They are new comparisons, not reconstructions of the original Power BI averages or screenshots.
 
-Each chart shows its observation year, data edition, coverage, and source definitions. Missing values remain missing, and paths break at missing years. The original 2024 screenshots are preserved below; their underlying raw dataset is unavailable, so the new figures should not be read as exact reconstructions.
-
-### Results and discussion
+### Results and Discussion
+[Here][dash] is the Power BI dashboard.
 
 #### 1. Electricity consumption and income
 
@@ -46,68 +48,9 @@ The interactive figure below is an updated analysis using same-year observations
 
 {% include data-chart.html chart="energy" %}
 
-
-
-
-
-Economies with higher electricity consumption per person tend to have higher income per person. This association alone does not establish causation: electricity can enable production, while rising production also increases electricity demand. The chart measures consumption and income; it does not directly measure worker productivity, power reliability, or electricity prices.
-
-#### 2. Different paths through time
-
-{% include explorer-chart.html chart="trajectories" %}
-
-A single-year comparison hides the route each economy took. Here, the paths connect observations for the same country over the selected period. Open circles mark first available observations; solid dots mark the selected end year. A missing endpoint is reported explicitly.
-
-Use these paths to investigate changes in income and electricity use together. A flatter or reversing path may reflect efficiency, changes in industrial structure, economic conditions, or other influences. This chart alone cannot tell us how much each explanation contributes.
-
-#### 3. Economic complexity and income
-
-{% include explorer-chart.html chart="complexity-income" %}
-
-ECI asks what a country's goods-export pattern suggests about its productive capabilities. Compare economies with similar incomes, inspect outliers, and change the year. High income can arise through different economic structures, so the relationship need not hold uniformly.
-
-A country's position does not establish that changing its ECI score will mechanically change its income. Building capabilities involves firms, workers, infrastructure, knowledge, and institutions; the score is a lens on part of that system.
-
-#### 4. Scientific output and population
-
-{% include explorer-chart.html chart="science" %}
-
-Total publication counts reflect the scale of a country's research system as well as its population. Switching to output per million people changes the comparison. Both views are useful, and neither measures the quality or practical value of the research.
-
-The series ends in 2023 because that is the latest observation year available in this publication dataset. A fresh download date does not mean every indicator contains current-year observations.
-
-#### 5. Electricity and productive capabilities
-
-{% include explorer-chart.html chart="energy-complexity" %}
-
-Energy and productive capabilities develop together, but economies also differ in geography, sector mix, and energy intensity. Inspect countries that use similar amounts of electricity but have different goods-export complexity scores.
-
-ECI remains on a linear axis, including its negative values. Negative ECI is a position on the index's scale; it does not mean a country has negative production or no productive knowledge.
-
-#### 6. Research and economic complexity
-
-{% include explorer-chart.html chart="science-complexity" %}
-
-This comparison brings research output and goods-export complexity into the same view. Switching between total publications and publications per million people helps reveal the role of country size.
-
-An association would be consistent with several explanations: research may support productive capabilities, more capable economies may fund more research, and institutions or investment may influence both. Establishing the direction and strength of these effects requires evidence beyond these comparisons.
-
-### What can we conclude?
-
-Development involves learning to produce increasingly valuable goods and services. These figures make energy, knowledge, and productive capabilities easier to investigate, but they do not reduce development to a single input or establish a guaranteed recipe.
-
-1. **Make useful energy affordable and reliable.** Expanding productive access matters. Increasing consumption without useful output is not a development strategy, and this dataset does not directly measure power prices or reliability.
-2. **Build the ability to learn and apply knowledge.** Education, research, engineering, and firms that put ideas to work deserve attention. Publication output is one indicator, not the objective itself.
-3. **Improve the systems in which people and firms operate.** Infrastructure and institutions affect whether capabilities can combine, spread, and support more valuable activity. These charts do not isolate any one political or institutional model as the cause of success.
-4. **Pursue efficiency while expanding opportunity.** Countries can increase useful energy use and adopt efficient equipment at the same time. The evidence here does not require them to become rich before becoming efficient, or settle the merits of a particular energy policy.
-
-For Kenya, the useful question is how to strengthen these capabilities together, and how to test whether specific investments actually improve productivity and people's lives.
-
-### Original 2024 figures
-
 <details>
-<summary>Open the six original figures</summary>
-<p>These screenshots preserve the original presentation. Their underlying raw dataset and some indicator definitions could not be recovered from the repository. They use a different data edition and should not be treated as the fallback data for the updated interactive analysis.</p>
+<summary>Original 2024 figure</summary>
+<p>This screenshot is preserved from the original article. Its underlying raw dataset is not available in the repository; it is not the dataset used by the updated interactive figure.</p>
 
 <figure>
   <img alt="Average Electricity Consumption per Capita vs Average GDP per Capita" src="/images/elec_vs_gdp.JPG" />
@@ -116,12 +59,36 @@ For Kenya, the useful question is how to strengthen these capabilities together,
   </figcaption>
 </figure>
 
+</details>
+
+<!-- | ![image](/images/elec_vs_gdp.JPG){:height="550%" width="150%"} |
+|:--:|
+| *Average Electricity Consumption per Capita vs Average GDP per Capita* | -->
+
+Economies with higher electricity consumption per person tend to have higher income per person. This association alone does not establish causation: electricity can enable production, while rising production also increases electricity demand. The chart measures consumption and income; it does not directly measure worker productivity, power reliability, or electricity prices.
+
+#### 2. Electricity consumption per capita vs GDP per Capita for selected countries
+
+{% include explorer-chart.html chart="trajectories" %}
+
 <figure>
   <img alt="Electricity consumption per capita vs GDP per Capita for selected countries" src="/images/elec_vs_gdp_select.JPG" />
   <figcaption>
    Electricity consumption per capita vs GDP per Capita for selected countries
   </figcaption>
 </figure>
+
+This next chart examines the relationship between electricity consumption and GDP per capita between selected countries. 
+Three clear categories emerge. 
+1. **Developing Economies**: Represented by Kenya. These economies are struggling to improve their GDP per capita and their electricity consumption is also lagging. These nations have not made much progress in the last 30 years.
+
+2. **Rapidly Developing Economies**: These are represented by China and Brazil. These countries are rapidly increasing their economic output, and their electricity consumption is matching this output. They are well on their way to becoming developed economies.
+
+3. **Mature Economies**: Represented by Germany, USA and Luxembourg. These nations have high economic outputs and electrical consumption per capita however something interesting is observed here. At some point, these countries seem to be increasing their economic output while maintaining or even decreasing their electricity consumption! This is because as economies become mature they improve their efficiency and effectiveness such that they can produce more with less energy. This is the ultimate goal of every economy.
+
+#### 3. GDP per Capita vs Economic Complexity Index
+
+{% include explorer-chart.html chart="complexity-income" %}
 
 <figure>
   <img alt="GDP per Capita vs Economic Complexity Index" src="/images/gdp_vs_eci.JPG" />
@@ -130,12 +97,25 @@ For Kenya, the useful question is how to strengthen these capabilities together,
   </figcaption>
 </figure>
 
+From the above chart, there is another strong positive correlation between GDP per capita and economic complexity. There are some exceptions like Qatar, the UAE, Kuwait, etc. These can be explained by the presence of oil deposits that these countries export thus they do not need to have complex economies to have a high GDP per capita. However, their goal should be to invest their income in creating a sufficiently advanced and complex economy to buffer themselves against upsets in their major export. Suppose a new source of energy is discovered or invented that will replace oil. Or perhaps their deposits run out? What then? 
+To flourish a nation needs to generate wealth consistently, and the way to create more is through innovation. Innovation is essential to African stability and growth in the upcoming decades. Currently, much of that wealth creation is the creation of microenterprises, small businesses that only employ one or two people[^7].
+
+#### 4. Number of Scientific Publications per Country
+
+{% include explorer-chart.html chart="science" %}
+
 <figure>
   <img alt="Number of Scientific Publications per Country" src="/images/publications_per_country.JPG" />
   <figcaption>
    Number of Scientific Publications per Country
   </figcaption>
 </figure>
+
+This chart shows the number of scientific publications per country (for the selected countries) per year from 2000 to 2018. The notable development here is the meteoric rise of scientific publications in China, which is in tandem with its economic growth. India and Brazil, other rapidly developing nations, are also following the Chinese path of investing in research and development as their engine for economic growth.
+
+#### 5. Electricity Consumption per Capita vs Economic Complexity Index
+
+{% include explorer-chart.html chart="energy-complexity" %}
 
 <figure>
   <img alt="Electricity Consumption per Capita vs Economic Complexity Index" src="/images/elec_vs_eci.JPG" />
@@ -144,15 +124,38 @@ For Kenya, the useful question is how to strengthen these capabilities together,
   </figcaption>
 </figure>
 
+Here we see a strong positive correlation between electricity consumption per capita and the Economic Complexity Index. The more complex goods and services an economy can produce and export the higher its electricity consumption i.e. one man in an advanced automated factory can produce more and higher quality products than several workers labouring in the sun in a developing economy. Here again, we see that the more mature economies can increase their economic complexity without necessarily increasing their electricity consumption because they are now becoming more efficient and effective. As for the still developing nations, until they become mature economies, it seems the best way to develop is to increase their electricity consumption.
+
+#### 6. Scientific Papers Published vs. Economic Complexity Index
+
+{% include explorer-chart.html chart="science-complexity" %}
+
 <figure>
   <img alt="Scientific Papers Published vs. Economic Complexity Index" src="/images/papers_vs_eci.JPG" />
   <figcaption>
    Scientific Papers Published vs. Economic Complexity Index
   </figcaption>
 </figure>
-</details>
+
+From this chart, we can conclude that one of the best ways to create a complex economy is to invest in research and development. China, which has invested heavily in research and development for the past two decades has seen a corresponding rise in the complexity of the goods and services it produces and exports. Japan, Germany, the UK, etc. also demonstrate highly complex economies in tandem with their high GDP per capita.
+
+#### Conclusion
+
+From this investigation, we can conclude the following:
+1. To move from developing to rapidly developing and finally to a mature developed economy, a nation must lay the necessary groundwork in terms of access to cheap and reliable energy for its citizens. There is no substitute for this step. Every nation first has to harness energy to multiply the productivity of its workers to develop. We have seen how China and other rapidly developing nations are doing this and we have seen how Kenya has remained stagnant because of not taking this step.
+
+2. For long-term economic gains, a nation must invest in high-quality education, research and the development of new products/ideas from the research. This is a precursor to developing a complex economy and there is no escaping this. No amount of external loans or grants will ever replace this. A nation has to develop and deploy intellectual property to develop complexity in the economy. The Americans, for example, applied physics to the development of the atomic bomb and from this, they won the Second World War, catapulted themselves into a superpower and developed several other technologies from this research like nuclear weapons. Their military also developed the internet, and now the USA is reaping huge dividends from the internet.
+
+3. Nations also have to intentionally set the stage for organic economic complexity i.e. systems that work, and the freedom to work and be creative. Something simple like the physical addressing system in the Western world enabled the establishment of efficient and effective delivery systems like Amazon. Their political system of democracy and freedom for all also encourages their populace to be daring and entrepreneurial in their pursuits and also attracts immigrants from all over the world who go to these countries and add value to their economies. Contrast this with China which has a capitalistic economic system but a socialist political system. China is certainly making rapid development progress but how sustainable is it? Does it attract the best and brightest from other cultures?
+
+4. Finally, there has been a lot of talk and action in the climate change area. Mature economies have become more conscious of their energy footprints and are taking steps towards becoming more energy efficient and that is why we see them increasing their GDP per capita without a corresponding increase in electricity consumption. As for developing nations, this may be difficult as the data suggests that first, you have to multiply your worker productivity by consuming more energy per capita until your economy stabilizes then you can begin taking steps towards efficiency. It is like teaching a baby to first walk in halting unsteady steps before they can properly walk and then they can learn to run fast and efficiently. From this, I would like to caution developing countries to be careful when adopting green energy policies copied from developed nations since they are not operating in the same economic environment as the mature economies. The most important thing for developing nations is first to multiply worker productivity then, economic complexity and finally efficiency.
+
 
 [^1]: https://www.cgdev.org/blog/what-development
 [^2]: https://data.worldbank.org/
-[^4]: https://atlas.hks.harvard.edu/
-[^science]: https://databank.worldbank.org/metadataglossary/world-development-indicators/series/IP.JRN.ARTC.SC
+[^3]: https://en.wikipedia.org/wiki/List_of_countries_by_oil_production
+[^4]: https://atlas.cid.harvard.edu/rankings
+[^5]: https://www.eiu.com/n/campaigns/democracy-index-2022/
+[^6]: https://worldpopulationreview.com/country-rankings/gini-coefficient-by-country
+[dash]: https://app.powerbi.com/groups/me/reports/4612f545-418e-4f89-8f22-4b4e964cc05b/ReportSectione390957330933048a7a1
+[^7]: Makhtar Diop, World Bank’s Vice President for Africa. (2017, December 1). Innovation in Africa. World Bank. https://www.worldbank.org/en/news/speech/2017/11/30/innovation-in-africa 
